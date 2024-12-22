@@ -34,8 +34,8 @@
         document.head.appendChild(s);
     };
     const toload = [
-        {"css": `${document.location.pathname.substring(0).replaceAll("/index.html", "")}/style.css`},
-        {"js": `/JS/${document.location.pathname.split("/")[1].replaceAll("/index.html", "")}/_.js`}
+        {"css": `/portfolio/style.css`},
+        {"js": `/portfolio/script.js`}
     ];
     function StartLoading(n) {
         n = (n||0);
