@@ -3,8 +3,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <style rel="stylesheet" type="text/css" href="https://lumokeks.github.io/portfolio/style.css"></style>
-    <script src="https://lumokeks.github.io/portfolio/script.js"></script>
 </head>
 <body>
     <div class="card center">
@@ -23,3 +21,26 @@
         <div class="help symbol" icon="help"></div>
     </div>
 </body>
+<script>
+    function LoadFromURL(type, url, f) {
+        const s = document.createElement((type==="js"&&"script"||"link"));
+        s.onload = f;
+        if(type==="js") {
+            s.src = url.replaceAll("index.html", "_");;
+        } else {
+            s.rel = "stylesheet";
+            s.href = url;
+        };
+        document.head.appendChild(s);
+    };
+    const toload = [
+        {"css": `${document.location.pathname.substring(0).replaceAll("/index.html", "")}/style.css`},
+        {"js": `/JS/${document.location.pathname.split("/")[1].replaceAll("/index.html", "")}/_.js`}
+    ];
+    function StartLoading(n) {
+        n = (n||0);
+        if(!toload[n]) {return;};
+        LoadFromURL(Object.keys(toload[n])[0], Object.values(toload[n])[0], () => StartLoading(n + 1));
+    };
+    StartLoading();
+</script>
