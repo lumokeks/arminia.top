@@ -15,11 +15,13 @@ body {
     /* width: 100%;
     height: 100%;
     left: 0px; */
+    max-width: calc(100% - 20px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0px;
+    overflow: hidden;
 }
 .center {
     left: 50%;
@@ -77,6 +79,7 @@ p {
     color: var(--shade-2);
     font-size: 18px;
     text-align: center;
+    word-wrap: break-word;
 }
 p > .small {
     font-size: 6px;
