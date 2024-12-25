@@ -43,13 +43,13 @@ const translate = {
         "lang_welcome_description": "Mein Portfolio ist noch nicht fertig, aber sieht es nicht schon fantastisch aus?",
         "made_by_by": "von",
         "made_by_sillyname": "(lustiger name)",
-        "project:lumokeks": "(Dieses Portfolio)"
+        "project:lumokeks:description": "(Dieses Portfolio)"
     },
     "EN": {
         "lang_welcome_description": `My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span>`,
         "made_by_by": "by",
         "made_by_sillyname": "(silly name)",
-        "project:lumokeks": "(This Portfolio)"
+        "project:lumokeks:description": "(This Portfolio)"
     }
 };
 function index_langs() {
@@ -97,7 +97,7 @@ function Add_Project(config) {
 
     __Image.src = config.image||`${location.pathname}images/placeholder.png`;
     __Title.textContent = config.title;
-    __Description.setAttribute("translation_id", `project:${config.description}`);
+    __Description.setAttribute("translation_id", `project:${config.description}:description`);
 };
 Add_Project({title: "ViacugeVP", description: "lumokeks"});
 Object.values(document.querySelectorAll("[translation_id]")).forEach(e => {
