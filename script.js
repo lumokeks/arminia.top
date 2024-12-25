@@ -43,7 +43,7 @@ const translate = {
         "lang_welcome_description": `My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span>`,
         "made_by_by": "by",
         "made_by_sillyname": "(silly name)",
-        "project:scripts:description": "Various scripts i've recovered from my old computer i've created to modify the multiplayer platform game 'Roblox'. (LUA(U))"
+        "project:scripts:description": "Various scripts i've created to modify the multiplayer platform game 'Roblox'. (recovered from my old computer)"
     }
 };
 function index_langs() {
