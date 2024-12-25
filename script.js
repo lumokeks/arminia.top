@@ -37,6 +37,21 @@ const langs = {
     "IT": "Bienvenuta",
     "JP": "いらっしゃいませ"
 };
+const translate = {
+    current: "EN",
+    "DE": {
+        "lang_welcome_description": "Mein Portfolio ist noch nicht fertig, aber sieht es nicht schon fantastisch aus?",
+        "made_by_by": "von",
+        "made_by_sillyname": "(lustiger name)",
+        "project:lumokeks": "(Dieses Portfolio)"
+    },
+    "EN": {
+        "lang_welcome_description": `My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span>`,
+        "made_by_by": "by",
+        "made_by_sillyname": "(silly name)",
+        "project:lumokeks": "(This Portfolio)"
+    }
+};
 function index_langs() {
     let lastp = document.querySelector(".lang-welcome");
     if(!lastp) {
@@ -72,3 +87,19 @@ function index_langs() {
     // new_step(Object.keys(t), Object.keys(langs)[0]);
 };
 index_langs();
+function Add_Project(config) {
+    const __Project = CreateElement(document.querySelector(".projects"), "div", ".project");
+    const __TitleContainer = CreateElement(__Project, "div", ".title.container");
+    const __Title = CreateElement(__TitleContainer, "p", ".title");
+    const __Description = CreateElement(__TitleContainer, "p", ".description");
+    const __ContentContainer = CreateElement(__Project, "div", ".content.container");
+    const __Image = CreateElement(__ContentContainer, "img");
+
+    __Image.src = config.image||`${location.pathname}images/placeholder.png`;
+    __Title.textContent = config.title;
+    __Description.setAttribute("translation_id", `project:${config.description}`);
+};
+Add_Project({title: "ViacugeVP", description: "lumokeks"});
+Object.values(document.querySelectorAll("[translation_id]")).forEach(e => {
+    e.innerHTML = translate[translate.current][e.getAttribute("translation_id")];
+});

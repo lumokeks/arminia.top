@@ -15,23 +15,15 @@
             </div>
         </div>
         <div class="content container">
-            <p>My Portfolio  isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span></p>
+            <p translation_id="lang_welcome_description">My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span></p>
         </div>
     </div>
     <div class="site-content">
         <div class="projects">
-            <div class="project">
-                <div class="title container">
-                    <p class="title">Simple Project</p>
-                </div>
-                <div class="content container">
-                    Some Content
-                </div>
-            </div>
         </div>
     </div>
     <div class="made-by container">
-        <p class="made-by">by <span class="highlight">doggoprogrammer (lumokeks)</span> <- silly name</p>
+        <p class="made-by"><span translation_id="made_by_by">by</span> <span class="highlight">doggoprogrammer (lumokeks)</span> <- <span translation_id="made_by_sillyname">silly name</span></p>
     </div>
 </body>
 <script>
@@ -47,10 +39,8 @@
         document.head.appendChild(s);
     };
     const toload = [
-        {"css": `/portfolio/style.css`},
-        {"js": `/portfolio/script.js`},
-        // {"css": `/style.css`},
-        // {"js": `/script.js`}
+        {"css": `${location.pathname}style.css`},
+        {"js": `${location.pathname}script.js`}
     ];
     function StartLoading(n) {
         n = (n||0);

@@ -5,6 +5,7 @@
     --shade-2: #a0a0a0;
     --shade-3: #4e4e4e;
     --shade-4: #797979;
+    --body-background-shade: hsl(240, 8%, 4%);;
 }
 body {
     background: var(--body-background);
@@ -124,14 +125,31 @@ p > .stroke {
 .site-content {
     top: 100%;
     position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.projects {
+    padding: 10px;
+    display: flex;
+    gap: 20px;
 }
 .projects > .project {
-    width: 200px;
-    height: 200px;
+    background: var(--body-background-shade);
     text-align: center;
+    border-radius: 6px;
+    padding: 12px;
 }
 .projects > .project > .title.container > .title {
-    color: var(--shade-1);
+    color: var(--primary-color);
     font-weight: 400;
     margin: 0px;
+}
+.projects > .project > .title.container > .description {
+    font-size: 14px;
+}
+.projects > .project > .content.container > img {
+    width: 200px;
+    height: 100px;
+    border-radius: 12px;
 }
