@@ -5,7 +5,7 @@
     --shade-2: #a0a0a0;
     --shade-3: #4e4e4e;
     --shade-4: #797979;
-    --body-background-shade: hsl(240, 8%, 4%);;
+    --body-background-shade: hsl(240, 8%, 6%);;
 }
 body {
     background: var(--body-background);
@@ -107,6 +107,14 @@ p > .stroke {
     align-items: center;
     gap: 30px;
 }
+.made-by.container {
+    background: inherit;
+    bottom: 0px;
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    z-index: 99;
+}
 .made-by {
     font-size: 12px;
     color: var(--shade-3);
@@ -114,42 +122,55 @@ p > .stroke {
 .made-by > .highlight {
     color: var(--shade-4);
 }
-.made-by.container {
-    background: inherit;
-    bottom: 0px;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 99;
-}
 .site-content {
     top: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
     position: absolute;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
-.projects {
+.about-me > .content.container {
+    width: calc(100% - 40px);
+}
+.projects > .content.container {
     padding: 10px;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-.projects > .project {
+.projects > .content.container > .project {
     background: var(--body-background-shade);
     text-align: center;
     border-radius: 6px;
+    width: 200px;
     padding: 12px;
 }
-.projects > .project > .title.container > .title {
-    color: var(--primary-color);
-    font-weight: 400;
-    margin: 0px;
-}
-.projects > .project > .title.container > .description {
-    font-size: 14px;
-}
-.projects > .project > .content.container > img {
+.projects > .content.container > .project > .content.container > img {
     width: 200px;
     height: 100px;
     border-radius: 12px;
+}
+.title.container > .title {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0px;
+}
+div:has(.title.container):not(.site-content) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.title.container > .description {
+    font-size: 14px;
+    margin: 0px;
+}
+.content.container > p {
+    margin: 0px;
+    font-weight: 400;
+    font-size: 14px;
 }

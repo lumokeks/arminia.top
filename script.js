@@ -39,17 +39,11 @@ const langs = {
 };
 const translate = {
     current: "EN",
-    "DE": {
-        "lang_welcome_description": "Mein Portfolio ist noch nicht fertig, aber sieht es nicht schon fantastisch aus?",
-        "made_by_by": "von",
-        "made_by_sillyname": "(lustiger name)",
-        "project:lumokeks:description": "(Dieses Portfolio)"
-    },
     "EN": {
         "lang_welcome_description": `My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span>`,
         "made_by_by": "by",
         "made_by_sillyname": "(silly name)",
-        "project:lumokeks:description": "(This Portfolio)"
+        "project:scripts:description": "Various scripts i've recovered from my old computer to modify the multiplayer platform game 'Roblox'."
     }
 };
 function index_langs() {
@@ -88,7 +82,7 @@ function index_langs() {
 };
 index_langs();
 function Add_Project(config) {
-    const __Project = CreateElement(document.querySelector(".projects"), "div", ".project");
+    const __Project = CreateElement(document.querySelector(".projects > .content.container"), "div", ".project");
     const __TitleContainer = CreateElement(__Project, "div", ".title.container");
     const __Title = CreateElement(__TitleContainer, "p", ".title");
     const __Description = CreateElement(__TitleContainer, "p", ".description");
@@ -98,8 +92,14 @@ function Add_Project(config) {
     __Image.src = config.image||`${location.pathname}images/placeholder.png`;
     __Title.textContent = config.title;
     __Description.setAttribute("translation_id", `project:${config.description}:description`);
+    if(config.link) {
+        __Project.style.cursor = "pointer";
+        __Project.addEventListener("click", () => {
+            location.href = config.link;
+        });
+    };
 };
-Add_Project({title: "ViacugeVP", description: "lumokeks"});
+Add_Project({title: "Scripts", description: "scripts", link: "https://mega.nz/folder/zBc1SbDb#222qX1LgSxopSZmgve37Ww"});
 Object.values(document.querySelectorAll("[translation_id]")).forEach(e => {
     e.innerHTML = translate[translate.current][e.getAttribute("translation_id")];
 });
