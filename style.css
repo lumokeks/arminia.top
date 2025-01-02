@@ -192,7 +192,7 @@ p > .stroke {
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
-    position: absolute;
+    position: fixed;
     color: #4e4e4e;
 }
 .highlight {
