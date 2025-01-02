@@ -1,18 +1,3 @@
-function CreateElement(parent, type, classes) {
-    parent = (parent||document.body);
-    const element = document.createElement(type);
-    if(classes) {
-        if(classes.substring(0, 1)===".") {
-            classes.substring(1).split(".").forEach((k) => {
-                element.classList.add(k);
-            });
-        } else if(classes.substring(0, 1)==="#") {
-            element.id = classes.substring(1);
-        };
-    };
-    if(parent) {parent.appendChild(element)};
-    return element;
-};
 function Animate(element, from, to, duration, f) { // Animates Element from start Properties to end Properties
     Object.keys(from).forEach(k => {
         element.animate([{k: from[k]}], {duration: 0, fill: "forwards"});
@@ -28,6 +13,21 @@ function Animate(element, from, to, duration, f) { // Animates Element from star
     );
     if(typeof(f)==="function") {setTimeout(f, duration || 200);};
 };
+function CreateElement(parent, type, classes) {
+    // parent = (parent||document.body);
+    const element = document.createElement(type);
+    if(classes) {
+        if(classes.substring(0, 1)===".") {
+            classes.substring(1).split(".").forEach((k) => {
+                element.classList.add(k);
+            });
+        } else if(classes.substring(0, 1)==="#") {
+            element.id = classes.substring(1);
+        };
+    };
+    if(parent) {parent.appendChild(element)};
+    return element;
+};
 const langs = {
     "DE": "Willkommen",
     "FR": "Bienvenue",
@@ -35,17 +35,14 @@ const langs = {
     "ES": "Bienvenida",
     "PL": "Powitanie",
     "IT": "Bienvenuta",
-    "JP": "いらっしゃいませ"
+    // "JP": "いらっしゃいませ" takes up too much space
 };
-const translate = {
-    current: "EN",
-    "EN": {
-        "lang_welcome_description": `My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span>`,
-        "made_by_by": "by",
-        "made_by_sillyname": "(silly name)",
-        "project:scripts:description": "Various scripts i've created to modify the multiplayer platform game 'Roblox'. (recovered from my old computer)"
-    }
-};
+const cached_images = {};
+Object.keys(langs).forEach(e => {
+    const img = CreateElement(undefined, "img", ".img");
+    img.src = `https://flagsapi.com/${e}/flat/64.png`;
+    cached_images[e] = img;
+});
 function index_langs() {
     let lastp = document.querySelector(".lang-welcome");
     if(!lastp) {
@@ -58,8 +55,7 @@ function index_langs() {
         const lang = CreateElement(p, "span", ".lang")
         lang.innerHTML = l;
         if(i!=="_") {
-            const img = CreateElement(p, "img", ".img");
-            img.src = `https://flagsapi.com/${i}/flat/64.png`;
+            p.appendChild(cached_images[i]);
         };
         Animate(lastp, {}, {marginTop: "-40px"}, 600, () => {
             lastp.remove();
@@ -80,26 +76,3 @@ function index_langs() {
     // c:
     // new_step(Object.keys(t), Object.keys(langs)[0]);
 };
-index_langs();
-function Add_Project(config) {
-    const __Project = CreateElement(document.querySelector(".projects > .content.container"), "div", ".project");
-    const __TitleContainer = CreateElement(__Project, "div", ".title.container");
-    const __Title = CreateElement(__TitleContainer, "p", ".title");
-    const __Description = CreateElement(__TitleContainer, "p", ".description");
-    const __ContentContainer = CreateElement(__Project, "div", ".content.container");
-    const __Image = CreateElement(__ContentContainer, "img");
-
-    __Image.src = config.image||`${location.pathname}images/placeholder.png`;
-    __Title.textContent = config.title;
-    __Description.setAttribute("translation_id", `project:${config.description}:description`);
-    if(config.link) {
-        __Project.style.cursor = "pointer";
-        __Project.addEventListener("click", () => {
-            location.href = config.link;
-        });
-    };
-};
-Add_Project({title: "Scripts", description: "scripts", link: "https://mega.nz/folder/zBc1SbDb#222qX1LgSxopSZmgve37Ww"});
-Object.values(document.querySelectorAll("[translation_id]")).forEach(e => {
-    e.innerHTML = translate[translate.current][e.getAttribute("translation_id")];
-});
