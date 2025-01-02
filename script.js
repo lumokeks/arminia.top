@@ -1,4 +1,3 @@
-console.log("Test");
 function Animate(element, from, to, duration, f) { // Animates Element from start Properties to end Properties
     Object.keys(from).forEach(k => {
         element.animate([{k: from[k]}], {duration: 0, fill: "forwards"});
