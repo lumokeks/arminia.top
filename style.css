@@ -29,6 +29,12 @@ body {
     max-height: 40px;
     flex: 1;
 }
+.card > .content.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
 .heart {
     font-family: Arial;
     color: #a0a0a0;
