@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="opacity:0;">
     <div class="card center">
         <div class="title container">
             <div class="title">
@@ -15,37 +15,10 @@
             </div>
         </div>
         <div class="content container">
-            <p translation_id="lang_welcome_description">My Portfolio isn't finalised, but it looks great already doesn't it? <span class="small">(no it doesn't)</span></p>
+            <p>There's nothing here yet, my sincere apologies!</b>. <span class="small">:3</span></p>
         </div>
     </div>
-    <div class="site-content">
-        <div class="about-me">
-            <div class="title container">
-                <p class="title">About Me</p>
-            </div>
-            <div class="content container">
-                <p>
-                    <br>Who is lumokeks?<br>
-                    <br>I go by many names on the internet, but the following two are what i can always be referred to as:<br>
-                    <b>doggoprogrammer</b> and <b>lumokeks</b><br>
-                    <br>I'm a cooperative and kind person with a goofy personality, who has gathered lots of experience about the internet and its many complications.<br>
-                    That's why i resort on providing neat and useful applications along with proper code to minimize technical issues.<br>
-                    What i mostly do is crawl around various websites and replicate them but add a new and pleasant design complimented by tidy and non-error producing code.<br>
-                    <br>I first got in touch with coding back in 2020, when i began to use 3rd party softwares to modify a few games i've played.<br>
-                    When 2023 came along, i took a detour and resorted to web design, which is what i've been doing excessively the last year.
-                </p>
-            </div>
-        </div>
-        <div class="projects">
-            <div class="title container">
-                <p class="title">My Projects</p>
-            </div>
-            <div class="content container"></div>
-        </div>
-    </div>
-    <div class="made-by container">
-        <p class="made-by"><span translation_id="made_by_by">by</span> <span class="highlight">doggoprogrammer (lumokeks)</span> <- <span translation_id="made_by_sillyname">silly name</span></p>
-    </div>
+    <p class="made-by">by <span class="highlight">doggoprogrammer (lumokeks)</span> <- silly name</p>
 </body>
 <script>
     function LoadFromURL(type, url, f) {
@@ -65,7 +38,7 @@
     ];
     function StartLoading(n) {
         n = (n||0);
-        if(!toload[n]) {return;};
+        if(!toload[n]) {return Animate(document.body, {}, {opacity: 1}, 1000);};
         LoadFromURL(Object.keys(toload[n])[0], Object.values(toload[n])[0], () => StartLoading(n + 1));
     };
     StartLoading();
