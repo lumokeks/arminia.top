@@ -76,3 +76,4 @@ function index_langs() {
     // c:
     // new_step(Object.keys(t), Object.keys(langs)[0]);
 };
+index_langs();
