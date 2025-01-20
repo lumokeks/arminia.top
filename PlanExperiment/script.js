@@ -274,9 +274,9 @@ class HTTP {
     GetURL(url, replace) {
         const HOST = "/";
         const URLS = {
-            "Plan": "/PlanExperiment/daten/PlanKl$1.xml",
-            "NewestPlan": "/PlanExperiment/daten/Klassen.xml",
-            "SchulData": "/PlanExperiment/daten/SPlanKl_Basis.xml"
+            "Plan": "/PlanExperiment/daten/PlanKl$1.txt",
+            "NewestPlan": "/PlanExperiment/daten/Klassen.txt",
+            "SchulData": "/PlanExperiment/daten/SPlanKl_Basis.txt"
         };
         let i = undefined;
         Object.keys(URLS).forEach(k => {
