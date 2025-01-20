@@ -439,9 +439,6 @@ function CreateWeek(d) {
                         days.push({date: d, xml: xml});
                         if(days.length===s.days.length) {
                             CreateDays();
-                            // document.querySelectorAll(".date > span.date")[0].textContent = TransformPlanDate(s.days[0].replaceAll("-", ".")).replaceAll("-", ".");
-                            // document.querySelectorAll(".date > span.date")[1].textContent = TransformPlanDate(s.days[s.days.length - 1].replaceAll("-", ".")).replaceAll("-", ".");
-                            // document.querySelector(".date.container > .woche").textContent = s.type;
                         };
                     });
                 });
