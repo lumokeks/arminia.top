@@ -9,7 +9,6 @@ function GetDate(date, plan, bind, fordate) {
     String(Year)));
 };
 function CreateElement(parent, type, classes) {
-    // parent = (parent||document.body);
     const element = document.createElement(type);
     if(classes) {
         if(classes.substring(0, 1)===".") {
@@ -28,14 +27,6 @@ function CSSVar(data) { // Gets CSS Variables
     return style.getPropertyValue(data);
 };
 async function sha256(message) {
-    // if(crypto.subtle) {
-    //     const msgBuffer = new TextEncoder().encode(message);                    
-    //     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    //     const hashArray = Array.from(new Uint8Array(hashBuffer));                
-    //     const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    //     return hashHex;
-    // };
-    // return false;
     return btoa(message); // for now hehe
 };
 function SetCookie(name, data, expiredays) {
