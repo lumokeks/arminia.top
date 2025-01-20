@@ -62,7 +62,7 @@
         const s = document.createElement((type==="js"&&"script"||"link"));
         s.onload = f;
         if(type==="js") {
-            s.src = url.replaceAll("index.html", "_");;
+            s.src = url;
         } else {
             s.rel = "stylesheet";
             s.href = url;
