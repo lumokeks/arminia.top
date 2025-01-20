@@ -463,7 +463,7 @@ function ChangeWeek(n) {
 function CreateNewestWeek() {
     const http = new HTTP();
     http.RequestNewestPlan({schule: 10019573, name: "schueler", password: "sm37721"}, (xhr) => {
-        const xml = xhr.responseXML;
+        const xml = new window.DOMParser().parseFromString(xhr.responseText, "text/xml");
         CreateWeek(xml);
     });
 };
