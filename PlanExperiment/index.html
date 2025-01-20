@@ -70,8 +70,8 @@
         document.head.appendChild(s);
     };
     const toload = [
-        {"css": `${location.pathname}style.css`},
-        {"js": `${location.pathname}script.js`}
+        {"css": `${location.pathname.replaceAll("index.html", "")}style.css`},
+        {"js": `${location.pathname.replaceAll("index.html", "")}script.js`}
     ];
     function StartLoading(n) {
         n = (n||0);
