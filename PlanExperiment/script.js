@@ -373,7 +373,7 @@ function UpdateSchuldata(f) {
     Data.Schule.Schulwochen = [];
     Data.Schule.Klassen = {all: [], current: ""};
     http.RequestSchulData({schule: 10019573, name: "schueler", password: "sm37721"}, (xhr) => {
-        const xml = xhr.responseXML;
+        const xml = new window.DOMParser().parseFromString(xhr.responseText, "text/xml");
         xml.querySelectorAll(Queries.schulwoche.name).forEach((s) => {
             let von = TransformPlanDate(s.getAttribute(Queries.schulwoche.von));
             let bis = TransformPlanDate(s.getAttribute(Queries.schulwoche.bis));
@@ -435,7 +435,7 @@ function CreateWeek(d) {
                 });
                 s.days.forEach(d => {
                     http.RequestPlan(d.replaceAll("-", ""), {schule: 10019573, name: "schueler", password: "sm37721"}, (xhr) => {
-                        const xml = xhr.responseXML;
+                        const xml = new window.DOMParser().parseFromString(xhr.responseText, "text/xml");
                         days.push({date: d, xml: xml});
                         if(days.length===s.days.length) {
                             CreateDays();
