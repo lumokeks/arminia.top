@@ -435,7 +435,7 @@ function CreateWeek(d) {
                 });
                 s.days.forEach(d => {
                     http.RequestPlan(d.replaceAll("-", ""), {schule: 10019573, name: "schueler", password: "sm37721"}, (xhr) => {
-                        const xml = new window.DOMParser().parseFromString(xhr.responseText, "text/xml");
+                        const xml = ((xhr.status===404&&null||xhr.status!==404&&new window.DOMParser().parseFromString(xhr.responseText, "text/xml")));
                         days.push({date: d, xml: xml});
                         if(days.length===s.days.length) {
                             CreateDays();
@@ -464,7 +464,7 @@ function CreateNewestWeek() {
     const http = new HTTP();
     http.RequestNewestPlan({schule: 10019573, name: "schueler", password: "sm37721"}, (xhr) => {
         const xml = new window.DOMParser().parseFromString(xhr.responseText, "text/xml");
-        CreateWeek(xml);
+        CreateWeek((xhr.status===404&&null||xhr.status!==404&&xml));
     });
 };
 const Days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
