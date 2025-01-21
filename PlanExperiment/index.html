@@ -1,34 +1,64 @@
-<!-- Hello user reading this! --->
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
-<body style="opacity:0;">
-    <div class="card center">
-        <div class="title container">
-            <div class="title">
+<body>
+    <div id="header">
+        <div class="actions top left">
+            <div class="home" svg="home">
+                <span class="content home">Home</span>
             </div>
-            <div class="heart">
-                <img src="https://c.tenor.com/40BdfMplFhwAAAAC/tenor.gif" alt="hehe" height="20px" style="border-radius: 4px;">
+            <div class="open-auswahl" svg="list">
+                <span class="content klasse">7.2</span>
             </div>
         </div>
-        <div class="content container">
-            <p>There's nothing here yet, apologies!</b> <span class="small">:3</span></p>
-            <div class="action-navigator">
-                <div class="item">
-                    <div class="content container">
-                        <p class="data">Plan Austesten</p>
-                    </div>
+        <div class="plan">
+            <!-- ARROW BACK [LEFT] ORDER: -1; -->
+            <div id="plan-last" class="arrow container left">
+                <<
+            </div>
+            <!-- ARROW FORWARD [RIGHT] ORDER: 1; -->
+            <div id="plan-next" class="arrow container right">
+                >>
+            </div>
+            <div class="date container">
+                <div class="date">
+                    <span class="date">24.10.2024</span>
+                    <span> - </span>
+                    <span class="date">31.10.2024</span>
                 </div>
+                <div class="woche">A</div>
+            </div>
+        </div>
+        <div class="actions top right">
+            <div class="refresh-plan" svg="refresh">
+                <span class="content refresh">Refresh</span>
+            </div>
+            <div class="settings" svg="settings">
+                <span class="content settings">Settings</span>
             </div>
         </div>
     </div>
-    <p class="made-by">by <span class="highlight">doggoprogrammer (lumokeks)</span> <- silly name</p>
+    <div class="plan container"></div>
+    <div class="actions bottom">
+        <div class="home" svg="home">
+            <span class="content home">Home</span>
+        </div>
+        <div class="open-auswahl" svg="list">
+            <span class="content klasse">7.2</span>
+        </div>
+        <div class="refresh-plan" svg="refresh">
+            <span class="content refresh">Refresh</span>
+        </div>
+        <div class="settings" svg="settings">
+            <span class="content settings">Settings</span>
+        </div>
+    </div>
 </body>
 <script>
-    function LoadFromURL(type, url, f) {
+  function LoadFromURL(type, url, f) {
         const s = document.createElement((type==="js"&&"script"||"link"));
         s.onload = f;
         if(type==="js") {
