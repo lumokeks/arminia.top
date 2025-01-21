@@ -16,6 +16,13 @@
         </div>
         <div class="content container">
             <p>There's nothing here yet, apologies!</b> <span class="small">:3</span></p>
+            <div class="action-navigator">
+                <div class="item">
+                    <div class="content container">
+                        <p class="data">Plan Austesten</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <p class="made-by">by <span class="highlight">doggoprogrammer (lumokeks)</span> <- silly name</p>
@@ -25,7 +32,7 @@
         const s = document.createElement((type==="js"&&"script"||"link"));
         s.onload = f;
         if(type==="js") {
-            s.src = url.replaceAll("index.html", "_");;
+            s.src = url;
         } else {
             s.rel = "stylesheet";
             s.href = url;
@@ -33,8 +40,9 @@
         document.head.appendChild(s);
     };
     const toload = [
-        {"css": `${location.pathname}style.css`},
-        {"js": `${location.pathname}script.js`}
+        {"js": "/JS/base.js"},
+        {"css": `${location.pathname.replaceAll("index.html", "")}style.css`},
+        {"js": `/JS/${location.pathname.replaceAll("index.html", "")}/_.js`}
     ];
     function StartLoading(n) {
         n = (n||0);
