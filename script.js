@@ -145,7 +145,7 @@ function __cacheimage(key, src, alt) {
     __Image.alt = alt;
     cached_images[key] = __Image;
 };
-__cacheimage("ARNOLDSTOP", "/Experimental/ArnoldStop.jpg", "STOP!");
+__cacheimage("ARNOLDSTOP", "/images/ArnoldStop.jpg", "STOP!");
 function index_langs() {
     let lastp = document.querySelector(".lang-welcome");
     if(!lastp) {
