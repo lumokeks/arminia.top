@@ -197,7 +197,7 @@ function CreatePopup() {
     const __Item = CreateElement(__ActionNavigator, "a", ".item");
     const __ItemContentContainer = CreateElement(__Item, "div", ".content.container");
     const __Data = CreateElement(__ItemContentContainer, "p", ".data");
-    __Item.href = "/PlanExperiment/index.html";
+    __Item.href = "/PlanExperiment/index.html"; // Redirect to Plan
     __Data.textContent = "🗣️ Halt' dein' Sabbel!";
     new UIElement(__PopupContainer, "close", () => {
         __Popup.style.opacity = "0";
