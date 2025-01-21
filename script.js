@@ -8,7 +8,6 @@ function GetDate(date, plan, bind, fordate) {
     String(Year)));
 };
 function CreateElement(parent, type, classes) {
-    // parent = (parent||document.body);
     const element = document.createElement(type);
     if(classes) {
         if(classes.substring(0, 1)===".") {
