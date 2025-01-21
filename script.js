@@ -102,7 +102,6 @@ function Animate(element, from, to, duration, f) { // Animates Element from star
     );
     if(typeof(f)==="function") {setTimeout(f, duration || 200);};
 };
-// if(!GetCookie("sessionid")&&location.pathname.substring(0, 5)!=="/Home") {location.href = "/Home/index.html";};
 document.title = "o7 Shreklam"; // Changes Title of Webpage
 document.body.innerHTML = `
 <!-- .d8888b. 88888888888 .d88888b.  8888888b.  
