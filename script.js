@@ -184,8 +184,8 @@ function CreatePopup() {
     const __TitleContainer = CreateElement(__PopupContainer, "div", ".title.container");
     const __Div = CreateElement(__TitleContainer, "div");
     const __ArnoldStop = cached_images["ARNOLDSTOP"].cloneNode();
-    __ArnoldStop.style.width = "30px";
-    __ArnoldStop.style.height = "30px";
+    __ArnoldStop.style.width = "36px";
+    __ArnoldStop.style.height = "36px";
     __Div.appendChild(__ArnoldStop);
     const __ContentContainer = CreateElement(__PopupContainer, "div", ".content.container");
     const __P = CreateElement(__ContentContainer, "p");
@@ -197,7 +197,7 @@ function CreatePopup() {
     const __Item = CreateElement(__ActionNavigator, "a", ".item");
     const __ItemContentContainer = CreateElement(__Item, "div", ".content.container");
     const __Data = CreateElement(__ItemContentContainer, "p", ".data");
-    __Item.href = "/index.html";
+    __Item.href = "/PlanExperiment/index.html";
     __Data.textContent = "🗣️ Halt' dein' Sabbel!";
     new UIElement(__PopupContainer, "close", () => {
         __Popup.style.opacity = "0";
