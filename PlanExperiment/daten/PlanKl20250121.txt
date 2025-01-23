@@ -13,11 +13,11 @@
   <Klassen>
     <Kl>
       <Kurz>Test [1]</Kurz>
-      <Kurse>
-        <Ku>
-          <KKz KLe="Papa P.">GE</KKz>
-        </Ku>
-      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="Papa P." UeFa="GE"></UeNr>
+        </Ue>
+      </Unterricht>
       <Pl>
         <Std>
           <St>1</St>
@@ -41,11 +41,11 @@
     </Kl>
     <Kl>
       <Kurz>Test [2]</Kurz>
-      <Kurse>
-        <Ku>
-          <KKz KLe="BastelGHG">KU</KKz>
-        </Ku>
-      </Kurse>
+      <Unterricht>
+        <Ue>
+          <UeNr UeLe="BastelGHG" UeFa="KU"></UeNr>
+        </Ue>
+      </Unterricht>
       <Pl>
         <Std>
           <St>1</St>
