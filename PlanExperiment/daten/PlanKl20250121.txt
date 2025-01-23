@@ -15,7 +15,7 @@
       <Kurz>Test [1]</Kurz>
       <Unterricht>
         <Ue>
-          <UeNr UeLe="Papa P." UeFa="GE"></UeNr>
+          <UeNr UeLe="Papa P." UeFa="GE">1</UeNr>
         </Ue>
       </Unterricht>
       <Pl>
@@ -43,7 +43,7 @@
       <Kurz>Test [2]</Kurz>
       <Unterricht>
         <Ue>
-          <UeNr UeLe="BastelGHG" UeFa="KU"></UeNr>
+          <UeNr UeLe="BastelGHG" UeFa="KU">1</UeNr>
         </Ue>
       </Unterricht>
       <Pl>
