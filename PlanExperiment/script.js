@@ -111,6 +111,7 @@ class Popup {
 class UIElement {
     constructor(parent, type) {
         if(!parent||!type) {return;};
+        const events = {down: ["mousedown", "touchstart"], up: ["mouseup", "touchend"]};
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
@@ -126,8 +127,9 @@ class UIElement {
                 function __focus () {focused = true; Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
                 function __blur() {focused = false; Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
                 args[0].addEventListener("mouseleave", () => __blur());
-                args[0].addEventListener("mousedown", () => __focus());
-                args[0].addEventListener("click", () => {if(focused) {__blur();} else {__focus(); setTimeout(() => __blur(), 40);}; focused = false; args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
+                events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
+                args[0].addEventListener("click", () => {args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
