@@ -120,7 +120,7 @@ class UIElement {
                 function __blur() {Animate(__Close, {}, {background: "none"}, 40);};
                 __Close.addEventListener("mouseenter", () => __focus());
                 __Close.addEventListener("mouseleave", () => __blur());
-                new UIElement(true, "button-click", __Close, __focus(), ...args);
+                new UIElement(true, "button-click", __Close, ...args);
             },
             "button-click": (...args) => {
                 args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);});
