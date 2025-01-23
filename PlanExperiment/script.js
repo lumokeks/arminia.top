@@ -127,9 +127,9 @@ class UIElement {
                 function __focus () {focused = true; Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
                 function __blur() {focused = false; Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
                 args[0].addEventListener("mouseleave", () => __blur());
-                events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
-                events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
-                args[0].addEventListener("click", () => {args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                // events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
+                // events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
+                args[0].addEventListener("click", () => {__focus(); setTimeout(() => __blur(), 60); args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
