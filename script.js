@@ -192,7 +192,9 @@ function CreatePopup() {
     __P.innerHTML = `<b>STOP!</b><br>
                     Die Schaltfläche unter diesem Text führt zu einem Prototypen eines Stundenplans.
                     Dieser Prototyp soll lediglich das Design verwirklichen und ist nicht funktionstüchtig.
-                    Alle "Stundenplan Daten" sind manuell geschriebene Datenpakete.`;
+                    Alle "Stundenplan Daten" sind manuell geschriebene Datenpakete.<br>
+                    Achso und übrigens: während des Experimentierens an meinem echten Plan (nicht dem Prototyp), ist mir oft aufgefallen was für einen unnötigen Mist die Planer teilweise produzieren.<br><br>
+                    Versetzt euch mal in die Position der Schüler. Danke.`;
     const __ActionNavigator = CreateElement(__ContentContainer, "div", ".action-navigator");
     const __Item = CreateElement(__ActionNavigator, "a", ".item");
     const __ItemContentContainer = CreateElement(__Item, "div", ".content.container");
