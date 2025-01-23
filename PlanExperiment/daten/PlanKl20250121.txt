@@ -19,19 +19,19 @@
           <St>1</St>
           <Beginn>08:00</Beginn>
           <Ende>08:45</Ende>
-          <Fa>Fach</Fa>
-          <Le>Lehrer</Le>
-          <Ra>Raum</Ra>
-          <If>Test Information</If>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert"/>
+          <Ra RaAe="RaGeaendert"/>
+          <If>GE Papa P. fällt aus; gehalten am 20.06., St. 7</If>
         </Std>
         <Std>
           <St>2</St>
           <Beginn>08:45</Beginn>
           <Ende>09:30</Ende>
-          <Fa>Fach</Fa>
-          <Le>Lehrer</Le>
-          <Ra>Raum</Ra>
-          <If>Test Information</If>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert"/>
+          <Ra RaAe="RaGeaendert"/>
+          <If>GE Papa P. fällt aus; gehalten am 20.06., St. 8</If>
         </Std>
       </Pl>
     </Kl>
@@ -43,19 +43,19 @@
           <St>1</St>
           <Beginn>08:00</Beginn>
           <Ende>08:45</Ende>
-          <Fa>Fach</Fa>
-          <Le>Lehrer</Le>
-          <Ra>Raum</Ra>
-          <If>Test Information</If>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert"/>
+          <Ra RaAe="RaGeaendert"/>
+          <If>KU BastelGHG. fällt aus; gehalten am 20.06., St. 9</If>
         </Std>
         <Std>
           <St>2</St>
           <Beginn>08:45</Beginn>
           <Ende>09:30</Ende>
-          <Fa>Fach</Fa>
-          <Le>Lehrer</Le>
-          <Ra>Raum</Ra>
-          <If>Test Information</If>
+          <Fa FaAe="FaGeaendert">---</Fa>
+          <Le LeAe="LeGeaendert"/>
+          <Ra RaAe="RaGeaendert"/>
+          <If>KU BastelGHG fällt aus; gehalten am 20.06., St. 10</If>
         </Std>
       </Pl>
     </Kl>
