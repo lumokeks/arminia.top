@@ -116,9 +116,11 @@ class UIElement {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
                 __Close.innerHTML = new SVGHandler().CreateSVG("cancel");
-                __Close.addEventListener("mouseenter", () => {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);});
-                __Close.addEventListener("mouseleave", () => {Animate(__Close, {}, {background: "none"}, 40);});
-                new UIElement(true, "button-click", __Close, ...args);
+                function __focus() {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);};
+                function __blur() {Animate(__Close, {}, {background: "none"}, 40);};
+                __Close.addEventListener("mouseenter", () => __focus());
+                __Close.addEventListener("mouseleave", () => __blur());
+                new UIElement(true, "button-click", __Close, __focus(), ...args);
             },
             "button-click": (...args) => {
                 args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);});
