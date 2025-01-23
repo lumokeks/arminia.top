@@ -35,7 +35,7 @@
     --header-arrow-background-focused: hsl(236, 70%, 70%);
     --header-arrow-fill-focused: hsl(236, 100%, 96%);
 
-    --popup-background: hsl(236, 16%, 3%);
+    --popup-background: hsl(236, 16%, 2%);
     --popup-border: hsl(236, 16%, 10%);
     --popup-titlecontainer-title-color: hsl(236, 24%, 100%);
     --popup-elements-button-hover-background: hsl(236, 16%, 6%);
