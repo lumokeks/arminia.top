@@ -13,7 +13,11 @@
   <Klassen>
     <Kl>
       <Kurz>Test [1]</Kurz>
-      <Kurse></Kurse>
+      <Kurse>
+        <Ku>
+          <KKz KLe="Papa P.">GE</KKz>
+        </Ku>
+      </Kurse>
       <Pl>
         <Std>
           <St>1</St>
@@ -37,7 +41,11 @@
     </Kl>
     <Kl>
       <Kurz>Test [2]</Kurz>
-      <Kurse></Kurse>
+      <Kurse>
+        <Ku>
+          <KKz KLe="BastelGHG">KU</KKz>
+        </Ku>
+      </Kurse>
       <Pl>
         <Std>
           <St>1</St>
