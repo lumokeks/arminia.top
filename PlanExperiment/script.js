@@ -114,7 +114,7 @@ class UIElement {
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
-                NewSVGHandler.CreateSVG(__Close, "cancel");
+                __Close.innerHTML = new SVGHandler().CreateSVG("cancel");
                 __Close.addEventListener("mouseenter", () => {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);});
                 __Close.addEventListener("mouseleave", () => {Animate(__Close, {}, {background: "none"}, 40);});
                 new UIElement(true, "button-click", __Close, ...args);
