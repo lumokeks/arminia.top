@@ -464,6 +464,8 @@ body {
 #settings {
     z-index: 1;
     /* display: none; */
+    opacity: 0;
+    transition: opacity linear 0.16s;
 }
 #auswahl::after,
 #settings::after {
@@ -484,7 +486,8 @@ body {
     max-width: 600px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+               scale(0.9);
     position: absolute;
     border: 1px solid var(--popup-border);
     border-radius: 4px;
@@ -493,6 +496,7 @@ body {
     flex-direction: column;
     gap: 10px;
     overflow: hidden;
+    transition: transform 0.16s;
 }
 .popup.container > .title.container {
     font-size: 22px;
