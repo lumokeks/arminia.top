@@ -94,17 +94,16 @@ class Popup {
         const __ContentContainer = CreateElement(__PopupContainer, "div", ".content.container");
         __Title.textContent = config.title;
         const anim = {};
-        let onshowstartscale = ("0.6, 0.6");
-        let onhideendscale = ("0.2, 0.2");
         anim.show = () => {
-            __Popup.style.opacity = "0";
-            __PopupContainer.style.transform = `translate(-50%, -50%) scale(${onshowstartscale})`;
-            Animate(__Popup, {}, {opacity: 1}, 100)
-            Animate(__PopupContainer, {}, {transform: "translate(-50%, -50%) scale(1, 1)"}, 100);
+            setTimeout(() => {
+                __Popup.style.opacity = "1";
+                __PopupContainer.style.transform = `translate(-50%, -50%) scale(1)`;
+            }, 0);
         };
         anim.hide = () => {
-            Animate(__Popup, {}, {opacity: 0}, 100, () => __Popup.remove());
-            Animate(__PopupContainer, {}, {transform: `translate(-50%, -50%) scale(${onhideendscale})`}, 1000);
+            __Popup.style.opacity = "0";
+            setTimeout(() => __Popup.remove(), 100);
+            __PopupContainer.style.transform = `translate(-50%, -50%) scale(0.8)`;
         };
         return {p: __PopupContainer, c: __ContentContainer, anim: anim};
     }
@@ -115,15 +114,15 @@ class UIElement {
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
-                __Close.innerHTML = new SVGHandler().CreateSVG("cancel");
-                __Close.addEventListener("mouseenter", () => {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 100);});
-                __Close.addEventListener("mouseleave", () => {Animate(__Close, {}, {background: "none"}, 100);});
+                NewSVGHandler.CreateSVG(__Close, "cancel");
+                __Close.addEventListener("mouseenter", () => {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);});
+                __Close.addEventListener("mouseleave", () => {Animate(__Close, {}, {background: "none"}, 40);});
                 new UIElement(true, "button-click", __Close, ...args);
             },
             "button-click": (...args) => {
-                args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 100);});
-                args[0].addEventListener("mousedown", () => {Animate(args[0], {}, {transform: "translateY(2px)"}, 60);});
-                args[0].addEventListener("click", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 60); args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);});
+                args[0].addEventListener("mousedown", () => {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);});
+                args[0].addEventListener("click", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40); args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
