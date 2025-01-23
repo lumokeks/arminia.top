@@ -111,7 +111,6 @@ class Popup {
 class UIElement {
     constructor(parent, type) {
         if(!parent||!type) {return;};
-        const events = {down: ["mousedown", "touchend"], up: ["mouseup", "touchstart"]}
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
@@ -123,9 +122,12 @@ class UIElement {
                 new UIElement(true, "button-click", __Close, ...args);
             },
             "button-click": (...args) => {
-                args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);});
-                events.down.forEach(e => {args[0].addEventListener(e, () => {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);});});
-                args[0].addEventListener("click", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40); args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                let mousedown = false;
+                function __focus () {mousedown = true; Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
+                function __blur() {mousedown = false; Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
+                args[0].addEventListener("mouseleave", () => __blur());
+                args[0].addEventListener("mousedown", () => __focus());
+                args[0].addEventListener("click", () => {if(mousedown) {__blur(); setTimeout(() => {mousedown = false}, 40);} else {__focus(); setTimeout(__blur, 40);}; args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
