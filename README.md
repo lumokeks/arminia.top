@@ -1,3 +1,12 @@
+# ![GB](https://flagsapi.com/GB/flat/32.png) Greetings, unknown traveler!
+
+Thank you for visiting this repository,
+it mainly functions as a storage for all the pieces, which assemble the website **[arminia.top](https://arminia.top)**!
+Every piece of code is available and can be used without any restrictions. -> (i only ask you to be so kind as to not mark any solutions as your own)
+↳ (if you can even comprehend my monstrosity of poorly written code) -> Sorry, i tried my best!
+Anyway, i best wrap up my little information sheet and i shall wish you a pleasant journey trough the internet!
+- lumokeks
+
 # ![DE](https://flagsapi.com/DE/flat/32.png) Ahoj, unbekannter Reisender!
 
 Schön, dass du da bist!<br>
