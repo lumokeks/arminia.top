@@ -54,7 +54,7 @@
           <Fa FaAe="FaGeaendert">---</Fa>
           <Le LeAe="LeGeaendert"/>
           <Ra RaAe="RaGeaendert"/>
-          <If>KU BastelGHG. fällt aus; gehalten am 20.06., St. 9</If>
+          <If>KU BastelGHG fällt aus; gehalten am 20.06., St. 9</If>
         </Std>
         <Std>
           <St>2</St>
