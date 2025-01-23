@@ -122,12 +122,12 @@ class UIElement {
                 new UIElement(true, "button-click", __Close, ...args);
             },
             "button-click": (...args) => {
-                let mousedown = false;
-                function __focus () {mousedown = true; Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
-                function __blur() {mousedown = false; Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
+                let focused = false;
+                function __focus () {focused = true; Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
+                function __blur() {focused = false; Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
                 args[0].addEventListener("mouseleave", () => __blur());
                 args[0].addEventListener("mousedown", () => __focus());
-                args[0].addEventListener("click", () => {if(mousedown) {__blur(); setTimeout(() => {mousedown = false}, 40);} else {__focus(); setTimeout(__blur, 40);}; args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                args[0].addEventListener("click", () => {if(focused) {__blur();} else {__focus(); setTimeout(() => __blur(), 40);}; focused = false; args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
