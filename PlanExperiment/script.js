@@ -129,7 +129,8 @@ class UIElement {
                 args[0].addEventListener("mouseleave", () => __blur());
                 // events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
                 // events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
-                args[0].addEventListener("click", () => {__focus(); setTimeout(() => __blur(), 60); args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                args[0].addEventListener("touchend", () => {__focus(); setTimeout(() => __blur(), 100);});
+                args[0].addEventListener("click", () => {args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
