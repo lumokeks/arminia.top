@@ -111,6 +111,7 @@ class Popup {
 class UIElement {
     constructor(parent, type) {
         if(!parent||!type) {return;};
+        const events = {down: ["mousedown", "touchend"], up: ["mouseup", "touchstart"]}
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
@@ -121,7 +122,7 @@ class UIElement {
             },
             "button-click": (...args) => {
                 args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);});
-                args[0].addEventListener("mousedown", () => {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);});
+                events.down.forEach(e => {args[0].addEventListener(e, () => {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);});});
                 args[0].addEventListener("click", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40); args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
