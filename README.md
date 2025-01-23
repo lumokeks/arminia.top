@@ -1,4 +1,4 @@
-# Ahoj, unbekannter Reisender! ![DE](https://flagsapi.com/DE/flat/32.png)
+# ![DE](https://flagsapi.com/DE/flat/32.png) Ahoj, unbekannter Reisender!
 
 Schön, dass du da bist!<br>
 Dieses Repository dient als Aufbewahrungsort der Quellen, welche die Website **[arminia.top](https://arminia.top)** möglichen machen.<br>
