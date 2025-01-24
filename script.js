@@ -40,7 +40,7 @@ class UIElement {
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
-                __Close.innerHTML = new SVGHandler().CreateSVG("cancel");
+                NewSVGHandler.CreateSVG(__Close, "cancel");
                 function __focus() {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);};
                 function __blur() {Animate(__Close, {}, {background: "none"}, 40);};
                 __Close.addEventListener("mouseenter", () => __focus());
