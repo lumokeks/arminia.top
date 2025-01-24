@@ -111,7 +111,7 @@ class Popup {
 class UIElement {
     constructor(parent, type) {
         if(!parent||!type) {return;};
-        const events = {down: ["mousedown"], up: ["mouseup"]};
+        const events = {down: ["mousedown", "touchstart"], up: ["mouseup", "touchend"]};
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
@@ -128,7 +128,6 @@ class UIElement {
                 args[0].addEventListener("mouseleave", () => __blur());
                 events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
                 events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
-                args[0].addEventListener("touchend", () => {__focus(); setTimeout(() => __blur(), 100);});
                 args[0].addEventListener("click", () => {args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
