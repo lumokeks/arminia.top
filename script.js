@@ -243,7 +243,7 @@ function CreatePopup() {
     const __ItemContentContainer = CreateElement(__Item, "div", ".content.container");
     const __Data = CreateElement(__ItemContentContainer, "p", ".data");
     __Item.href = "/PlanExperiment/index.html"; // Redirect to Plan
-    __Data.textContent = "OK!";
+    __Data.textContent = "OK, Bring mich dahin!";
     new UIElement(__PopupContainer, "close", () => {
         __Popup.style.opacity = "0";
         setTimeout(() => __Popup.remove(), 100);
