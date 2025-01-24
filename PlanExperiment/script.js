@@ -129,7 +129,7 @@ class UIElement {
                 __Close.addEventListener("mouseleave", () => __blur());
                 events.ie_down.forEach(e => {__Close.addEventListener(e, () => __focus());});
                 events.ie_up.forEach(e => {__Close.addEventListener(e, () => __blur());});
-                new UIElement(true, "button-click", __Close, __focus, ...args);
+                new UIElement(true, "button-click", __Close, ...args);
             },
             "button-click": (...args) => {
                 function __focus () {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
