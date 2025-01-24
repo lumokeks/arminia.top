@@ -78,7 +78,6 @@ class SystemFeedback {
         __Feedback.setAttribute("type", config.type);
         __Title.textContent = config.title;
         __Data.textContent = config.data;
-        // __Icon.innerHTML = new SVGHandler().CreateSVG(config.type);
         __Feedback.style.height = `${(__ContentContainer.clientHeight - 36) + 50}px`
         Animate(__Feedback, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {
             Animate(__Feedback, {}, {transform: "translateX(0%)"}, 60);
