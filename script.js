@@ -192,9 +192,8 @@ function CreatePopup() {
     __P.innerHTML = `<b>STOP!</b><br>
                     Wenn sie auf OK! drücken, gelangen sie zum Prototyp meines Stundenplans.
                     Dieser ist nicht funktionstüchtig und soll lediglich das Design veranschaulichen.<br>
-                    (Das Design ist noch an meine Bildschirmeinstellungen angepasst und deshalb könnten manche Farben zu Dunkel angezeigt werden.)<br>
-                    Sorry!<br><br>
-                    <span style="font-size:12px;">(Drücken sie rechts oben auf "X" um dieses Fenster zu schließen)</span>`;
+                    (Das Design ist noch an meine Bildschirmeinstellungen angepasst und deshalb könnten manche Farben zu Dunkel angezeigt werden.)<br><br>
+                    Sorry!`;
     const __ActionNavigator = CreateElement(__ContentContainer, "div", ".action-navigator");
     const __Item = CreateElement(__ActionNavigator, "a", ".item");
     const __ItemContentContainer = CreateElement(__Item, "div", ".content.container");
