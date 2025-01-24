@@ -265,6 +265,7 @@ ui-element-close > svg {height: 20px;}
     gap: 10px;
     width: 600px;
     overflow: hidden;
+    z-index: 999999;
 }
 .feedback {
     /* background: hsl(240, 6%, 12%); */
