@@ -25,21 +25,37 @@ function CSSVar(data) { // Gets CSS Variables
     const style = getComputedStyle(document.body);
     return style.getPropertyValue(data);
 };
+class InteractiveEvents {
+    constructor() {
+        return {
+            ie_down: ["mousedown", "touchstart"],
+            ie_up: ["mouseup", "touchend"]
+        }
+    }
+}
 class UIElement {
     constructor(parent, type) {
         if(!parent||!type) {return;};
+        const events = new InteractiveEvents();
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
-                NewSVGHandler.CreateSVG(__Close, "cancel");
-                __Close.addEventListener("mouseenter", () => {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);});
-                __Close.addEventListener("mouseleave", () => {Animate(__Close, {}, {background: "none"}, 40);});
+                __Close.innerHTML = new SVGHandler().CreateSVG("cancel");
+                function __focus() {Animate(__Close, {}, {background: CSSVar("--popup-elements-button-hover-background")}, 40);};
+                function __blur() {Animate(__Close, {}, {background: "none"}, 40);};
+                __Close.addEventListener("mouseenter", () => __focus());
+                __Close.addEventListener("mouseleave", () => __blur());
+                events.ie_down.forEach(e => {__Close.addEventListener(e, () => __focus());});
+                events.ie_up.forEach(e => {__Close.addEventListener(e, () => __blur());});
                 new UIElement(true, "button-click", __Close, ...args);
             },
             "button-click": (...args) => {
-                args[0].addEventListener("mouseleave", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);});
-                args[0].addEventListener("mousedown", () => {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);});
-                args[0].addEventListener("click", () => {Animate(args[0], {}, {transform: "translateY(0px)"}, 40); args.forEach(e => {if(typeof(e)==="function") {e();};})});
+                function __focus () {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
+                function __blur() {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
+                args[0].addEventListener("mouseleave", () => __blur());
+                events.ie_down.forEach(e => {args[0].addEventListener(e, () => __focus());});
+                events.ie_up.forEach(e => {args[0].addEventListener(e, () => __blur());});
+                args[0].addEventListener("click", () => {args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
         const args = Array.from(arguments).reverse();
@@ -239,7 +255,7 @@ function CreatePopup() {
         __PopupContainer.style.transform = `translate(-50%, -50%) scale(1)`;
     }, 0);
 };
-document.querySelector(".card > .content.container > .action-navigator > .item").addEventListener("click", () => CreatePopup());
+document.querySelector(".action-navigator.on-page-footer > .item[type=\"planredirect\"]").addEventListener("click", () => CreatePopup());
 function __processQueryParameters() {
     const a = new URLSearchParams(window.location.search);
     switch(a.get("ref")) {
