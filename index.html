@@ -16,12 +16,12 @@
         </div>
         <div class="content container">
             <p>There's nothing here yet, apologies!</b> <span class="small">:3</span></p>
-            <div class="action-navigator">
-                <div class="item">
-                    <div class="content container">
-                        <p class="data">Plan Austesten</p>
-                    </div>
-                </div>
+        </div>
+    </div>
+    <div class="action-navigator on-page-footer" style="left:50%;bottom:60px;transform:translateX(-50%);position:fixed;">
+        <div class="item" type="planredirect">
+            <div class="content container">
+                <p class="data">Plan Austesten</p>
             </div>
         </div>
     </div>
@@ -40,8 +40,9 @@
         document.head.appendChild(s);
     };
     const toload = [
+        {"js": "/JS/base.js"},
         {"css": `${location.pathname.replaceAll("index.html", "")}style.css`},
-        {"js": `${location.pathname.replaceAll("index.html", "")}script.js`}
+        {"js": `/JS/${location.pathname.replaceAll("index.html", "")}/_.js`}
     ];
     function StartLoading(n) {
         n = (n||0);
