@@ -4,7 +4,7 @@
     --status-warn: #ffb84d;
 }
 body {
-    background: hsl(240, 8%, 6%);
+    background: hsl(240, 10%, 10%);
     margin: 0px;
     font-family: Rubik;
 }
@@ -161,7 +161,7 @@ p > .stroke {
 .action-navigator > .item::before,
 .action-navigator > .item::after {
     content: "";
-    background: hsl(240, 8%, 6%);
+    background: hsl(240, 10%, 10%);
     width: 100%;
     height: 100%;
     left: 0%;
@@ -237,7 +237,7 @@ p > .stroke {
 }
 .popup > .popup.container > .content.container > p {margin: 0px; font-size: 14px; color: #b9b9b9;}
 .popup > .popup.container > .content.container > .action-navigator > .item {padding: 6px 12px;}
-.popup > .popup.container > .content.container > .action-navigator > .item::before {background: hsl(240, 7%, 8%);}
+.popup > .popup.container > .content.container > .action-navigator > .item::before {background: hsl(240, 7%, 11%);}
 .popup > .popup.container > .content.container > .action-navigator > .item::after {background: linear-gradient(.25turn, #3150ff, #9940ff);}
 .popup.container > ui-element-close {
     position: absolute;
