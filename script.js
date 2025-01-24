@@ -63,6 +63,7 @@ class SystemFeedback {
         __Title.textContent = config.title;
         __Data.textContent = config.data;
         // __Icon.innerHTML = new SVGHandler().CreateSVG(config.type);
+        __Feedback.style.height = `${(__ContentContainer.clientHeight - 36) + 50}px`
         Animate(__Feedback, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {
             Animate(__Feedback, {}, {transform: "translateX(0%)"}, 60);
         });
@@ -245,7 +246,7 @@ function __processQueryParameters() {
         case "404":
             new SystemFeedback({
                 title: "404",
-                data: "Sorry, that page could not be found!",
+                data: "Wir haben alles durchsucht, aber diese Seite haben wir nicht gefunden. Vielleicht ein Tippfehler?",
                 duration: 12000,
                 state: "error"
             });
