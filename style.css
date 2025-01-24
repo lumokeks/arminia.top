@@ -1,4 +1,6 @@
 :root {
+    --popup-elements-button-hover-background: hsl(240, 7%, 16%);
+    --popup-elements-button-fill: #FFFFFF;
     --status-error: #ff4848;
     --status-success: #73ff67;
     --status-warn: #ffb84d;
@@ -155,7 +157,8 @@ p > .stroke {
     text-decoration: none;
     cursor: pointer;
 }
-.action-navigator > .item:hover::before {
+.action-navigator > .item:hover::before,
+.action-navigator > .item[full]::before {
     height: 0px;
 }
 .action-navigator > .item::before,
@@ -169,6 +172,7 @@ p > .stroke {
     position: absolute;
     z-index: -1;
     transition: height 0.1s;
+    opacity: 0.8;
 }
 .action-navigator > .item::after {
     background: linear-gradient(.25turn, #ff3232, #ff934b);
@@ -178,10 +182,13 @@ p > .stroke {
     transform: translate(-50%, -50%);
     z-index: -2;
 }
+.action-navigator > .item[full]::after {background: linear-gradient(.90turn, #ff3232, #ff934b);}
 .action-navigator > .item > .content.container > p {
     margin: 0px;
     color: #FFFFFF;
+    font-weight: 500;
     font-size: 14px;
+    text-transform: uppercase;
 }
 .popup:not(.container) {
     position: absolute;
@@ -231,10 +238,6 @@ p > .stroke {
     color: #FFFFFF;
     gap: 20px;
 }
-:root {
-    --popup-elements-button-hover-background: hsl(240, 7%, 14%);
-    --popup-elements-button-fill: #FFFFFF;
-}
 .popup > .popup.container > .content.container > p {margin: 0px; font-size: 14px; color: #b9b9b9;}
 .popup > .popup.container > .content.container > .action-navigator > .item {padding: 6px 12px;}
 .popup > .popup.container > .content.container > .action-navigator > .item::before {background: hsl(240, 7%, 11%);}
@@ -246,15 +249,15 @@ p > .stroke {
 }
 ui-element-close {
     background: none;
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     display: flex;
     justify-content: center;
     align-items: center;
     fill: var(--popup-elements-button-fill);
     border-radius: 4px;
 }
-ui-element-close > svg {height: 20px;}
+ui-element-close > svg {height: 18px;}
 #system-feedback {
     position: absolute;
     right: 14px;
