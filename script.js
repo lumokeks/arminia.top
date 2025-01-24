@@ -242,7 +242,7 @@ document.querySelector(".card > .content.container > .action-navigator > .item")
 function __processQueryParameters() {
     const a = new URLSearchParams(window.location.search);
     switch(a.get("ref")) {
-        case a==="404":
+        case "404":
             new SystemFeedback({
                 title: "404",
                 data: "Sorry, that page could not be found!",
