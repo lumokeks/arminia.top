@@ -40,9 +40,8 @@
         document.head.appendChild(s);
     };
     const toload = [
-        {"js": "/JS/base.js"},
         {"css": `${location.pathname.replaceAll("index.html", "")}style.css`},
-        {"js": `/JS/${location.pathname.replaceAll("index.html", "")}/_.js`}
+        {"js": `${location.pathname.replaceAll("index.html", "")}/script.js`}
     ];
     function StartLoading(n) {
         n = (n||0);
