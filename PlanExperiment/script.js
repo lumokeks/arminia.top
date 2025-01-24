@@ -87,7 +87,8 @@ function NewFeedback(config) {
 class InteractiveEvents {
     constructor() {
         return {
-            {ie_down: ["mousedown", "touchstart"], ie_up: ["mouseup", "touchend"]}
+            ie_down: ["mousedown", "touchstart"],
+            ie_up: ["mouseup", "touchend"]
         }
     }
 }
