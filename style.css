@@ -268,7 +268,7 @@ ui-element-close > svg {height: 20px;}
 }
 .feedback {
     /* background: hsl(240, 6%, 12%); */
-    background: var(--popup-background);
+    background: hsl(240, 7%, 11%);
     /* width: 400px; */
     width: 360px;
     height: 50px;
@@ -298,15 +298,13 @@ ui-element-close > svg {height: 20px;}
 }
 .feedback > .content.container > p {margin: 0px;}
 .feedback > .content.container > .title {
-    /* color: #FFFFFF; */
-    color: var(--popup-titlecontainer-title-color);
+    color: #FFFFFF;
     font-weight: 500;
     font-size: 14px;
     text-align: left;
 }
 .feedback > .content.container > .data {
-    /* color: #999999; */
-    color: var(--popup-titlecontainer-description-color);
+    color: #999999;
     font-weight: 400;
     font-size: 14px;
     text-align: left;
