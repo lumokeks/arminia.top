@@ -123,8 +123,8 @@ class UIElement {
                 new UIElement(true, "button-click", __Close, __focus, ...args);
             },
             "button-click": (...args) => {
-                function __focus () {focused = true; Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
-                function __blur() {focused = false; Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
+                function __focus () {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
+                function __blur() {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
                 args[0].addEventListener("mouseleave", () => __blur());
                 events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
                 events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
