@@ -84,6 +84,13 @@ function NewFeedback(config) {
         Object.values(systemfeedback.children)[0].remove();
     };
 };
+class InteractiveEvents {
+    constructor() {
+        return {
+            {ie_down: ["mousedown", "touchstart"], ie_up: ["mouseup", "touchend"]}
+        }
+    }
+}
 class Popup {
     constructor(config) {
         const __Popup = CreateElement(document.body, "div", config.id);
@@ -111,7 +118,7 @@ class Popup {
 class UIElement {
     constructor(parent, type) {
         if(!parent||!type) {return;};
-        const events = {down: ["mousedown", "touchstart"], up: ["mouseup", "touchend"]};
+        const events = new InteractiveEvents();
         const elements = {
             "close": (...args) => {
                 const __Close = CreateElement(parent, "ui-element-close");
@@ -120,14 +127,16 @@ class UIElement {
                 function __blur() {Animate(__Close, {}, {background: "none"}, 40);};
                 __Close.addEventListener("mouseenter", () => __focus());
                 __Close.addEventListener("mouseleave", () => __blur());
+                events.ie_down.forEach(e => {__Close.addEventListener(e, () => __focus());});
+                events.ie_up.forEach(e => {__Close.addEventListener(e, () => __blur());});
                 new UIElement(true, "button-click", __Close, __focus, ...args);
             },
             "button-click": (...args) => {
                 function __focus () {Animate(args[0], {}, {transform: "translateY(2px)"}, 40);};
                 function __blur() {Animate(args[0], {}, {transform: "translateY(0px)"}, 40);};
                 args[0].addEventListener("mouseleave", () => __blur());
-                events.down.forEach(e => {args[0].addEventListener(e, () => __focus());});
-                events.up.forEach(e => {args[0].addEventListener(e, () => __blur());});
+                events.ie_down.forEach(e => {args[0].addEventListener(e, () => __focus());});
+                events.ie_up.forEach(e => {args[0].addEventListener(e, () => __blur());});
                 args[0].addEventListener("click", () => {args.forEach(e => {if(typeof(e)==="function") {e();};})});
             }
         }
