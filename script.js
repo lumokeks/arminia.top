@@ -49,6 +49,34 @@ class UIElement {
         return elements[type](...args);
     }
 }
+class SystemFeedback {
+    constructor(config) {
+        let systemfeedback = document.querySelector("#system-feedback");
+        if(!systemfeedback) {systemfeedback = CreateElement(document.body, "div", "#system-feedback");};
+        const __Feedback = CreateElement(systemfeedback, "div", ".feedback");
+        const __FeedbackType = CreateElement(__Feedback, "div", ".feedback-type");
+        const __ContentContainer = CreateElement(__Feedback, "div", ".content.container");
+        const __Title = CreateElement(__ContentContainer, "p", ".title");
+        const __Data = CreateElement(__ContentContainer, "p", ".data");
+        const __Icon = CreateElement(__Feedback, "div", ".icon");
+        __Feedback.setAttribute("type", config.type);
+        __Title.textContent = config.title;
+        __Data.textContent = config.data;
+        // __Icon.innerHTML = new SVGHandler().CreateSVG(config.type);
+        Animate(__Feedback, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {
+            Animate(__Feedback, {}, {transform: "translateX(0%)"}, 60);
+        });
+        setTimeout(() => {
+            Animate(__Feedback, {}, {opacity: 0}, 100);
+            Animate(__Feedback, {}, {transform: "translateX(100%)"}, 100, () => {
+                Animate(__Feedback, {}, {height: "0px"}, 100, () => __Feedback.remove());
+            });
+        }, config.duration||6000);
+        if(systemfeedback.clientHeight>window.innerHeight) {
+            Object.values(systemfeedback.children)[0].remove();
+        };
+    }
+};
 class SVGHandler {
     constructor() {
         this.svgs = {
@@ -211,3 +239,16 @@ function CreatePopup() {
     }, 0);
 };
 document.querySelector(".card > .content.container > .action-navigator > .item").addEventListener("click", () => CreatePopup());
+function __processQueryParameters() {
+    const a = new URLSearchParams(window.location.search);
+    switch(a.get("ref")) {
+        case a==="404":
+            new SystemFeedback({
+                title: "404",
+                data: "Sorry, that page could not be found!",
+                duration: 12000,
+                state: "error"
+            });
+    };
+};
+__processQueryParameters();
