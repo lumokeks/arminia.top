@@ -249,6 +249,7 @@ function __processQueryParameters() {
                 duration: 12000,
                 state: "error"
             });
+            location.search = "";
     };
 };
 __processQueryParameters();
