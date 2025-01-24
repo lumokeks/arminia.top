@@ -409,6 +409,12 @@ function GetSchuldata(f) {
         UpdateSchuldata(f);
     };
 };
+function __UpdateKlasse() {
+    GetSchuldata((data) => {
+        const CURRENT_KLASSE_INFO_ELEMENTS = Array.from(document.querySelectorAll("*[info-element-klasse]"));
+        CURRENT_KLASSE_INFO_ELEMENTS.forEach(e => e.textContent = data.Schule.Klassen.current);
+    });
+};
 function CreateWeek(d) {
     const http = new HTTP();
     if(d.querySelector) {d = TransformPlanDate(GetDateFromPlan(d).replaceAll("-", "."));};
@@ -457,6 +463,7 @@ function CreateWeek(d) {
     });
 };
 function ChangeWeek(n) {
+    __UpdateKlasse();
     GetSchuldata((data) => {
         for(let i = 0; i < Data.Schule.Schulwochen.length; i++) {
             let s = Data.Schule.Schulwochen[i];
@@ -471,6 +478,7 @@ function ChangeWeek(n) {
     });
 };
 function CreateNewestWeek() {
+    __UpdateKlasse();
     const http = new HTTP();
     http.RequestNewestPlan({schule: 10019573, name: "schueler", password: "sm37721"}, (xhr) => {
         let xml = null;
