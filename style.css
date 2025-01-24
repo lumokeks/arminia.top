@@ -1,3 +1,8 @@
+:root {
+    --status-error: #ff4848;
+    --status-success: #73ff67;
+    --status-warn: #ffb84d;
+}
 body {
     background: hsl(240, 8%, 6%);
     margin: 0px;
@@ -250,3 +255,71 @@ ui-element-close {
     border-radius: 4px;
 }
 ui-element-close > svg {height: 20px;}
+#system-feedback {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    width: 600px;
+    overflow: hidden;
+}
+.feedback {
+    /* background: hsl(240, 6%, 12%); */
+    background: var(--popup-background);
+    /* width: 400px; */
+    width: 360px;
+    height: 50px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    transform: translateX(100%);
+    opacity: 0;
+}
+.feedback > .feedback-type {
+    background: #ff4949;
+    width: 5px;
+    height: 100%;
+    border-radius: 360px;
+}
+.feedback[type="error"] > .feedback-type {background: var(--status-error);}
+.feedback[type="success"] > .feedback-type {background: var(--status-success);}
+.feedback[type="warn"] > .feedback-type {background: var(--status-warn);}
+.feedback > .content.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+}
+.feedback > .content.container > p {margin: 0px;}
+.feedback > .content.container > .title {
+    /* color: #FFFFFF; */
+    color: var(--popup-titlecontainer-title-color);
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+}
+.feedback > .content.container > .data {
+    /* color: #999999; */
+    color: var(--popup-titlecontainer-description-color);
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+}
+.feedback > .icon {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.feedback > .icon > svg {
+    fill: #FFFFFF;
+    height: 18px;
+}
+.feedback[type="error"] > .icon > svg {fill: var(--status-error);}
+.feedback[type="success"] > .icon > svg {fill: var(--status-success);}
+.feedback[type="warn"] > .icon > svg {fill: var(--status-warn);}
