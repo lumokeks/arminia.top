@@ -177,9 +177,8 @@ p > .stroke {
 .action-navigator > .item::after {
     background: linear-gradient(.25turn, #ff3232, #ff934b);
     padding: 2px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: -2px;
+    top: -2px;
     z-index: -2;
 }
 .action-navigator > .item[full]::after {background: linear-gradient(.90turn, #ff3232, #ff934b);}
