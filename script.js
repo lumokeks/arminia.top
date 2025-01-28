@@ -112,22 +112,14 @@ class SVGHandler {
             "success": "m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
         };
         this.cached_images = {};
-        Object.keys(this.svgs).forEach(e => {
-            const __Div = CreateElement(undefined, "div");
-            __Div.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                    <path d="${this.svgs[e]}"/>
-                </svg>
-            `;
-            this.cached_images[e] = __Div.querySelector("svg");
-        });
-        console.log(this.cached_images);
-    }
-    GetSVG(id) {
-        return this.svgs[id]||"";
     }
     CreateSVG(parent, id) {
-        parent.appendChild(this.cached_images[id].cloneNode(true));
+        function a(self) {parent.appendChild(self.cached_images[id].cloneNode(true))};
+        function b(self) {
+            const __a = CreateElement(undefined, "a");__a.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${self.svgs[id]}"/></svg>`;
+            self.cached_images[id] = __a.querySelector("svg");a(self);
+        };
+        this.cached_images[id] ? a(this) : b(this);
     }
 }
 const NewSVGHandler = new SVGHandler();
@@ -146,115 +138,8 @@ function Animate(element, from, to, duration, f) { // Animates Element from star
     );
     if(typeof(f)==="function") {setTimeout(f, duration || 200);};
 };
-document.title = "o7 Shreklam"; // Changes Title of Webpage
-document.body.innerHTML = `
-<!-- .d8888b. 88888888888 .d88888b.  8888888b.  
-d88P  Y88b    888    d88P" "Y88b 888   Y88b 
-Y88b.         888    888     888 888    888 
- "Y888b.      888    888     888 888   d88P 
-    "Y88b.    888    888     888 8888888P"  
-      "888    888    888     888 888        
-Y88b  d88P    888    Y88b. .d88P 888        
- "Y8888P"     888     "Y88888P"  888 
-
- Bitte einmal den Text in der Konsole lesen x3!
- -->
-${document.body.innerHTML}`;
-const a = `${atob(`ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ4YiAgICAgICAgICBkOGIgICAgICAgICAgICAgIDg4OCAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWThQICAgICAgICAgIFk4UCAgICAgICAgICAgICAgODg4ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAgICAgICAgICAgICAgICAKIDg4ODhiLiAgODg4ZDg4OCA4ODg4OGIuZDg4Yi4gIDg4OCA4ODg4OGIuICA4ODggIDg4ODhiLiAgICAgIDg4ODg4OCAuZDg4Yi4gIDg4ODg4Yi4gIAogICAgIjg4YiA4ODhQIiAgIDg4OCAiODg4ICI4OGIgODg4IDg4OCAiODhiIDg4OCAgICAgIjg4YiAgICAgODg4ICAgZDg4IiI4OGIgODg4ICI4OGIgCi5kODg4ODg4IDg4OCAgICAgODg4ICA4ODggIDg4OCA4ODggODg4ICA4ODggODg4IC5kODg4ODg4ICAgICA4ODggICA4ODggIDg4OCA4ODggIDg4OCAKODg4ICA4ODggODg4ICAgICA4ODggIDg4OCAgODg4IDg4OCA4ODggIDg4OCA4ODggODg4ICA4ODggZDhiIFk4OGIuIFk4OC4uODhQIDg4OCBkODhQIAoiWTg4ODg4OCA4ODggICAgIDg4OCAgODg4ICA4ODggODg4IDg4OCAgODg4IDg4OCAiWTg4ODg4OCBZOFAgICJZODg4ICJZODhQIiAgODg4ODhQIiAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg4OCAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODg4ICAgICAg`)}
-
-${atob("SWNoIHdvbGx0ZSBudXIgbm9jaCBrdXJ6IHNhZ2VuLCBkYXNzIGljaCB2ZXJzdWNodCBoYWJlIGRlbiBDb2RlIGVpbmlnZXJtYd9lbiD8YmVyc2ljaHRsaWNoIHp1IGdlc3RhbHRlbiwgc28gZGFzcyBqZWRlciBlcyBndXQgZWluc2VoZW4gdW5kIHZlcnN0ZWhlbiBrYW5uIQ==")}
-Viel Spaß! c:
-`;
-console.log(`${a}`);
-const langs = {
-    "DE": "Willkommen",
-    "FR": "Bienvenue",
-    "GB": "Welcome",
-    "ES": "Bienvenida",
-    "PL": "Powitanie",
-    "IT": "Bienvenuta",
-    // "JP": "いらっしゃいませ" takes up too much space
-};
-const cached_images = {};
-Object.keys(langs).forEach(e => {
-    const img = CreateElement(undefined, "img", ".img");
-    img.src = `https://flagsapi.com/${e}/flat/64.png`;
-    cached_images[e] = img;
-});
-function __cacheimage(key, src, alt) {
-    const __Image = CreateElement(undefined, "img");
-    __Image.src = src;
-    __Image.alt = alt;
-    cached_images[key] = __Image;
-};
-__cacheimage("ARNOLDSTOP", "/images/ArnoldStop.jpg", "STOP!"); // Cache Image
-function index_langs() {
-    let lastp = document.querySelector(".lang-welcome");
-    if(!lastp) {
-        lastp = CreateElement(document.querySelector(".title:not(.container)"), "p", ".lang-welcome");
-    };
-    function new_step(t, i) {
-        if(!i) {index_langs(); return;};
-        const l = langs[i];
-        const p = CreateElement(document.querySelector(".title:not(.container)"), "p", ".lang-welcome");
-        const lang = CreateElement(p, "span", ".lang")
-        lang.innerHTML = l;
-        if(i!=="_") {
-            p.appendChild(cached_images[i]);
-        };
-        Animate(lastp, {}, {marginTop: "-40px"}, 600, () => {
-            lastp.remove();
-            lastp = p;
-        });
-        Animate(p, {}, {marginTop: "0px"}, 1000);
-        setTimeout(() => new_step(t, Object.keys(langs)[t.findIndex(e => e===i) + 1]), 2000);
-    };
-    const t = langs;
-    // pshh!
-    const randint = Math.floor(Math.random() * 10);
-    if(randint===9) {
-        langs["_"] = `<span class="yeah"><3</span>`;
-        new_step(Object.keys(t), Object.keys(langs)[0]);
-    } else {
-        index_langs();
-    };
-    // c:
-    // new_step(Object.keys(t), Object.keys(langs)[0]);
-};
-index_langs();
-function CreatePopup() {
-    const __Popup = CreateElement(document.body, "div", ".popup");
-    const __PopupContainer = CreateElement(__Popup, "div", ".popup.container");
-    const __TitleContainer = CreateElement(__PopupContainer, "div", ".title.container");
-    const __Div = CreateElement(__TitleContainer, "div");
-    const __ArnoldStop = cached_images["ARNOLDSTOP"].cloneNode();
-    __ArnoldStop.style.width = "36px";
-    __ArnoldStop.style.height = "36px";
-    __Div.appendChild(__ArnoldStop);
-    const __ContentContainer = CreateElement(__PopupContainer, "div", ".content.container");
-    const __P = CreateElement(__ContentContainer, "p");
-    __P.innerHTML = `<b>STOP!</b><br>
-                    Wenn sie auf OK! drücken, gelangen sie zum Prototyp meines Stundenplans.
-                    Dieser ist nicht funktionstüchtig und soll lediglich das Design veranschaulichen.<br>
-                    (Das Design ist noch an meine Bildschirmeinstellungen angepasst und deshalb könnten manche Farben zu Dunkel angezeigt werden.)<br>
-                    Ich entschuldige mich dafür!`;
-    const __ActionNavigator = CreateElement(__ContentContainer, "div", ".action-navigator");
-    const __Item = CreateElement(__ActionNavigator, "a", ".item");
-    const __ItemContentContainer = CreateElement(__Item, "div", ".content.container");
-    const __Data = CreateElement(__ItemContentContainer, "p", ".data");
-    __Item.href = "/PlanExperiment/index.html"; // Redirect to Plan
-    __Data.textContent = "OK, Bring mich dahin!";
-    new UIElement(__PopupContainer, "close", () => {
-        __Popup.style.opacity = "0";
-        setTimeout(() => __Popup.remove(), 100);
-        __PopupContainer.style.transform = `translate(-50%, -50%) scale(0.8)`;
-    });
-    setTimeout(() => {
-        __Popup.style.opacity = "1";
-        __PopupContainer.style.transform = `translate(-50%, -50%) scale(1)`;
-    }, 0);
-};
-document.querySelector(".action-navigator.on-page-footer > .item[type=\"planredirect\"]").addEventListener("click", () => CreatePopup());
+(function() {document.title = "o7 Shreklam"; // Changes Title of Webpage}
+)()
 function __processQueryParameters() {
     const a = new URLSearchParams(window.location.search);
     switch(a.get("ref")) {
