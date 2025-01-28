@@ -139,7 +139,7 @@ function Animate(element, from, to, duration, f) { // Animates Element from star
     if(typeof(f)==="function") {setTimeout(f, duration || 200);};
 };
 (function() {document.title = "o7 Shreklam"; // Changes Title of Webpage}
-)()
+            })()
 function __processQueryParameters() {
     const a = new URLSearchParams(window.location.search);
     switch(a.get("ref")) {
