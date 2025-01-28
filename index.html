@@ -3,29 +3,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body style="opacity:0;">
-    <div class="card center">
-        <div class="title container">
-            <div class="title">
-            </div>
-            <div class="heart">
-                <img src="https://c.tenor.com/40BdfMplFhwAAAAC/tenor.gif" alt="hehe" height="20px" style="border-radius: 4px;">
-            </div>
-        </div>
-        <div class="content container">
-            <p>There's nothing here yet, apologies!</b> <span class="small">:3</span></p>
-        </div>
+    <div class="card container cg-centered">
+        <p class="c-primary font-bold" style="font-size:32px;">arminia.top</p>
+        <p class="c-shade font-normal" style="font-size:16;">Hier gibt es noch nichts zu sehen...</p>
     </div>
-    <div class="action-navigator on-page-footer" style="left:50%;bottom:60px;transform:translateX(-50%);position:fixed;">
-        <div class="item" type="planredirect">
-            <div class="content container">
-                <p class="data">Plan Austesten</p>
-            </div>
-        </div>
-    </div>
-    <p class="made-by">by <span class="highlight">doggoprogrammer (lumokeks)</span> <- silly name</p>
+    <p id="made-by" class="c-gray" style="position:absolute;bottom:0px;font-size:8px;">by <b>doggoprogrammer (lumokeks)</b></p>
 </body>
 <script>
     function LoadFromURL(type, url, f) {
@@ -45,7 +30,7 @@
     ];
     function StartLoading(n) {
         n = (n||0);
-        if(!toload[n]) {return setTimeout(() => Animate(document.body, {}, {opacity: 1}, 1000), 1000);};
+        if(!toload[n]) {return setTimeout(() => _a(document.body, {}, {opacity: 1}, 400), 1000);};
         LoadFromURL(Object.keys(toload[n])[0], Object.values(toload[n])[0], () => StartLoading(n + 1));
     };
     StartLoading();
