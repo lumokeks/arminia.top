@@ -8,28 +8,26 @@ function _b(parent, type, classes) {
 };
 class _c12 {
     constructor(config) {
-        let sf = document.querySelector("#system-feedback");
-        if(!sf) {sf = _b(document.body, "div", "#system-feedback");};
-        var __Feedback = _b(sf, "div", ".feedback")
-        ,__FeedbackType = _b(__Feedback, "div", ".feedback-type")
-        ,__ContentContainer = _b(__Feedback, "div", ".content.container")
-        ,__Title = _b(__ContentContainer, "p", ".title")
-        ,__Data = _b(__ContentContainer, "p", ".data")
-        ,__Icon = _b(__Feedback, "div", ".icon");
-        __Feedback.setAttribute("type", config.type);__Title.textContent = config.title;__Data.textContent = config.data;__Feedback.style.height = `${(__ContentContainer.clientHeight - 36) + 50}px`
-        _a(__Feedback, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {_a(__Feedback, {}, {transform: "translateX(0%)"}, 60);});
-        setTimeout(() => {_a(__Feedback, {}, {opacity: 0}, 100);_a(__Feedback, {}, {transform: "translateX(100%)"}, 100, () => {_a(__Feedback, {}, {height: "0px"}, 100, () => __Feedback.remove());});}, config.duration||6000);
-        if(systemfeedback.clientHeight>window.innerHeight) {Object.values(systemfeedback.children)[0].remove();};}
+        let sf = document.querySelector("#system-feedback.content.container");
+        if(!sf) {sf = _b(document.body, "div", "#system-feedback--item-container");};
+        var __d11 = _b(sf, "div", ".s-feedback--container")
+        ,__d12 = _b(__d11, "div", ".type")
+        ,__d13 = _b(__d11, "div", ".content.container")
+        ,__e1 = _b(__d13, "p", ".title.font-bold.c-white")
+        ,__e2 = _b(__d13, "p", ".data.font-normal.c-shade");__d11.classList.add("popup-bg");__d11.classList.add("border");
+        __d11.setAttribute("type", config.type);__e1.textContent = config.title;__e2.textContent = config.data;__d11.style.height = `${(__d13.clientHeight - 36) + 50}px`
+        _a(__d11, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {_a(__d11, {}, {transform: "translateX(0%)"}, 60);});
+        setTimeout(() => {_a(__d11, {}, {opacity: 0}, 100);_a(__d11, {}, {transform: "translateX(100%)"}, 100, () => {_a(__d11, {}, {height: "0px"}, 100, () => __d11.remove());});}, config.duration||6000);
+        if(sf.clientHeight>window.innerHeight) {Object.values(sf.children)[0].remove();};}
 };
-(function() {document.title = "o7 Shreklam"; // Changes Title of Webpage}
+(function() {document.title = "o7 Shreklam"; // Changes Title of Webpage
             })()
 function __processQueryParameters() {
-    const a = new URLSearchParams(window.location.search);
-    switch(a.get("ref")) {
+    switch(new URLSearchParams(window.location.search).get("ref")) {
         case "404":
             new _c12({
                 title: "404",
-                data: "Wir haben alles durchsucht, aber diese Seite haben wir nicht gefunden. Vielleicht ein Tippfehler?",
+                data: "Diese Seite wurde nicht gefunden. Vielleicht ein Tippfehler?",
                 duration: 12000,
                 state: "error"
             });
