@@ -27,7 +27,7 @@ function __processQueryParameters() {
     const a = new URLSearchParams(window.location.search);
     switch(a.get("ref")) {
         case "404":
-            new __c12({
+            new _c12({
                 title: "404",
                 data: "Wir haben alles durchsucht, aber diese Seite haben wir nicht gefunden. Vielleicht ein Tippfehler?",
                 duration: 12000,
