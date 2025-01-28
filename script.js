@@ -10,7 +10,7 @@ class _c12 {
     constructor(config) {
         let sf = document.querySelector("#system-feedback");
         if(!sf) {sf = _b(document.body, "div", "#system-feedback");};
-        var __Feedback = _b(systemfeedback, "div", ".feedback")
+        var __Feedback = _b(sf, "div", ".feedback")
         ,__FeedbackType = _b(__Feedback, "div", ".feedback-type")
         ,__ContentContainer = _b(__Feedback, "div", ".content.container")
         ,__Title = _b(__ContentContainer, "p", ".title")
