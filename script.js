@@ -59,7 +59,7 @@ function _c13(config) {
         setTimeout(() => {
             __d11.style.opacity = `1`;
             __d13.style.transform = `translate(-50%, -50%) scale(1)`;
-        }, 20);
+        }, 16);
     };
     a.hide = () => {
         __d13.style.transform = `translate(-50%, -50%) scale(0.8)`;setTimeout(() => {__d11.style.opacity = 0;}, 60);
