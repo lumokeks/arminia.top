@@ -4,16 +4,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="/images/arminiatop.png">
 </head>
 <body style="opacity:0;">
-    <div class="card container cg-centered" style="display:flex;flex-direction:column;gap:20px;">
-        <header>
-            <p class="c-primary font-bold" style="font-size:32px;">arminia.top</p>
-            <p class="c-shade font-normal" style="font-size:16;">Hier gibt es noch nichts zu sehen...</p>
+    <div>
+        <header class="flex x-center y-center" style="height:100%;">
+            <div class="flex column">
+                <div class="flex column">
+                    <p class="c-primary font-bold" style="font-size:32px;max-width:calc(100%-10px);">arminia.top</p>
+                    <p class="c-shade font-normal" style="font-size:16;max-width:calc(100%-10px);">Hier gibt es noch nichts zu sehen...</p>
+                </div>
+            </div>
         </header>
     </div>
-    <p id="made-by" class="c-gray" style="position:absolute;bottom:0px;font-size:8px;">by <b>doggoprogrammer (lumokeks)</b></p>
+    <div class="popup-insert"></div>
+    <p id="made-by" class="c-gray" style="bottom:0px;font-size:8px;position:fixed;">by <b>doggoprogrammer (lumokeks)</b></p>
 </body>
 <script>
     function LoadFromURL(type, url, f) {
