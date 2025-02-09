@@ -1,4 +1,3 @@
-const _M = {r: (a1, a2) => a1(a2)};
 function _a(e, from, to, duration, f) {
     Object.keys(from).forEach(k => {e.animate([{k: from[k]}], {duration: 0, fill: "forwards"});});
     e.animate([to],{duration: duration || 200,fill: "forwards"});if(typeof(f)==="function") {setTimeout(f, duration || 200);};
@@ -64,12 +63,12 @@ function _c13(config) {
         }, 20);
     };
     a.hide = () => {
-        __d13.style.transform = `translate(-50%, -50%) scale(0.9)`;setTimeout(() => {__d11.style.opacity = 0;}, 60);
+        __d13.style.transform = `translate(-50%, -50%) scale(0.8)`;setTimeout(() => {__d11.style.opacity = 0;}, 60);
     };
-    a.get = (a1) => _M.r(a1, __d13);
     __f3.textContent = config.data;
     return a;
 };
+setTimeout(() => _c13({title: "W.I.P", data: "Diese Website wurde noch nicht fertiggestellt. Sie soll im späteren Verlauf als die Homepage meines Projektes fungieren."}).show(), 2000);
 function __processQueryParameters() {
     switch(new URLSearchParams(window.location.search).get("ref")) {
         case "404":
