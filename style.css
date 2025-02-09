@@ -2,9 +2,10 @@
     --status-error: #ff4848;
     --status-success: #73ff67;
     --status-warn: #ffb84d;
-    --primary: hsl(236, 0%, 74%);
-    --shade: hsl(236, 2%, 62%);
-    --gray: hsl(236, 0%, 40%);
+    --primary: hsl(236, 0%, 84%);
+    --shade: hsl(236, 2%, 72%);
+    --gray: hsl(236, 0%, 50%);
+    
     --white: hsl(236, 0%, 90%);
     --icon-size: 17px;
 }
@@ -62,17 +63,17 @@ p {
 .h-100 {height: 100%;}
 .page-center {left: 50%; top: 50%; transform: translate(-50%, -50%);}
 .absolute {position: absolute;}
-.shadow--default {background: hsla(0, 0%, 0%, 0.6); left: 0%; top: 0%;}
+.shadow--default {background: hsla(0, 0%, 0%, 0.46); left: 0%; top: 0%;}
 .popup--container {
     opacity: 0;
-    transition: opacity linear 0.14s;
+    transition: opacity linear 0.12s;
 }
 .popup--main {
     background: hsl(236, 7%, 11%);
     border-radius: 4px;
     padding: 16px 14px;
     gap: 10px;
-    width: calc(100% - 40px);
+    width: calc(100% - 60px);
     max-width: 400px;
     transform: translate(-50%, -50%)
                scale(0.9);
