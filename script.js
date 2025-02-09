@@ -55,7 +55,9 @@ function _c13(config) {
     function t11() {_a(__f2, {}, {transform: "translateY(0px)"}, 60);};
     __f2.addEventListener("mouseup", t11);__f2.addEventListener("mouseleave", t11);
     __f2.addEventListener("click", () => {a.hide();});
-    const a = {};
+    const a = {"a_a": 0.14, "a_b": 0.12};
+    function __a(arga, argb, argc) {arga.style.transition += `${argb} linear ${a[argc]}s`};
+    __a(__d13, "transform", "a_a");__a(__d11, "opacity", "a_b");
     a.show = () => {
         setTimeout(() => {
             __d11.style.opacity = `1`;
@@ -63,7 +65,7 @@ function _c13(config) {
         }, 20);
     };
     a.hide = () => {
-        __d13.style.transform = `translate(-50%, -50%) scale(0.8)`;setTimeout(() => {__d11.style.opacity = 0;}, 60);
+        __d13.style.transform = `translate(-50%, -50%) scale(0.8)`;setTimeout(() => {__d11.style.opacity = 0;setTimeout(() => __d11.remove(), a["a_b"]*1000);}, a["a_b"]*500);
     };
     __f3.textContent = config.data;
     return a;
