@@ -1,1 +1,1 @@
-# arminia.top ![English](https://arminia.top/images/arminiatop.png)
+# arminia.top <img src="https://arminia.top/images/arminiatop.png" alt="drawing" width="200"/>
