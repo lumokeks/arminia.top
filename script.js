@@ -39,7 +39,7 @@ class _c14fake {
 _c14 = new _c14fake();
 (function() {document.title = "o7 Shreklam";console.log(atob("ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ4YiAgICAgICAgICBkOGIgICAgICAgICAgICAgIDg4OCAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWThQICAgICAgICAgIFk4UCAgICAgICAgICAgICAgODg4ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAgICAgICAgICAgICAgICAKIDg4ODhiLiAgODg4ZDg4OCA4ODg4OGIuZDg4Yi4gIDg4OCA4ODg4OGIuICA4ODggIDg4ODhiLiAgICAgIDg4ODg4OCAuZDg4Yi4gIDg4ODg4Yi4gIAogICAgIjg4YiA4ODhQIiAgIDg4OCAiODg4ICI4OGIgODg4IDg4OCAiODhiIDg4OCAgICAgIjg4YiAgICAgODg4ICAgZDg4IiI4OGIgODg4ICI4OGIgCi5kODg4ODg4IDg4OCAgICAgODg4ICA4ODggIDg4OCA4ODggODg4ICA4ODggODg4IC5kODg4ODg4ICAgICA4ODggICA4ODggIDg4OCA4ODggIDg4OCAKODg4ICA4ODggODg4ICAgICA4ODggIDg4OCAgODg4IDg4OCA4ODggIDg4OCA4ODggODg4ICA4ODggZDhiIFk4OGIuIFk4OC4uODhQIDg4OCBkODhQIAoiWTg4ODg4OCA4ODggICAgIDg4OCAgODg4ICA4ODggODg4IDg4OCAgODg4IDg4OCAiWTg4ODg4OCBZOFAgICJZODg4ICJZODhQIiAgODg4ODhQIiAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg4OCAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODg4ICAgIA=="));})()
 function _c13(config) {
-    var _ = (e, b) => {b.substring(1).split(".").forEach(e2 => {console.log(e2); e.classList.add(e2);});};
+    var _ = (e, b) => {b.substring(1).split(".").forEach(e2 => e.classList.add(e2));};
     var __d11 = _b(document.querySelector(".popup-insert"), "div", ".popup--container")
     ,__d12 = _b(__d11, "div", ".shadow--default.absolute.w-100.h-100")
     ,__d13 = _b(__d11, "div", ".absolute.page-center.c-primary.popup--main.flex.column")
@@ -70,13 +70,13 @@ function _c13(config) {
     __f3.textContent = config.data;
     return a;
 };
-setTimeout(() => _c13({title: "W.I.P", data: "Diese Website wurde noch nicht fertiggestellt. Sie soll im späteren Verlauf als die Homepage meines Projektes fungieren."}).show(), 2000);
+setTimeout(() => _c13({title: "W.I.P", data: "This website is a work-in-progress and as of right now, only consists of this homepage."}).show(), 2000);
 function __processQueryParameters() {
     switch(new URLSearchParams(window.location.search).get("ref")) {
         case "404":
             new _c12({
                 title: "404",
-                data: "Diese Seite wurde nicht gefunden. Vielleicht ein Tippfehler?",
+                data: "Site could not be fetched. Did you misspell something?",
                 duration: 12000,
                 state: "error"
             });
