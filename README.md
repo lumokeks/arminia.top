@@ -1,1 +1,1 @@
-# arminia.top <img src="https://arminia.top/images/arminiatop.png" alt="drawing" width="32"/>
+# arminia.top <img src="https://arminia.top/images/arminiatop.png" alt="drawing" width="16"/>
