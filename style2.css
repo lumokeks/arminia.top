@@ -1,0 +1,107 @@
+/* body {
+    background: hsl(0, 0%, 7%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+.game--container {
+    width: 100%;
+    height: 100%;
+}
+.game--main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.stats--wrapper {
+    width: 100%;
+}
+.stats--inner {
+    color: #FFFFFF;
+}
+.board--wrapper {
+    flex: 1;
+}
+.board--inner {
+    color: #cecece;
+    display: flex;
+    position: relative;
+}
+.train {
+    display: flex;
+    gap: 2px;
+    position: absolute;
+}
+.train > .car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.train > .car-divider:last-of-type {
+    display: none;
+}
+.train > .car-divider > .content::after {
+    content: "+";
+} */
+:root {
+    --status-error: #ff4848;
+    --status-success: #73ff67;
+    --status-warn: #ffb84d;
+    --primary: hsl(236, 0%, 84%);
+    --shade: hwb(240 71% 27%);
+    --gray: hsl(236, 0%, 50%);
+    
+    --white: hsl(236, 0%, 90%);
+    --icon-size: 17px;
+    --gap-inner: 2px;
+    --gap-outer: 4px;
+    --grid-size: 600px;
+    --cell-size: calc(((var(--grid-size) - var(--gap-inner) * 6 - var(--gap-outer) * 2) / 9));
+}
+body {
+    background: hsl(0, 0%, 7%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+p {
+    margin: 0px;
+}
+.c-primary {
+    color: var(--primary);
+}
+.c-gray {
+    color: var(--gray);
+}
+.c-shade {
+    color: var(--shade);
+}
+.c-white {
+    color: var(--white);
+}
+.flex {
+    display: flex;
+}
+.column {flex-direction: column;}
+.x-center {justify-content: center;}
+.y-center {align-items: center;}
+.font-light {font-weight: 300;}
+.font-normal {font-weight: 500;}
+.font-bold {font-weight: 700;}
+.grid:not(.outer) {
+    background: hsl(0, 0%, 14%);
+    gap: var(--gap-inner);
+}
+.grid.outer {
+    background: hsl(0, 0%, 16%);
+    gap: var(--gap-outer);
+    flex-wrap: wrap;
+    padding: var(--gap-outer);
+    max-width: var(--grid-size);
+    border-radius: 6px;
+}
+.row {gap: var(--gap-inner);}
+.col {
+    background: hsl(0, 0%, 12%);
+    width: var(--cell-size);
+    height: var(--cell-size);
+    font-size: 18px;
+}
