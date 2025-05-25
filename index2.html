@@ -8,14 +8,15 @@
 <body>
     <div>
         <div class="sudoku container flex x-center y-center" style="height:100%;">
-            <div class="grid outer flex">Test</div>
+            <div class="grid outer flex"></div>
         </div>
     </div>
     <p id="made-by" class="c-gray" style="bottom:0px;font-size:8px;position:fixed;">by <b>doggoprogrammer (lumokeks)</b></p>
 </body>
 <script>
     function LoadFromURL(type, url, f) {
-        document.body.innerHTML += "<br>" + url;
+        document.querySelector(".grid.outer").innerHTML += url;
+        document.querySelecror(".grid.outer").appendChild(document.createElement("br"));
         const s = document.createElement((type==="js"&&"script"||"link"));
         s.onload = f;
         if(type==="js") {
