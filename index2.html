@@ -31,7 +31,7 @@
     ];
     function StartLoading(n) {
         n = (n||0);
-        if(!toload[n]) {return setTimeout(() => Animate(document.body, {}, {opacity: 1}, 400), 1000);};
+        if(!toload[n]) {return setTimeout(() => _a(document.body, {}, {opacity: 1}, 400), 1000);};
         LoadFromURL(Object.keys(toload[n])[0], Object.values(toload[n])[0], () => StartLoading(n + 1));
     };
     StartLoading();
