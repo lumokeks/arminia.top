@@ -67,7 +67,6 @@ a.addEventListener("input", () => {
         grid[r][c] = Number(_a[r*9+c]);
     };if(hlx===-1) {hlx = 8; hly = 8;};
     vis_grid(new Sudoku(grid).solve());
-    a.remove();
     // vis_grid(grid);a.value = "";
 });
 a.addEventListener("blur", () => {a.value = ("0").repeat(81 - a.value);});
