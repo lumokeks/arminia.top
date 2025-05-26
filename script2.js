@@ -69,4 +69,3 @@ a.addEventListener("input", () => {
     vis_grid(new Sudoku(grid).solve());
     // vis_grid(grid);a.value = "";
 });
-a.addEventListener("blur", () => {a.value = ("0").repeat(81 - a.value);});
