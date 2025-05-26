@@ -67,5 +67,6 @@ a.addEventListener("input", () => {
         if(_a.length<=r*9+c) {hlx = c; hly = r;return vis_grid(grid, [`${hly},${hlx}`]);;};
         grid[r][c] = Number(_a[r*9+c]);
     };if(hlx===-1) {hlx = 8; hly = 8;};
-    vis_grid(new Sudoku([[0, 1]]).solve());a.value = "";
+    // vis_grid(new Sudoku([[0, 1]]).solve());
+    vis_grid(grid);a.value = "";
 });
