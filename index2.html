@@ -8,7 +8,9 @@
 <body>
     <div>
         <div class="sudoku container flex x-center y-center" style="height:100%;">
-            <div class="grid outer flex"></div>
+            <div class="grid outer flex" style="position:relative;">
+                <input type="number" class="grid-customize">
+            </div>
         </div>
     </div>
     <p id="made-by" class="c-gray" style="bottom:0px;font-size:8px;position:fixed;">by <b>doggoprogrammer (lumokeks)</b></p>
@@ -31,7 +33,7 @@
     ];
     function StartLoading(n) {
         n = (n||0);
-        if(!toload[n]) {return setTimeout(() => _a(document.body, {}, {opacity: 1}, 400), 1000);};
+        if(!toload[n]) {return setTimeout(() => Animate(document.body, {}, {opacity: 1}, 400), 1000);};
         LoadFromURL(Object.keys(toload[n])[0], Object.values(toload[n])[0], () => StartLoading(n + 1));
     };
     StartLoading();
