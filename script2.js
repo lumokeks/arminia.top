@@ -42,22 +42,30 @@ class Sudoku {
 }
 const grid = () => {return CreateElement(document.querySelector(".grid.outer.flex"), "div", ".grid.flex.column");};
 const row = (a) => {return CreateElement(a, "div", ".row.flex");};
-const col = (a) => {return CreateElement(CreateElement(a, "div", ".col.flex.x-center.y-center"), "span", ".content.font-bold.c-primary");};
+const col = (a) => {return CreateElement(CreateElement(a, "div", ".col.flex.x-center.y-center"), "span",".content.font-bold.c-primary");};
 function update_grid() {let a = window.innerWidth, b = window.innerHeight;document.querySelector(":root").style.setProperty("--grid-size", `${(a>b&&b||a) - 100}px`);};
 window.onresize = update_grid;
 update_grid();
-function visualize(a) {
-    document.querySelector(".grid.outer.flex").innerHTML = "";
-    let grid = []; for(let i = 0; i < 9; i++) {grid.push(grid()); for(let i2 = 0; i < 3; i2++) row(grid[i])};
-    for(let i = 0; i < a.length; i++) {
-        let index = Math.floor(i / 3) * i
-        for(let i2 = 0; i2 < a.length; i2++) {
-            let _c = col(Object.values(grid[index].children)[Math.floor(i2 / 3)]);
-            _c.textContent = `${a[i][i2]||0}`; document.body.innerHTML = ´${index}, ${Math.floor(i2 / 3)}´
-            return;
-        };
+function vis_grid(t, hl) {
+    hl = hl||[];document.querySelectorAll(".grid.outer.flex > .grid").forEach(e => e.remove());
+    let _a = [], __a = -1;
+    for(let i = 0; i < 9; i++) {
+        if(i%3===0) {if(__a>=0) __a++;__a++;};
+        let a = grid(), b = undefined, _r = Math.floor(i/3)*9*3/9;
+        for(let i2 = 0; i2 < 9; i2++) {if(i2%3===0) {b = row(a);};let c = col(b);c.parentElement.setAttribute("x", (__a * 9) + (i * 3) + i2 + Math.floor(i2 / 3) * 6);_a.push(c);};
     };
+    _a.sort((a, b) => Number(a.parentElement.getAttribute("x")) - Number(b.parentElement.getAttribute("x")));
+    for(let r = 0; r < 9; r++) for(let c = 0; c < 9; c++) {_a[r*9+c].textContent = t[r][c];if(hl.find(e => e===`${r},${c}`)) _a[r*9+c].parentElement.classList.add("marked");};
 };
-visualize(new Sudoku([]).solve());
-// function _a() {visualize(new Sudoku([]).solve());setTimeout(_a, 100);};
-// _a();
+vis_grid(new Sudoku([]).solve());
+let a = document.querySelector("input.grid-customize");
+a.addEventListener("input", () => {
+    let grid = [];for(let i = 0; i < 9; i++) grid.push([]);
+    a.value = a.value.substring(0, 81);
+    let _a = a.value.split(""), hlx = -1, hly = -1;
+    for(let r = 0; r < 9; r++) for(let c = 0; c < 9; c++) {
+        if(_a.length<=r*9+c) {hlx = c; hly = r;return vis_grid(grid, [`${hly},${hlx}`]);;};
+        grid[r][c] = Number(_a[r*9+c]);
+    };if(hlx===-1) {hlx = 8; hly = 8;};
+    vis_grid(new Sudoku().solve(grid));a.value = "";
+});
