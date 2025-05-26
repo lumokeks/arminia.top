@@ -105,3 +105,16 @@ p {
     height: var(--cell-size);
     font-size: 18px;
 }
+.col.marked {
+    background: hsl(34, 100%, 61%);
+    border-radius: 6px;
+}
+input.grid-customize {
+    background: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    color: transparent;
+}
