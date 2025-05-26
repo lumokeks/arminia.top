@@ -61,7 +61,8 @@ vis_grid(new Sudoku([]).solve());
 let a = document.querySelector("input.grid-customize");
 let grid = [];for(let i = 0; i < 9; i++) grid.push([]);
 a.addEventListener("input", () => {
-    let _a = a.value.substring(0, 81).split(""), hlx = -1, hly = -1;
+    a.value = a.value.substring(0, 81);
+    let _a = a.value.split(""), hlx = -1, hly = -1;
     for(let r = 0; r < 9; r++) for(let c = 0; c < 9; c++) {
         if(_a.length<=r*9+c) {hlx = c; hly = r;return vis_grid(grid, [`${hly},${hlx}`]);;};
         grid[r][c] = Number(_a[r*9+c]);
