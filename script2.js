@@ -48,10 +48,11 @@ window.onresize = update_grid;
 update_grid();
 function visualize(a) {
     document.querySelector(".grid.outer.flex").innerHTML = "";
+    let grid = []; for(let i = 0; i < 9; i++) {grid.push(grid()); for(let i2 = 0; i < 3; i2++) row(grid[i])};
     for(let i = 0; i < a.length; i++) {
-        let _b = row(_a);
+        let index = Math.floor(i / 3) * i
         for(let i2 = 0; i2 < a.length; i2++) {
-            let _c = col(_b);
+            let _c = col(Object.values(grid[index].children)[Math.floor(i2 / 3)]);
             _c.textContent = `${a[i][i2]||0}`;
         };
     };
