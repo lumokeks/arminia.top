@@ -53,7 +53,8 @@ function visualize(a) {
         let index = Math.floor(i / 3) * i
         for(let i2 = 0; i2 < a.length; i2++) {
             let _c = col(Object.values(grid[index].children)[Math.floor(i2 / 3)]);
-            _c.textContent = `${a[i][i2]||0}`;
+            _c.textContent = `${a[i][i2]||0}`; document.body.innerHTML = ´${index}, ${Math.floor(i2 / 3)}´
+            return;
         };
     };
 };
