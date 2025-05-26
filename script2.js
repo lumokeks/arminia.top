@@ -59,8 +59,8 @@ function vis_grid(t, hl) {
 };
 vis_grid(new Sudoku([]).solve());
 let a = document.querySelector("input.grid-customize");
-let grid = [];for(let i = 0; i < 9; i++) grid.push([]);
 a.addEventListener("input", () => {
+    let grid = [];for(let i = 0; i < 9; i++) grid.push([]);
     a.value = a.value.substring(0, 81);
     let _a = a.value.split(""), hlx = -1, hly = -1;
     for(let r = 0; r < 9; r++) for(let c = 0; c < 9; c++) {
