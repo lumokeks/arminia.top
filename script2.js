@@ -57,7 +57,7 @@ function vis_grid(t, hl) {
     _a.sort((a, b) => Number(a.parentElement.getAttribute("x")) - Number(b.parentElement.getAttribute("x")));
     for(let r = 0; r < 9; r++) for(let c = 0; c < 9; c++) {_a[r*9+c].textContent = t[r][c];if(hl.find(e => e===`${r},${c}`)) _a[r*9+c].parentElement.classList.add("marked");};
 };
-vis_grid(new Sudoku([]).solve());
+vis_grid([[], [], [], [], [], [], [], [], []], ["0,0"]);
 let a = document.querySelector("input.grid-customize");
 a.addEventListener("input", () => {
     let grid = [];for(let i = 0; i < 9; i++) grid.push([]);
