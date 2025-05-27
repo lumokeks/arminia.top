@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<head>
+  <title>o7</title>
+</head>
+<body>
+  <video width="100%" height="100%">
+    <source src="/images/sillyme.mp4">
+  </video>
+</body>
