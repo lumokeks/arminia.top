@@ -57,6 +57,7 @@
     --gap-outer: 3px;
     --grid-size: 600px;
     --cell-size: calc(((var(--grid-size) - var(--gap-inner) * 6 - var(--gap-outer) * 2) / 9));
+    --icon-size: 17px;
 }
 body {
     background: hsl(0, 0%, 7%);
@@ -86,6 +87,64 @@ p {
 .font-light {font-weight: 300;}
 .font-normal {font-weight: 500;}
 .font-bold {font-weight: 700;}
+#system-feedback--item-container {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    width: 600px;
+    overflow: hidden;
+    z-index: 999999;
+}
+.popup-bg {background: hsl(236, 6%, 8%);}
+.border {border-radius: 4px;}
+.s-feedback--container {display: flex;width: 400px;height: 50px;align-items: center;gap: 10px;padding: 6px;transform: translateX(100%);opacity: 0;}
+.s-feedback--container > .type {background: #ff4949;min-width: 5px;height: 100%;border-radius: 360px;}
+.s-feedback--container[type="error"] > .type {background: var(--status-error);}
+.s-feedback--container[type="success"] > .type {background: var(--status-success);}
+.s-feedback--container[type="warn"] > .type {background: var(--status-warn);}
+.s-feedback--container > .content.container {display: flex;flex-direction: column;align-items: flex-start;justify-content: center;gap: 2px;}
+.s-feedback--container > .content.container > p {margin: 0px;}
+.s-feedback--container > .content.container > * {font-size: 14px;text-align: left;}
+.w-100 {width: 100%;}
+.h-100 {height: 100%;}
+.page-center {left: 50%; top: 50%; transform: translate(-50%, -50%);}
+.absolute {position: absolute;}
+.shadow--default {background: hsla(0, 0%, 0%, 0.46); left: 0%; top: 0%;}
+.popup--container {
+    opacity: 0;
+    transition: opacity linear 0.12s;
+}
+.popup--main {
+    background: hsl(236, 7%, 11%);
+    border-radius: 4px;
+    padding: 16px 14px;
+    gap: 10px;
+    width: calc(100% - 60px);
+    max-width: 400px;
+    transform: translate(-50%, -50%)
+               scale(0.9);
+    transition: transform linear 0.14s;
+}
+.no-background {background: none;}
+.no-border {border: none;}
+.close-interaction-svg--container {
+    width: min-content;
+    height: min-content;
+    padding: 2px;
+    border-radius: 2px;
+}
+.close-interaction-svg--container:hover {
+    background: hsla(236, 4%, 14%, 0.87);
+}
+.close-interaction-svg--container > svg {min-height: var(--icon-size); fill: hsl(0, 0%, 90%);}
+.popup--main-title {font-size: 20px;flex: 1;}
+.popup--main > main > p {
+    font-size: 16px;
+}
 .grid:not(.outer) {
     background: hsl(0, 0%, 20%);
     gap: var(--gap-inner);
