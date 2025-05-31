@@ -140,6 +140,6 @@ button:hover {background: hsl(0, 0%, 18%);}
 [on_edit] {
     color: hsl(27, 100%, 68%);
 }
-/* @media(width<800px) {
-    .game.container {flex-direction: column;}
-}; */
+@media(width<800px) {
+    .game.container > div {flex-direction: column; align-items: center;}
+};
