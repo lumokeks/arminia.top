@@ -45,6 +45,7 @@ class _c14fake {
         this.cached_images = {};
     }
     _f1(parent, id) {
+        let _a = Animate, _b = CreateElement;
         function a(self) {parent.appendChild(self.cached_images[id].cloneNode(true))};
         function b(self) {
             const __a = _b(undefined, "a");__a.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${self.svgs[id]}"/></svg>`;
