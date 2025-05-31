@@ -60,7 +60,7 @@ class Sudoku {
 const grid = () => {return CreateElement(document.querySelector(".grid.outer.flex"), "div", ".grid.flex.column");};
 const row = (a) => {return CreateElement(a, "div", ".row.flex");};
 const col = (a) => {return CreateElement(CreateElement(a, "div", ".col.flex.x-center.y-center"), "span",".content.font-bold");};
-function update_grid() {let a = window.innerWidth, b = window.innerHeight;document.querySelector(":root").style.setProperty("--grid-size", `${(a>b&&b||a) - 100 - (a<800&&240||a>=800&&0)}px`);};
+function update_grid() {let a = window.innerWidth, b = window.innerHeight;document.querySelector(":root").style.setProperty("--grid-size", `${(a>b&&b||a) - 100}px`);};
 window.onresize = update_grid;
 update_grid();
 // function vis_grid(t, hl) {
