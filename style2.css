@@ -57,7 +57,6 @@
     --gap-outer: 3px;
     --grid-size: 600px;
     --cell-size: calc(((var(--grid-size) - var(--gap-inner) * 6 - var(--gap-outer) * 2) / 9));
-    --icon-size: 17px;
 }
 body {
     background: hsl(0, 0%, 7%);
@@ -140,7 +139,7 @@ p {
 .close-interaction-svg--container:hover {
     background: hsla(236, 4%, 14%, 0.87);
 }
-.close-interaction-svg--container > svg {min-height: var(--icon-size); fill: hsl(0, 0%, 90%);}
+.close-interaction-svg--container > svg {height: var(--icon-size); fill: hsl(0, 0%, 90%);}
 .popup--main-title {font-size: 20px;flex: 1;}
 .popup--main > main > p {
     font-size: 16px;
