@@ -37,6 +37,39 @@ function CSSVar(data) {    const style = getComputedStyle(document.body);return 
 //     };
 // };
 // sudoku solver using backtracking algorithm
+function _c13(config) {
+    var _ = (e, b) => {b.substring(1).split(".").forEach(e2 => e.classList.add(e2));};
+    var __d11 = _b(document.querySelector(".popup-insert"), "div", ".popup--container")
+    ,__d12 = _b(__d11, "div", ".shadow--default.absolute.w-100.h-100")
+    ,__d13 = _b(__d11, "div", ".absolute.page-center.c-primary.popup--main.flex.column")
+    ,__e1 = _b(__d13, "header", ".flex")
+    ,__f1 = _b(__e1, "div", ".popup--main-title.c-primary.font-bold")
+    ,__f2 = _b(__e1, "button", ".close-interaction-svg--container.no-background.no-border.flex.x-center.y-center")
+    ,__e2 = _b(__d13, "main", ".content.container.flex.column")
+    ,__f3 = _b(__e2, "p");
+    _(__e1, ".no-padbottom");_(__e2, ".no-padtop");
+    _c14._f1(__f2, "cancel");
+    __f1.textContent = config.title;
+    __f2.addEventListener("mousedown", () => _a(__f2, {}, {transform: "translateY(1px)"}, 60));
+    function t11() {_a(__f2, {}, {transform: "translateY(0px)"}, 60);};
+    __f2.addEventListener("mouseup", t11);__f2.addEventListener("mouseleave", t11);
+    __f2.addEventListener("click", () => {a.hide();});
+    const a = {"a_a": 0.14, "a_b": 0.12};
+    function __a(arga, argb, argc) {arga.style.transition += `${argb} linear ${a[argc]}s`};
+    __a(__d13, "transform", "a_a");__a(__d11, "opacity", "a_b");
+    a.show = () => {
+        setTimeout(() => {
+            __d11.style.opacity = `1`;
+            __d13.style.transform = `translate(-50%, -50%) scale(1)`;
+        }, 20);
+    };
+    a.hide = () => {
+        __d13.style.transform = `translate(-50%, -50%) scale(0.8)`;setTimeout(() => {__d11.style.opacity = 0;setTimeout(() => __d11.remove(), a["a_b"]*1000);}, a["a_b"]*500);
+    };
+    __f3.innerHTML = config.data;
+    return a;
+};
+setTimeout(2000, () => _c13({title: "Test", data: "Test"}));
 class Sudoku {
     constructor(board) {
         this.board = board||[];
