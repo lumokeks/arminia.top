@@ -67,10 +67,11 @@ function _c13(config) {
     a.hide = () => {
         __d13.style.transform = `translate(-50%, -50%) scale(0.8)`;setTimeout(() => {__d11.style.opacity = 0;setTimeout(() => __d11.remove(), a["a_b"]*1000);}, a["a_b"]*500);
     };
-    __f3.textContent = config.data;
+    __f3.innerHTML = config.data;
     return a;
 };
-setTimeout(() => _c13({title: "W.I.P", data: "This website is a work-in-progress and as of right now, only consists of this homepage."}).show(), 2000);
+// setTimeout(() => _c13({title: "W.I.P", data: "This website is a work-in-progress and as of right now, only consists of this homepage."}).show(), 2000);
+setTimeout(() => _c13({title: "W.I.P", data: "<a href=\"/index2.html\">Try our newest Sudoku Solver.</a>"}).show(), 2000);
 function __processQueryParameters() {
     switch(new URLSearchParams(window.location.search).get("ref")) {
         case "404":
