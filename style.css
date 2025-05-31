@@ -95,3 +95,4 @@ p {
 .popup--main > main > p {
     font-size: 16px;
 }
+a {color: var(--shade);}
