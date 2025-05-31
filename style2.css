@@ -184,7 +184,7 @@ input.grid-customize {
 .game.container > div {gap: 40px;align-items: flex-end;}
 .nums.container {gap: 10px;width: 280px;height: 180px;}
 .num-row {gap: 10px;flex: 1;}
-button {
+.num.row > button {
     background: hsl(0, 0%, 14%);
     border-radius: 4px;
     flex: 1;
@@ -194,7 +194,7 @@ button {
     font-size: 18px;
     cursor: pointer;
 }
-button:hover {background: hsl(0, 0%, 18%);}
+.num-row > button:hover {background: hsl(0, 0%, 18%);}
 [on_edit] {
     color: hsl(27, 100%, 68%);
 }
