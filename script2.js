@@ -88,7 +88,7 @@ function _c13(config) {
     __f3.innerHTML = config.data;
     return a;
 };
-setTimeout(() => _c13({title: "Test", data: "Test"}), 2000);
+setTimeout(() => _c13({title: "Test", data: "Test"}).show(), 2000);
 class Sudoku {
     constructor(board) {
         this.board = board||[];
