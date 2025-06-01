@@ -73,7 +73,7 @@ class _c12 {
         setTimeout(() => {_a(__d11, {}, {opacity: 0}, 100);_a(__d11, {}, {transform: "translateX(100%)"}, 100, () => {_a(__d11, {}, {height: "0px"}, 100, () => __d11.remove());});}, config.duration||6000);
         if(sf.clientHeight>window.innerHeight) {Object.values(sf.children)[0].remove();};}
 };
-setTimeout(() => _c13({title: "Instructions", data: "Click on any cell to select it, next cell gets selected automatically.<br>0 to ignore selected cell and move on to the next cell (essentially creating an empty cell).<br>When last column in last row is filled, it will try to solve the grid (just FYI, using an illegal grid (e.g. two 1s in a single row) will result in this page getting frozen :D)"}).show(), 2000);
+setTimeout(() => _c13({title: "Instructions", data: "> Click on any cell to select it, next cell gets selected automatically.<br>> Enter 0 to ignore selected cell and move on to the next cell (essentially creating an empty cell).<br>> When last column in last row is filled, it will try to solve the grid (just FYI, using an illegal grid (e.g. two 1s in a single row) will result in this page getting frozen :D)<br>> You can use your keyboard to navigate aswell"}).show(), 2000);
 class Sudoku {
     constructor(board) {
         this.board = board||[];
