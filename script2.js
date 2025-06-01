@@ -70,9 +70,9 @@ class _c12 {
         ,__e2 = _b(__d13, "p", ".data.font-normal.c-shade");__d11.classList.add("popup-bg");__d11.classList.add("border");
         __d11.setAttribute("type", config.type);__e1.textContent = config.title;__e2.textContent = config.data;__d11.style.height = `${(__d13.clientHeight - 36) + 50}px`
         _a(__d11, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {_a(__d11, {}, {transform: "translateX(0%)"}, 60);});
-        let t = {close: () => {_a(__d11, {}, {opacity: 0}, 100);_a(__d11, {}, {transform: "translateX(100%)"}, 100, () => {_a(__d11, {}, {height: "0px"}, 100, () => __d11.remove());});}};
-        setTimeout(() => t.close(), config.duration||6000);
-        if(sf.clientHeight>window.innerHeight) {Object.values(sf.children)[0].remove();};}
+        this.close = () => {_a(__d11, {}, {opacity: 0}, 100);_a(__d11, {}, {transform: "translateX(100%)"}, 100, () => {_a(__d11, {}, {height: "0px"}, 100, () => __d11.remove());});};
+        if(config.duration) setTimeout(() => this.close(), config.duration);
+        if(sf.clientHeight>window.innerHeight) {Object.values(sf.children)[0].remove();};};
 };
 setTimeout(() => _c13({title: "Instructions", data: "> Click on any cell to select it. When filled, the next cell gets selected automatically.<br>> Enter 0 to ignore selected cell and move on to the next cell (essentially creating an empty cell).<br>> When last column in last row is filled, it will try to solve the grid (just FYI, using an illegal grid (e.g. two 1s in a single row) will result in this page getting frozen :D)<br>> You can use your keyboard to navigate aswell"}).show(), 2000);
 class Sudoku {
