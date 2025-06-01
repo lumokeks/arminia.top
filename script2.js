@@ -136,7 +136,6 @@ document.addEventListener("keyup", (e) => {
     __h(e.key);
 });
 document.querySelector(".nums.container").addEventListener("click", (e) => {
-    console.log(e.target);
     if(e.target.classList.contains("num")) __h(e.target.textContent);
     else if(e.target.textContent==="AC") {t = []; i = 0;__h();}
     else if(e.target.nodeName==="BUTTON") __h("Backspace");
