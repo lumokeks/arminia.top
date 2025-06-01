@@ -124,7 +124,7 @@ function __h(e) {
     let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     if(nums.find(e2 => `${e2}`===e)||e==="0") {
         if(e!=="0") {t[i] = Number(e);};
-        i++;if(i>80) {let r = new _c12({title: "(!)", data: "Solving Sudoku...", type: "warn"});setTimeout(() => {t = new Sudoku(t).solve();r.close();new _c12({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;}, 0);};
+        i++;if(i>80) {let r = new _c12({title: "(!)", data: "Solving Sudoku...", type: "warn"});setTimeout(() => {t = new Sudoku(t).solve();r.close();new _c12({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;vis_grid(t, [`${i}`], init);}, 0);};
     } else if(e==="Backspace") {
         t[i] = undefined;
         i--;if(i<0) i = 0;
