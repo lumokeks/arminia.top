@@ -70,8 +70,7 @@ function _c13(config) {
     __f3.innerHTML = config.data;
     return a;
 };
-// setTimeout(() => _c13({title: "W.I.P", data: "This website is a work-in-progress and as of right now, only consists of this homepage."}).show(), 2000);
-setTimeout(() => _c13({title: "W.I.P", data: `<a href=\"/index2.html\">Try our newest Sudoku Solver.<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></a>`}).show(), 2000);
+setTimeout(() => _c13({title: "W.I.P", data: "This website is a work-in-progress and as of right now, only consists of this homepage."}).show(), 2000);
 function __processQueryParameters() {
     switch(new URLSearchParams(window.location.search).get("ref")) {
         case "404":
