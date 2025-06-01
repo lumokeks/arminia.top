@@ -61,7 +61,7 @@ function _c13(config) {
 class _c12 {
     constructor(config) {
         let _a = Animate, _b = CreateElement;
-        let sf = document.querySelector("#system-feedback.content.container");
+        let sf = document.querySelector("#system-feedback--item-container");
         if(!sf) {sf = _b(document.body, "div", "#system-feedback--item-container");};
         var __d11 = _b(sf, "div", ".s-feedback--container")
         ,__d12 = _b(__d11, "div", ".type")
@@ -124,7 +124,7 @@ function __h(e) {
     let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     if(nums.find(e2 => `${e2}`===e)||e==="0") {
         if(e!=="0") {t[i] = Number(e);};
-        i++;if(i>80) {t = new Sudoku(t).solve(); i = -1;};
+        i++;if(i>80) {let r = new _c13({title: "(!)", data: "Solving Sudoku...", type: "warn"});t = new Sudoku(t).solve();r.close();new _c13({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;};
     } else if(e==="Backspace") {
         t[i] = undefined;
         i--;if(i<0) i = 0;
