@@ -195,7 +195,7 @@ button:not(.close-interaction-svg--container) {
     cursor: pointer;
 }
 button:not(.close-interaction-svg--container):hover {background: hsl(0, 0%, 18%);}
-[on_edit] {
+button[on_edit] {
     color: hsl(27, 100%, 68%);
 }
 @media(width<800px) {
