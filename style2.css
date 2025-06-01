@@ -200,6 +200,5 @@ button[on_edit] {
 }
 @media(width<800px) {
     .game.container > div {flex-direction: column; align-items: center;}
-    #system-feedback--item-container {align-items: center;}
-    .s-feedback--container {width: calc(100% - 60px);}
+    #system-feedback--item-container {align-items: center; width: 400px; left: 50%; transform: translate(-50%);}
 };
