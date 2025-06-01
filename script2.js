@@ -77,17 +77,17 @@ class _c12 {
 setTimeout(() => _c13({title: "Instructions", data: "> Click on any cell to select it. When filled, the next cell gets selected automatically.<br>> Enter 0 to ignore selected cell and move on to the next cell (essentially creating an empty cell).<br>> When last column in last row is filled, it will try to solve the grid (just FYI, using an illegal grid (e.g. two 1s in a single row) will result in this page getting frozen :D)<br>> You can use your keyboard to navigate aswell"}).show(), 2000);
 class Sudoku {
     constructor(board) {
-        this.board = board||[];
+        this.board = JSON.parse(JSON.stringify(board))||[];
         function __f(a2, b2) {if(a2===true) {return {r: Math.floor(b2 / 9), c: b2 % 9};} else {return a2*9+b2};};
-        function is_valid(self, i, n) {let {r, c} = __f(true, i);for(let i2 = 0; i2 < 9; i2++) if(self.board[__f(r, i2)]===n||self.board[__f(i2, c)]===n) return false;
+        this.is_valid = (self, i, n) => {let {r, c} = __f(true, i);for(let i2 = 0; i2 < 9; i2++) if(self.board[__f(r, i2)]===n||self.board[__f(i2, c)]===n) return false;
             let c1 = Math.floor(r / 3) * 3, c2 = Math.floor(c / 3) * 3;
             for(let r = c1; r < c1 + 3; r++) for(let c = c2; c < c2 + 3; c++) if(self.board[__f(r, c)]===n) return false;return true;};
-        function allowed(self, i) {let t = [];for(let n = 1; n < 10; n++) if(is_valid(self, i, n)) if(u(self, i, n)) return [n]; else t.push(n);return t;};
-        function u(self, i, n) {let {r, c} = __f(true, i);let c1 = Math.floor(r / 3) * 3, c2 = Math.floor(c / 3) * 3;
-            for(let r = c1; r < c1 + 3; r++) for(let c = c2; c < c2 + 3; c++) {let i2 = __f(r, c);if(i2!==i&&!self.board[i]&&is_valid(self, i2, n)) return false;};return true;};
+        this.allowed = (self, i) => {let t = [];for(let n = 1; n < 10; n++) if(this.is_valid(self, i, n)) if(this.u(self, i, n)) return [n]; else t.push(n);return t;};
+        this.u = (self, i, n) => {let {r, c} = __f(true, i);let c1 = Math.floor(r / 3) * 3, c2 = Math.floor(c / 3) * 3;
+            for(let r = c1; r < c1 + 3; r++) for(let c = c2; c < c2 + 3; c++) {let i2 = __f(r, c);if(i2!==i&&!self.board[i]&&this.is_valid(self, i2, n)) return false;};return true;};
         this.s = (i) => {
             while(i<=80&&this.board[i]) i++;if(i>80) return true;
-            for(const c of allowed(this, i)) {this.board[i] = c;if(this.s(i + 1)) return true;};this.board[i] = 0;return false;};
+            for(const c of this.allowed(this, i)) {this.board[i] = c;if(this.s(i + 1)) return true;};this.board[i] = 0;return false;};
         this.tg = () => {
             let grid = [];for(let i = 0; i < 9; i++) grid.push([]);let t = this.solve();
             for(let i = 0; i < 81; i++) {let {r, c} = __f(true, i);grid[r][c] = board[i];};return grid;
@@ -124,10 +124,12 @@ function __h(e) {
     let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     if(nums.find(e2 => `${e2}`===e)||e==="0") {
         if(e!=="0") {t[i] = Number(e);};
-        i++;if(i>80) {let r = new _c12({title: "(!)", data: "Solving Sudoku...", type: "warn"});setTimeout(() => {t = new Sudoku(t).solve();r.close();new _c12({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;vis_grid(t, [`${i}`], init);}, 0);};
+        i++;if(i>80) {let r = new _c12({title: "(!)", data: "Solving Sudoku...", type: "warn"}); let s = new Sudoku(t); for(let i2 = 0; i2 < t.length; i2++) {s.board[i2] = 0;if(!s.is_valid(s, i2, t[i2])) return;s.board[i2] = t[i2];};t = s.solve();r.close();new _c12({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;};
     } else if(e==="Backspace") {
-        t[i] = undefined;
+        let f = false;
+        if(t[i]) {t[i] = undefined; f = true;};
         i--;if(i<0) i = 0;
+        if(!f) t[i] = undefined;
     };
     init = [];for(let i = 0; i < t.length; i++) if(t[i]) init.push(`${i}`);
     vis_grid(t, [`${i}`], init);
