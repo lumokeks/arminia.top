@@ -161,7 +161,7 @@ p {
     background: hsl(0, 0%, 7%);
     width: var(--cell-size);
     height: var(--cell-size);
-    font-size: 20px;
+    font-size: 26px;
     color: #FFFFFF;
     transition: background 0.2s ease;
     /* border-radius: 6px; */
@@ -182,7 +182,7 @@ input.grid-customize {
     color: transparent;
 }
 .game.container > div {gap: 40px;align-items: flex-end;}
-.nums.container {gap: 10px;width: 280px;height: 180px;}
+.nums.container {gap: 10px;width: 360px;height: 260px;}
 .num-row {gap: 10px;flex: 1;}
 button:not(.close-interaction-svg--container) {
     background: hsl(0, 0%, 14%);
@@ -198,7 +198,8 @@ button:not(.close-interaction-svg--container):hover {background: hsl(0, 0%, 18%)
 button[on_edit] {
     color: hsl(27, 100%, 68%);
 }
-@media(width<800px) {
+@media(width<1644px) {
     .game.container > div {flex-direction: column; align-items: center;}
     #system-feedback--item-container {align-items: center; width: calc(100% - 60px); left: 50%; transform: translateX(-50%);}
+    .nums.container {width: 320px; height: 230px;}
 };
