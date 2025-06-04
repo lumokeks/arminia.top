@@ -98,7 +98,7 @@ class Sudoku {
 const grid = () => {return CreateElement(document.querySelector(".grid.outer.flex"), "div", ".grid.flex.column");};
 const row = (a) => {return CreateElement(a, "div", ".row.flex");};
 const col = (a) => {return CreateElement(CreateElement(a, "div", ".col.flex.x-center.y-center"), "span",".content.font-bold");};
-function update_grid() {let a = window.innerWidth, b = window.innerHeight;document.querySelector(":root").style.setProperty("--grid-size", `${(a>b&&b||a) - 100}px`);};
+function update_grid() {let a = window.innerWidth, b = window.innerHeight, c = (a>b&&b||a) - 100;document.querySelector(":root").style.setProperty("--grid-size", `${(c<900&&c||900)}px`);};
 window.onresize = update_grid;
 update_grid();
 function vis_grid(t, m, init) {m = m||[]; init = init||[];
@@ -124,7 +124,11 @@ function __h(e) {
     let nums = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     if(nums.find(e2 => `${e2}`===e)||e==="0") {
         if(e!=="0") {t[i] = Number(e);};
-        i++;if(i>80) {let r = new _c12({title: "(!)", data: "Solving Sudoku...", type: "warn"}); let s = new Sudoku(t); for(let i2 = 0; i2 < t.length; i2++) {s.board[i2] = 0;if(!s.is_valid(s, i2, t[i2])) {r.close();new _c12({title: "(/)", data: "Invalid grid given; could not solve.", duration: 4000, type: "error"});t = [];return;};s.board[i2] = t[i2];};t = s.solve();r.close();new _c12({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;};
+        i++;if(i>80) {let r = new _c12({title: "(!)", data: "Solving Sudoku...", type: "warn"}); 
+        let s = new Sudoku(t);
+        for(let i2 = 0; i2 < 81; i2++) {if(!t[i2]) continue;s.board[i2] = 0;if(!s.is_valid(s, i2, t[i2])) {r.close();new _c12({title: "(/)", data: "Invalid grid given; could not solve.", duration: 4000, type: "error"});t = [];i = 0;__h();return;};
+        s.board[i2] = t[i2];};
+        t = s.solve();r.close();new _c12({title: "(/)", data: "Successfully solved Sudoku!", duration: 4000, type: "success"});i = -1;};
     } else if(e==="Backspace") {
         let f = false;
         if(t[i]) {t[i] = undefined; f = true;};
