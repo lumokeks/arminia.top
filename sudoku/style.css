@@ -1,7 +1,7 @@
 :root {
-    --icon-size: 17px;
+/*     --icon-size: 17px;
     --gap-inner: 1px;
-    --gap-outer: 4px;
+    --gap-outer: 4px; */
     --grid-size: 600px;
     --cell-size: calc(((var(--grid-size) - var(--gap-inner) * 6 - var(--gap-outer) * 2) / 9));
 }
