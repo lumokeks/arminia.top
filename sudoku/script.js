@@ -7,7 +7,6 @@ function Animate(element, from, to, duration, f) {  Object.keys(from).forEach(k 
         element.animate([{k: from[k]}], {duration: 0, fill: "forwards"});
     });element.animate([to],{duration: duration || 200,fill: "forwards"});if(typeof(f)==="function") {setTimeout(f, duration || 200);};   };
 function CSSVar(data) {    const style = getComputedStyle(document.body);return style.getPropertyValue(data);   }; // Gets CSS Variables
-// sudoku solver using backtracking algorithm
 class _c14fake {
     constructor() {
         this.svgs = {
