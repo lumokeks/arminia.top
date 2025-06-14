@@ -103,7 +103,7 @@ p {
     background: var(--col-background);
     width: var(--cell-size);
     height: var(--cell-size);
-    font-size: 26px;
+    font-size: 32px;
     color: var(--col-color);
     transition: background 0.1s ease;
 }
