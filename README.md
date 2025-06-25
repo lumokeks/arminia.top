@@ -1,4 +1,4 @@
-# arminia.top <img src="/images/arminiatop.png" alt="logo" height="36px" align="right">
+# arminia.top <img src="/images/arminiatop.png" alt="logo" height="36px" align="left">
 
 simple and quite goofy website fulfilling its purposes like no other
 
