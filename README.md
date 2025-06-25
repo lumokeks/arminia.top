@@ -2,7 +2,6 @@
 
 simple and quite goofy website fulfilling its purposes like no other
 
-okay, that's enough.<br>
-ciao
+okay, that's enough. ciao
 
-- lumokeks and vxipz
+- lumokeks and vxipz (fanboys of arminia)
