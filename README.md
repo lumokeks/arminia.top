@@ -1,4 +1,4 @@
-<p align="center">arminia.top <img src="/images/arminiatop.png" alt="logo" height="36px"></p>
+# <p align="center">arminia.top <img src="/images/arminiatop.png" alt="logo" height="36px"></p>
 
 simple and quite goofy website fulfilling its purposes like no other
 
