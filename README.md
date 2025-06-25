@@ -2,7 +2,7 @@
 
 simple and quite goofy website fulfilling its purposes like no other
 
-okay, that's enough.
-bye-bai
+okay, that's enough.<br>
+ciao
 
 - lumokeks and vxipz
