@@ -1,9 +1,9 @@
 let __DATA = {schulwochen: [], freietage: [], klassen: ["8.2"], kurse: {}}, __WEEK = 0, __KLASSE = "8.2", __RUN_ID = 0, __SVGS = [];
 let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (headers, f) => {
-    let id = __log(undefined, ["fetching", JSON.stringify(headers)]);
-    fetch("/", {
+let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) => {
+    let id = __log(undefined, ["fetching", url]);
+    fetch(url, {
         method: "GET"
     }).then((e) => e["json"]().then(e => {__log(id, ["successfully fetched"]);f(e);}));
 }, __log = (id, data) => {
@@ -36,7 +36,7 @@ class PlanRequest {
             "np": "Klassen.xml",
             "wp": "SPlanKl_Basis.xml"
         };
-        http({url: `${url}${URLS[type]}`, http: true, authorization: token}, (a) => {
+        http(`${url}${URLS[type]}`, (a) => {
             if(a.success) f(new DOMParser().parseFromString(decodeURI(a.data), "text/xml"));
             else f(undefined);
         });
