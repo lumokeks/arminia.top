@@ -111,7 +111,7 @@ function _CE(parent, type, classes) {
 function CreateDay(data) {
     let xti = new XMLToInfo(data.xml), __item_day = document.querySelector(`.item.day:nth-of-type(${data.index + 1})`), __day_titlecontainer = __item_day.querySelector(".day-title--container"),
     __title_date = __day_titlecontainer.querySelector(".content.day-title--date"), __title_timestamp = __day_titlecontainer.querySelector(".content.day-title--timestamp"),
-    __day_plancontainer = __item_day.querySelector(".day-plan--container");
+    __day_plancontainer = __item_day.querySelector(".day-plan--container");__day_plancontainer.innerHTML = "";
     if(data.xml) {
         let header_data = xti.GetPlanHeaderDaten();
         __title_date.textContent = header_data.date; __title_timestamp.textContent = header_data.zeitstempel;
