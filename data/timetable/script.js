@@ -5,7 +5,11 @@ let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) =>
     let id = __log(undefined, ["fetching", url]);
     fetch(url, {
         method: "GET"
-    }).then((e) => e["json"]().then(e => {__log(id, ["successfully fetched"]);f(e);}));
+    }).then((e) => e.success ? () => {
+        e["text"]().then(e => {__log(id, ["successfully fetched"]);f({success: true, data: e});})
+    } : () => {
+        f({success: false});
+    });
 }, __log = (id, data) => {
     if(!id) {__RUN_ID++; id = __RUN_ID;};
     console.log(`${new Date().toLocaleTimeString()} | ID: ${id}`, ...data);
