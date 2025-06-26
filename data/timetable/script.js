@@ -4,10 +4,7 @@ let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "Aug
 let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (headers, f) => {
     let id = __log(undefined, ["fetching", JSON.stringify(headers)]);
     fetch("/", {
-        method: "GET",
-        headers: {
-            request: JSON.stringify(headers||{})
-        }
+        method: "GET"
     }).then((e) => e["json"]().then(e => {__log(id, ["successfully fetched"]);f(e);}));
 }, __log = (id, data) => {
     if(!id) {__RUN_ID++; id = __RUN_ID;};
