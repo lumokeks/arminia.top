@@ -261,9 +261,7 @@ footer {
 }
 footer > .footer--container {flex: 1;}
 footer > .footer--container > .actions--wrapper {flex: 1;}
-footer > .footer--container > .actions--wrapper > .item.action > .action--container {
-    height: calc(100% - 16px);
-}
+footer > .footer--container > .actions--wrapper > .item.action > .action--container {height: calc(100% - 16px);}
 #made-by {color: #FFFFFF;}
 @media (width<600px) {
     .week-select--container {width: calc(100vw - 60px);}
