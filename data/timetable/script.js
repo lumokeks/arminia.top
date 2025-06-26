@@ -140,8 +140,8 @@ function LoadWeek(i) {
     timestamps = document.querySelectorAll(".content.day-title--timestamp"), title_dates = document.querySelectorAll(".content.day-title--date");
     day_plan__containers.forEach(e => {
         e.innerHTML = "";})
-    timestamps.forEach(e => e.textContent = "wird geladen..."); // lang
-    title_dates.forEach(e => e.textContent = "wird geladen..."); // lang
+    timestamps.forEach(e => e.textContent = "wird geladen...");
+    title_dates.forEach(e => e.textContent = "wird geladen...");
     let week = __DATA.schulwochen[i];
     week_first.textContent = week.days[0];week_last.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
     for(let e of week.days) {
@@ -165,8 +165,8 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
         let __title_timestamp = _CE(__day_titlecontainer, "span", ".content.day-title--timestamp.flex.font-normal");
         let __day_plancontainer = _CE(__item_day, "div", ".day-plan--container.flex.column");
         __title_day.textContent = weekdays[i];
-        __title_date.textContent = "N.V."; // lang
-        __title_timestamp.textContent = "nicht vorhanden"; // lang
+        __title_date.textContent = "N.V.";
+        __title_timestamp.textContent = "nicht vorhanden";
     };
     new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "wp", (a) => {
         (function() {
@@ -223,7 +223,7 @@ function CreatePopup(title, seed) {
         "kurse": () => {
             let __a = _CE(__popup_container, "div", ".specify--wrapper.flex"), __b = _CE(__a, "div", ".specify--container.flex.x-center"),
             __c = _CE(__b, "button", ".specify.alle--container"), __d = _CE(__b, "button", ".specify.keine--container");
-            __c.textContent = "Alle";__d.textContent = "Keine"; // lang
+            __c.textContent = "Alle";__d.textContent = "Keine";
             __c.setAttribute("set_status", true);__d.setAttribute("set_status", false);
             [__c, __d].forEach(a => a.addEventListener("click", () => __content_container.querySelectorAll(".toggle").forEach(e => {update_kurse(null, a.getAttribute("set_status"));e.setAttribute("status", a.getAttribute("set_status"));})));
             __DATA.kurse[__KLASSE].forEach(e => {
