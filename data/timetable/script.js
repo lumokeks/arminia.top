@@ -5,7 +5,7 @@ let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) =>
     let id = __log(undefined, ["fetching", url]);
     fetch(url, {
         method: "GET"
-    }).then((e) => e.success ? () => {
+    }).then((e) => e.ok ? () => {
         e["text"]().then(e => {__log(id, ["successfully fetched"]);f({success: true, data: e});})
     } : () => {
         f({success: false});
