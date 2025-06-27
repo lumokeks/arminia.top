@@ -1,4 +1,4 @@
-let __DATA = {schulwochen: [], freietage: [], klassen: ["8.2"], kurse: {}}, __WEEK = 0, __KLASSE = "8.2", __RUN_ID = 0, __SVGS = [];
+let __DATA = {schulwochen: [], freietage: [], klassen: [], kurse: {}}, __WEEK = 0, __KLASSE = localStorage.getItem("klasse"), __RUN_ID = 0, __SVGS = [];
 let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) => {
@@ -143,6 +143,7 @@ function LoadWeek(i) {
     timestamps.forEach(e => e.textContent = "wird geladen...");
     title_dates.forEach(e => e.textContent = "wird geladen...");
     let week = __DATA.schulwochen[i];
+    console.log(week, i);
     week_first.textContent = week.days[0];week_last.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
     for(let e of week.days) {
         CreateDay({index: week.days.findIndex(e2 => e2===e), date: e});
@@ -175,6 +176,8 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
             __DATA.schulwochen = data.sw;
             __DATA.freietage = data.ft;
             __DATA.klassen = data.klassen;
+            __DATA.tageprowoche = data.tpw;
+            __KLASSE = __KLASSE||__DATA.klassen[0];
             for(let i = 0; i < data.tpw; i++) {InitDay(i);};
         })();
     });
@@ -218,7 +221,7 @@ function CreatePopup(title, seed) {
         "klassen": () => {__DATA.klassen.forEach(e => {
             let a = _CE(__content_container, "button", ".item.klasse.flex"), b = _CE(a, "div", ".klasse--container.flex.y-center"), c = _CE(b, "span", ".content.flex.font-bold");
             c.textContent = e;
-            a.addEventListener("click", () => {__KLASSE = e; LoadWeek(__WEEK); _close();});
+            a.addEventListener("click", () => {__KLASSE = e; localStorage.setItem("klasse", __KLASSE); LoadWeek(__WEEK); _close();});
         });},
         "kurse": () => {
             let __a = _CE(__popup_container, "div", ".specify--wrapper.flex"), __b = _CE(__a, "div", ".specify--container.flex.x-center"),
