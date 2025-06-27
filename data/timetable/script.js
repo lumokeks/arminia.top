@@ -1,1 +1,252 @@
-const _0x1bad01=_0x1a60;(function(_0x2bad92,_0x3942e6){const _0x11f85c=_0x1a60,_0x48287d=_0x2bad92();while(!![]){try{const _0x22ba13=-parseInt(_0x11f85c(0x27b))/0x1*(parseInt(_0x11f85c(0x1ef))/0x2)+parseInt(_0x11f85c(0x213))/0x3+-parseInt(_0x11f85c(0x26e))/0x4*(parseInt(_0x11f85c(0x25a))/0x5)+parseInt(_0x11f85c(0x209))/0x6+parseInt(_0x11f85c(0x1df))/0x7+-parseInt(_0x11f85c(0x253))/0x8*(-parseInt(_0x11f85c(0x273))/0x9)+-parseInt(_0x11f85c(0x1cc))/0xa;if(_0x22ba13===_0x3942e6)break;else _0x48287d['push'](_0x48287d['shift']());}catch(_0x49eb03){_0x48287d['push'](_0x48287d['shift']());}}}(_0x16c1,0x1e90c));let __DATA={'schulwochen':[],'freietage':[],'klassen':[],'kurse':{}},__WEEK=0x0,__KLASSE=localStorage[_0x1bad01(0x1c5)](_0x1bad01(0x1c4)),__RUN_ID=0x0,__SVGS=[],weekdays=[_0x1bad01(0x1e4),_0x1bad01(0x1bd),_0x1bad01(0x269),_0x1bad01(0x26b),'Freitag','Samstag',_0x1bad01(0x1c9)],months=[_0x1bad01(0x251),_0x1bad01(0x241),_0x1bad01(0x223),_0x1bad01(0x1e8),'Mai',_0x1bad01(0x233),_0x1bad01(0x20b),_0x1bad01(0x207),_0x1bad01(0x264),_0x1bad01(0x23a),_0x1bad01(0x255),'Dezember'],o_k=Object[_0x1bad01(0x1c1)],o_v=Object[_0x1bad01(0x1b4)],a_f=Array['from'],http=(_0x1426f4,_0xab6ee7)=>{const _0x4c1f93=_0x1bad01;let _0x1b92cb=__log(undefined,[_0x4c1f93(0x1c6),_0x1426f4]);fetch(_0x1426f4,{'method':'GET'})[_0x4c1f93(0x26c)](_0x46867d=>{const _0x3e7022=_0x4c1f93;if(_0x46867d['ok'])_0x46867d[_0x3e7022(0x22a)]()[_0x3e7022(0x26c)](_0x399216=>{__log(_0x1b92cb,['successfully\x20fetched']),_0xab6ee7({'success':!![],'data':_0x399216});});else _0xab6ee7({'success':![]});});},__log=(_0x5ca2bf,_0xd830c8)=>{const _0x5c75bf=_0x1bad01;!_0x5ca2bf&&(__RUN_ID++,_0x5ca2bf=__RUN_ID);;return console[_0x5c75bf(0x1ba)](new Date()[_0x5c75bf(0x225)]()+_0x5c75bf(0x1d7)+_0x5ca2bf,..._0xd830c8),_0x5ca2bf;};function ConvertDate(_0x5af1ca,_0x5968a4){const _0x2e5aad=_0x1bad01;let _0x2988c0=0x0,_0x3ecc38=0x0,_0x13fb68=0x0;switch(_0x5968a4){case _0x2e5aad(0x1fb):_0x2988c0=_0x5af1ca['substring'](_0x5af1ca[_0x2e5aad(0x238)],_0x5af1ca[_0x2e5aad(0x238)]-0x2),_0x3ecc38=_0x5af1ca[_0x2e5aad(0x212)](_0x5af1ca[_0x2e5aad(0x238)]-0x2,_0x5af1ca[_0x2e5aad(0x238)]-0x4),_0x13fb68=_0x5af1ca[_0x2e5aad(0x212)](_0x5af1ca[_0x2e5aad(0x238)]-0x4,0x0);return[''+'0'[_0x2e5aad(0x1da)](0x2-_0x2988c0[_0x2e5aad(0x238)])+_0x2988c0,''+'0'[_0x2e5aad(0x1da)](0x2-_0x3ecc38[_0x2e5aad(0x238)])+_0x3ecc38,_0x13fb68][_0x2e5aad(0x1b0)]('.');case _0x2e5aad(0x222):_0x2988c0=''+_0x5af1ca[_0x2e5aad(0x226)](),_0x3ecc38=''+(_0x5af1ca[_0x2e5aad(0x1e2)]()+0x1),_0x13fb68=''+_0x5af1ca['getFullYear']();return[''+'0'['repeat'](0x2-_0x2988c0[_0x2e5aad(0x238)])+_0x2988c0,''+'0'[_0x2e5aad(0x1da)](0x2-_0x3ecc38[_0x2e5aad(0x238)])+_0x3ecc38,_0x13fb68][_0x2e5aad(0x1b0)]('.');case _0x2e5aad(0x22b):_0x5af1ca=_0x5af1ca[_0x2e5aad(0x1ae)]('.'),(_0x2988c0=_0x5af1ca[0x0],_0x3ecc38=_0x5af1ca[0x1],_0x13fb68=_0x5af1ca[0x2]);return new Date([_0x13fb68,_0x3ecc38,_0x2988c0][_0x2e5aad(0x1b0)]('-'));case _0x2e5aad(0x20e):_0x5af1ca=_0x5af1ca[_0x2e5aad(0x1ae)]('.'),(_0x2988c0=_0x5af1ca[0x0],_0x3ecc38=_0x5af1ca[0x1],_0x13fb68=_0x5af1ca[0x2]);return[_0x13fb68,_0x3ecc38,_0x2988c0][_0x2e5aad(0x1b0)]('');};};class PlanRequest{constructor(_0xf9d07d,_0x383f4a,_0x331c55,_0x129f6a,_0x4e03ee){const _0x937386=_0x1bad01;if(!_0xf9d07d||!_0x383f4a)return;let _0x1ba4b9=_0x937386(0x21c)+_0xf9d07d+'/',_0x3794ef=_0x937386(0x1cd)+btoa(_0x383f4a[_0x937386(0x21d)]+':'+_0x383f4a[_0x937386(0x1f7)]),_0x26dd16={'p':_0x937386(0x1e3)+_0x4e03ee+'.xml','np':_0x937386(0x20c),'wp':_0x937386(0x1d1)};http(''+_0x1ba4b9+_0x26dd16[_0x331c55],_0xdd844=>{const _0x3cc2fa=_0x937386;if(_0xdd844['success'])_0x129f6a(new DOMParser()[_0x3cc2fa(0x252)](decodeURI(_0xdd844[_0x3cc2fa(0x210)]),_0x3cc2fa(0x242)));else _0x129f6a(undefined);});}}class XMLToInfo{constructor(_0x338093){const _0x3a198d=_0x1bad01;this[_0x3a198d(0x210)]=_0x338093;}['GetKlasse'](_0x2572df){const _0x1543cc=_0x1bad01;return a_f(this[_0x1543cc(0x210)][_0x1543cc(0x275)]('Kl'))['find'](_0x23902f=>_0x23902f[_0x1543cc(0x1bb)](_0x1543cc(0x1dc))['textContent']===_0x2572df);}[_0x1bad01(0x1f8)](_0x55790f){const _0x4a4819=_0x1bad01;let _0x30226e=[];return _0x55790f['querySelectorAll']('Pl\x20>\x20Std')[_0x4a4819(0x23e)](_0x2ed21e=>{const _0x523632=_0x4a4819;let _0x4d5430=_0x2ed21e[_0x523632(0x1bb)]('St'),_0x3cc7b6=_0x2ed21e[_0x523632(0x1bb)]('Le'),_0x4f2089=_0x2ed21e[_0x523632(0x1bb)]('Fa'),_0x4b8d18=_0x2ed21e['querySelector']('Ra'),_0xc04252=_0x2ed21e[_0x523632(0x1bb)]('If');_0x30226e[_0x523632(0x1b8)]({'stunde':{'changed':![],'data':_0x4d5430[_0x523632(0x279)]},'lehrer':{'changed':_0x3cc7b6[_0x523632(0x270)]('LeAe'),'data':_0x3cc7b6[_0x523632(0x279)]},'fach':{'changed':_0x4f2089[_0x523632(0x270)](_0x523632(0x24a)),'data':_0x4f2089[_0x523632(0x279)]},'raum':{'changed':_0x4b8d18['getAttribute'](_0x523632(0x247)),'data':_0x4b8d18['textContent']},'info':{'changed':![],'data':_0xc04252[_0x523632(0x279)]}});}),_0x30226e;}[_0x1bad01(0x1d4)](_0x37da3a){const _0x591682=_0x1bad01;let _0x1af511=[];return _0x37da3a['querySelectorAll'](_0x591682(0x1f2))[_0x591682(0x23e)](_0x39ac24=>_0x1af511[_0x591682(0x1b8)]({'lehrer':_0x39ac24[_0x591682(0x270)](_0x591682(0x248)),'kurs':_0x39ac24[_0x591682(0x279)],'enabled':!![]})),_0x1af511;}[_0x1bad01(0x23d)](){const _0x264f2d=_0x1bad01;let _0x1a8a18={};_0x1a8a18[_0x264f2d(0x271)]=this[_0x264f2d(0x210)][_0x264f2d(0x1bb)](_0x264f2d(0x25f))[_0x264f2d(0x279)];let _0x3cf673=this['data']['querySelector'](_0x264f2d(0x1f1))[_0x264f2d(0x279)][_0x264f2d(0x1ae)](',\x20');return _0x1a8a18[_0x264f2d(0x1c7)]=_0x3cf673[0x0],_0x1a8a18[_0x264f2d(0x1eb)]=_0x3cf673[0x1],_0x1a8a18[_0x264f2d(0x228)]=this['data']['querySelector']('datei')[_0x264f2d(0x279)][_0x264f2d(0x1e0)](_0x264f2d(0x1e3),'')['replaceAll']('.xml',''),_0x1a8a18;}[_0x1bad01(0x236)](){const _0x5a5674=_0x1bad01;let _0x6e6759={};_0x6e6759[_0x5a5674(0x229)]=Number(this[_0x5a5674(0x210)][_0x5a5674(0x1bb)](_0x5a5674(0x245))['textContent']),_0x6e6759['sw']=[],this[_0x5a5674(0x210)][_0x5a5674(0x275)]('Schulwochen\x20>\x20Sw')['forEach'](_0x2f509c=>{const _0x291fdb=_0x5a5674;let _0xd068a8=ConvertDate(_0x2f509c[_0x291fdb(0x270)](_0x291fdb(0x22d)),_0x291fdb(0x22b)),_0x1c3b19=[];for(let _0x30464e=0x0;_0x30464e<_0x6e6759[_0x291fdb(0x229)];_0x30464e++){_0x1c3b19[_0x291fdb(0x1b8)](ConvertDate(_0xd068a8,_0x291fdb(0x222))),_0xd068a8[_0x291fdb(0x1f5)](_0xd068a8[_0x291fdb(0x226)]()+0x1);};_0x6e6759['sw'][_0x291fdb(0x1b8)]({'von':_0x2f509c[_0x291fdb(0x270)](_0x291fdb(0x22d)),'bis':_0x2f509c[_0x291fdb(0x270)](_0x291fdb(0x1f4)),'type':_0x2f509c[_0x291fdb(0x270)](_0x291fdb(0x267)),'days':_0x1c3b19});}),_0x6e6759['ft']=[],this[_0x5a5674(0x210)][_0x5a5674(0x275)]('FreieTage\x20>\x20ft')[_0x5a5674(0x23e)](_0x26a105=>_0x6e6759['ft'][_0x5a5674(0x1b8)](_0x26a105[_0x5a5674(0x279)]));let _0x122546=a_f(this[_0x5a5674(0x210)][_0x5a5674(0x275)](_0x5a5674(0x268)));return _0x122546[_0x5a5674(0x23e)]((_0x694fa9,_0x125682,_0x35b0dd)=>_0x35b0dd[_0x125682]=_0x694fa9[_0x5a5674(0x279)]),_0x6e6759[_0x5a5674(0x1e1)]=_0x122546,_0x6e6759;}}class SVG{constructor(_0x573e4c,_0xac43b){const _0x58bc2a=_0x1bad01;this[_0x58bc2a(0x261)]={'close':_0x58bc2a(0x1d9)};let _0x1958cb=document[_0x58bc2a(0x1f9)](_0x58bc2a(0x216));_0x1958cb[_0x58bc2a(0x278)]=_0x58bc2a(0x1ea)+this['svgs'][_0xac43b]+'\x22/></svg>',_0x573e4c[_0x58bc2a(0x1fc)](_0x1958cb[_0x58bc2a(0x1bb)]('svg'));}}function _0x1a60(_0x3bc9e2,_0x32436d){const _0x383724=_0x16c1();return _0x1a60=function(_0x269a35,_0x2b1cab){_0x269a35=_0x269a35-0x1ab;let _0x57e87e=_0x383724[_0x269a35];return _0x57e87e;},_0x1a60(_0x3bc9e2,_0x32436d);}function _CE(_0x5d46c1,_0x4ccb64,_0x2dd846){const _0x4b6fda=_0x1bad01;if(!_0x5d46c1)return;let _0x48e546=document[_0x4b6fda(0x1f9)](_0x4ccb64);return _0x2dd846=_0x2dd846['split']('.'),_0x2dd846[_0x4b6fda(0x1de)](0x0,0x1),_0x2dd846[_0x4b6fda(0x23e)](_0x127243=>_0x48e546['classList'][_0x4b6fda(0x1fa)](_0x127243)),_0x5d46c1[_0x4b6fda(0x1fc)](_0x48e546),_0x48e546;};function CreateDay(_0x130d11){const _0x3eeb0d=_0x1bad01;let _0x45ecf2=new XMLToInfo(_0x130d11[_0x3eeb0d(0x256)]),_0x4fb2d7=document[_0x3eeb0d(0x1bb)]('.item.day:nth-of-type('+(_0x130d11[_0x3eeb0d(0x239)]+0x1)+')'),_0x4e7166=_0x4fb2d7['querySelector'](_0x3eeb0d(0x1f3)),_0x4f5043=_0x4e7166['querySelector'](_0x3eeb0d(0x208)),_0x14f3e1=_0x4e7166['querySelector'](_0x3eeb0d(0x1e5)),_0x242752=_0x4fb2d7[_0x3eeb0d(0x1bb)](_0x3eeb0d(0x23f));_0x242752[_0x3eeb0d(0x278)]='';if(_0x130d11[_0x3eeb0d(0x256)]){let _0x5a9c29=_0x45ecf2[_0x3eeb0d(0x23d)]();_0x4f5043[_0x3eeb0d(0x279)]=_0x5a9c29[_0x3eeb0d(0x1eb)],_0x14f3e1[_0x3eeb0d(0x279)]=_0x5a9c29[_0x3eeb0d(0x271)],_0x45ecf2[_0x3eeb0d(0x1f8)](_0x45ecf2[_0x3eeb0d(0x21a)](__KLASSE))[_0x3eeb0d(0x23e)](_0x4f8739=>{const _0x476f12=_0x3eeb0d;let _0x5107db=_CE(_0x242752,_0x476f12(0x216),_0x476f12(0x1ee));_0x5107db[_0x476f12(0x27a)](_0x476f12(0x25d),_0x4f8739[_0x476f12(0x25d)][_0x476f12(0x210)]),_0x5107db[_0x476f12(0x27a)](_0x476f12(0x1ca),_0x4f8739['fach'][_0x476f12(0x210)]);let _0x59012a=_CE(_0x5107db,_0x476f12(0x216),_0x476f12(0x1d5));['stunde',_0x476f12(0x25d),_0x476f12(0x1ca),_0x476f12(0x1cb)][_0x476f12(0x23e)](_0x3d3922=>{const _0xfa6059=_0x476f12;let _0xdb4937=_CE(_0x59012a,_0xfa6059(0x24d),_0xfa6059(0x1be)+_0x3d3922);_0xdb4937['textContent']=_0x4f8739[_0x3d3922]['data'];if(_0x4f8739[_0x3d3922][_0xfa6059(0x1cf)])_0xdb4937[_0xfa6059(0x1b3)][_0xfa6059(0x1fa)](_0xfa6059(0x1cf));});let _0x1c02d0=__DATA[_0x476f12(0x25e)][__KLASSE][_0x476f12(0x25b)](_0x53af78=>_0x53af78['lehrer']===_0x4f8739[_0x476f12(0x25d)][_0x476f12(0x210)]&&_0x53af78['kurs']===_0x4f8739['fach']['data']);if(_0x1c02d0&&!_0x1c02d0[_0x476f12(0x1e6)])_0x5107db['style'][_0x476f12(0x1fe)]='none';if(_0x4f8739[_0x476f12(0x250)][_0x476f12(0x210)][_0x476f12(0x238)]>0x0){let _0x4590e5=_CE(_0x5107db,'div',_0x476f12(0x231)),_0x4ee3eb=_CE(_0x4590e5,_0x476f12(0x24d),_0x476f12(0x22f));_0x4ee3eb[_0x476f12(0x279)]=_0x4f8739['info'][_0x476f12(0x210)];};});}else{let _0x3b5de4=_0x130d11[_0x3eeb0d(0x1eb)][_0x3eeb0d(0x1ae)]('.');_0x4f5043[_0x3eeb0d(0x279)]=_0x3b5de4[0x0]+'.\x20'+months[Number(_0x3b5de4[0x1])-0x1]+'\x20'+_0x3b5de4[0x2];};};function LoadWeek(_0xef8199){const _0x357ddf=_0x1bad01;let _0x4bbde3=document['querySelector']('.week.week-first'),_0x4470f8=document['querySelector']('.week.week-last'),_0x4d54c3=document[_0x357ddf(0x1bb)](_0x357ddf(0x1b5)),_0x12883e=document[_0x357ddf(0x275)]('.day-plan--container'),_0x2604bd=document['querySelectorAll'](_0x357ddf(0x1e5)),_0x133d66=document[_0x357ddf(0x275)](_0x357ddf(0x208));_0x12883e[_0x357ddf(0x23e)](_0x2ec1fd=>{_0x2ec1fd['innerHTML']='';}),_0x2604bd['forEach'](_0x539139=>_0x539139[_0x357ddf(0x279)]='wird\x20geladen...'),_0x133d66[_0x357ddf(0x23e)](_0xbd7058=>_0xbd7058[_0x357ddf(0x279)]=_0x357ddf(0x232));let _0x50a3cf=__DATA[_0x357ddf(0x219)][_0xef8199];console[_0x357ddf(0x1ba)](_0x50a3cf,_0xef8199),_0x4bbde3[_0x357ddf(0x279)]=_0x50a3cf['days'][0x0],_0x4470f8[_0x357ddf(0x279)]=_0x50a3cf[_0x357ddf(0x1ad)][_0x50a3cf[_0x357ddf(0x1ad)][_0x357ddf(0x238)]-0x1],_0x4d54c3[_0x357ddf(0x279)]=_0x50a3cf[_0x357ddf(0x1ab)];for(let _0x2b3dda of _0x50a3cf['days']){CreateDay({'index':_0x50a3cf[_0x357ddf(0x1ad)][_0x357ddf(0x263)](_0x55753f=>_0x55753f===_0x2b3dda),'date':_0x2b3dda}),new PlanRequest(0x98e2f5,{'name':'schueler','password':_0x357ddf(0x224)},'p',_0x24d967=>{(function(){const _0xfdb9c6=_0x1a60;if(!_0x24d967||_0xef8199!==__WEEK){_0x2604bd[_0x50a3cf[_0xfdb9c6(0x1ad)][_0xfdb9c6(0x263)](_0x508e37=>_0x508e37===_0x2b3dda)][_0xfdb9c6(0x279)]=_0xfdb9c6(0x21b);return;};CreateDay({'index':_0x50a3cf['days']['findIndex'](_0xb2f643=>_0xb2f643===_0x2b3dda),'xml':_0x24d967});}());},ConvertDate(_0x2b3dda,'datestr_to_vp'));};};function GetWeekFromVPDate(_0x57de0e){const _0x1c20c8=_0x1bad01;return __DATA['schulwochen'][_0x1c20c8(0x263)](_0x1ff949=>_0x1ff949[_0x1c20c8(0x1ad)][_0x1c20c8(0x25b)](_0x47ce37=>_0x47ce37===_0x57de0e));};(function(){const _0x152fc0=_0x1bad01,_0x299c07=(function(){let _0x5b50f5=!![];return function(_0x1441d7,_0xe6a84f){const _0x3602fa=_0x5b50f5?function(){const _0x203a68=_0x1a60;if(_0xe6a84f){const _0x1a642c=_0xe6a84f[_0x203a68(0x1d2)](_0x1441d7,arguments);return _0xe6a84f=null,_0x1a642c;}}:function(){};return _0x5b50f5=![],_0x3602fa;};}()),_0x3baa19=_0x299c07(this,function(){const _0x2e6385=_0x1a60;return _0x3baa19[_0x2e6385(0x21f)]()[_0x2e6385(0x230)](_0x2e6385(0x266))[_0x2e6385(0x21f)]()[_0x2e6385(0x1d3)](_0x3baa19)['search'](_0x2e6385(0x266));});_0x3baa19(),console[_0x152fc0(0x1ba)](atob(_0x152fc0(0x200)),_0x152fc0(0x246));let _0x2216ef=__log(0x0,_0x152fc0(0x1f6)),_0x4477bd=Date[_0x152fc0(0x1bf)]();function _0x331ed8(_0x136f37){const _0x2a1023=_0x152fc0;let _0x1426bf=_CE(document[_0x2a1023(0x1bb)]('.plan--container'),_0x2a1023(0x216),'.item.day.flex.column'),_0x3aab86=_CE(_0x1426bf,'div',_0x2a1023(0x1af)),_0x172e81=_CE(_0x3aab86,'span',_0x2a1023(0x1c8)),_0x3ce4e3=_CE(_0x3aab86,_0x2a1023(0x24d),'.content.day-title--date.flex.font-normal'),_0x36df08=_CE(_0x3aab86,_0x2a1023(0x24d),_0x2a1023(0x1c0)),_0x3eda63=_CE(_0x1426bf,_0x2a1023(0x216),_0x2a1023(0x257));_0x172e81[_0x2a1023(0x279)]=weekdays[_0x136f37],_0x3ce4e3[_0x2a1023(0x279)]='N.V.',_0x36df08[_0x2a1023(0x279)]=_0x2a1023(0x21b);};new PlanRequest(0x98e2f5,{'name':_0x152fc0(0x1ff),'password':_0x152fc0(0x224)},'wp',_0x42ced6=>{(function(){const _0x16360c=_0x1a60;if(!_0x42ced6){console[_0x16360c(0x1ba)](_0x16360c(0x254));return;};let _0x16e8cc=new XMLToInfo(_0x42ced6),_0x127915=_0x16e8cc[_0x16360c(0x236)]();__DATA[_0x16360c(0x219)]=_0x127915['sw'],__DATA['freietage']=_0x127915['ft'],__DATA[_0x16360c(0x1e1)]=_0x127915['klassen'],__DATA[_0x16360c(0x26a)]=_0x127915[_0x16360c(0x229)],__KLASSE=__KLASSE||__DATA[_0x16360c(0x1e1)][0x0];for(let _0x442f3d=0x0;_0x442f3d<_0x127915[_0x16360c(0x229)];_0x442f3d++){_0x331ed8(_0x442f3d);};}());}),new PlanRequest(0x98e2f5,{'name':_0x152fc0(0x1ff),'password':_0x152fc0(0x224)},'np',_0x4e8aa4=>{(function(){const _0xd91336=_0x1a60;if(!_0x4e8aa4){console[_0xd91336(0x1ba)]('data\x20could\x20not\x20be\x20fetched');return;};let _0x132d04=new XMLToInfo(_0x4e8aa4),_0x3eab2a=_0x132d04[_0xd91336(0x23d)]();__WEEK=GetWeekFromVPDate(ConvertDate(_0x3eab2a[_0xd91336(0x228)],_0xd91336(0x1fb)));let _0x192108=localStorage['getItem'](_0xd91336(0x25e));if(_0x192108)_0x192108=JSON['parse'](_0x192108);__DATA[_0xd91336(0x1e1)][_0xd91336(0x23e)](_0x4a592e=>{const _0x8dc1bb=_0xd91336;__DATA[_0x8dc1bb(0x25e)][_0x4a592e]=_0x132d04[_0x8dc1bb(0x1d4)](_0x132d04[_0x8dc1bb(0x21a)](_0x4a592e));_0x192108&&_0x192108[_0x4a592e]&&__DATA['kurse'][_0x4a592e]['forEach'](_0x3742f6=>_0x3742f6[_0x8dc1bb(0x1e6)]=_0x192108[_0x4a592e][_0x8dc1bb(0x25b)](_0x35256a=>_0x35256a[_0x8dc1bb(0x25d)]===_0x3742f6[_0x8dc1bb(0x25d)]&&_0x35256a[_0x8dc1bb(0x25c)]===_0x3742f6['kurs'])[_0x8dc1bb(0x1e6)]);;}),__log(_0x2216ef,_0xd91336(0x227)+(Date[_0xd91336(0x1bf)]()-_0x4477bd)+_0xd91336(0x221)),LoadWeek(__WEEK);}());});}()),document[_0x1bad01(0x1bb)](_0x1bad01(0x1b2))['addEventListener'](_0x1bad01(0x214),()=>{__WEEK>0x0&&(__WEEK--,LoadWeek(__WEEK));;}),document[_0x1bad01(0x1bb)]('.arrow--wrapper\x20>\x20.arrow--container.arrow-right')[_0x1bad01(0x1b9)](_0x1bad01(0x214),()=>{const _0x1796df=_0x1bad01;__WEEK<__DATA[_0x1796df(0x219)][_0x1796df(0x238)]-0x1&&(__WEEK++,LoadWeek(__WEEK));;});function ApplyButtonAnimations(_0x55b9ee){const _0x218699=_0x1bad01,_0x612aa8=(function(){let _0x382176=!![];return function(_0x5bf63f,_0x4ea5db){const _0x59a1b2=_0x382176?function(){const _0x8a525f=_0x1a60;if(_0x4ea5db){const _0x37f0a6=_0x4ea5db[_0x8a525f(0x1d2)](_0x5bf63f,arguments);return _0x4ea5db=null,_0x37f0a6;}}:function(){};return _0x382176=![],_0x59a1b2;};}()),_0x31dfcd=_0x612aa8(this,function(){const _0x496e33=_0x1a60,_0x14ed03=function(){const _0x55eb85=_0x1a60;let _0x520dbc;try{_0x520dbc=Function(_0x55eb85(0x20f)+_0x55eb85(0x272)+');')();}catch(_0x2970dc){_0x520dbc=window;}return _0x520dbc;},_0x23c270=_0x14ed03(),_0x5206c0=new RegExp('[HSPvcSVKHgjwTHzhDJvjdFyHHw]','g'),_0x46620b=_0x496e33(0x1e9)[_0x496e33(0x1db)](_0x5206c0,'')[_0x496e33(0x1ae)](';');let _0x1285a4,_0x38fc0f,_0x1535d0,_0x141acd;const _0x53ba81=function(_0x58a72f,_0x17b3ea,_0x3757a7){const _0x38c04f=_0x496e33;if(_0x58a72f['length']!=_0x17b3ea)return![];for(let _0x37ade7=0x0;_0x37ade7<_0x17b3ea;_0x37ade7++){for(let _0x12cfe7=0x0;_0x12cfe7<_0x3757a7[_0x38c04f(0x238)];_0x12cfe7+=0x2){if(_0x37ade7==_0x3757a7[_0x12cfe7]&&_0x58a72f[_0x38c04f(0x206)](_0x37ade7)!=_0x3757a7[_0x12cfe7+0x1])return![];}}return!![];},_0x52fb5f=function(_0x30010c,_0x3e76eb,_0x39d0c0){return _0x53ba81(_0x3e76eb,_0x39d0c0,_0x30010c);},_0x5c009c=function(_0x3492aa,_0x2d2b91,_0xc574d){return _0x52fb5f(_0x2d2b91,_0x3492aa,_0xc574d);},_0x4be936=function(_0xf7b947,_0x46e527,_0x2ca082){return _0x5c009c(_0x46e527,_0x2ca082,_0xf7b947);};for(let _0x5b4557 in _0x23c270){if(_0x53ba81(_0x5b4557,0x8,[0x7,0x74,0x5,0x65,0x3,0x75,0x0,0x64])){_0x1285a4=_0x5b4557;break;}}for(let _0x177209 in _0x23c270[_0x1285a4]){if(_0x4be936(0x6,_0x177209,[0x5,0x6e,0x0,0x64])){_0x38fc0f=_0x177209;break;}}for(let _0x1cd1a3 in _0x23c270[_0x1285a4]){if(_0x5c009c(_0x1cd1a3,[0x7,0x6e,0x0,0x6c],0x8)){_0x1535d0=_0x1cd1a3;break;}}if(!('~'>_0x38fc0f))for(let _0x527758 in _0x23c270[_0x1285a4][_0x1535d0]){if(_0x52fb5f([0x7,0x65,0x0,0x68],_0x527758,0x8)){_0x141acd=_0x527758;break;}}if(!_0x1285a4||!_0x23c270[_0x1285a4])return;const _0x4d58f6=_0x23c270[_0x1285a4][_0x38fc0f],_0x68a0a6=!!_0x23c270[_0x1285a4][_0x1535d0]&&_0x23c270[_0x1285a4][_0x1535d0][_0x141acd],_0xc3131d=_0x4d58f6||_0x68a0a6;if(!_0xc3131d)return;let _0x29aefe=![];for(let _0x17c236=0x0;_0x17c236<_0x46620b[_0x496e33(0x238)];_0x17c236++){const _0x10ca90=_0x46620b[_0x17c236],_0x576df0=_0x10ca90[0x0]===String[_0x496e33(0x218)](0x2e)?_0x10ca90[_0x496e33(0x259)](0x1):_0x10ca90,_0x3f7bc1=_0xc3131d['length']-_0x576df0[_0x496e33(0x238)],_0xb694eb=_0xc3131d[_0x496e33(0x1b7)](_0x576df0,_0x3f7bc1),_0x507c62=_0xb694eb!==-0x1&&_0xb694eb===_0x3f7bc1;_0x507c62&&((_0xc3131d['length']==_0x10ca90['length']||_0x10ca90[_0x496e33(0x1b7)]('.')===0x0)&&(_0x29aefe=!![]));}if(!_0x29aefe){const _0x1b65ba=new RegExp(_0x496e33(0x1ec),'g'),_0x2274b3=_0x496e33(0x1e7)[_0x496e33(0x1db)](_0x1b65ba,'');_0x23c270[_0x1285a4][_0x1535d0]=_0x2274b3;}});_0x31dfcd();const _0xf6e503=(function(){let _0x104707=!![];return function(_0x5a5c1f,_0x209134){const _0x867fd2=_0x104707?function(){const _0x41522e=_0x1a60;if(_0x209134){const _0x148243=_0x209134[_0x41522e(0x1d2)](_0x5a5c1f,arguments);return _0x209134=null,_0x148243;}}:function(){};return _0x104707=![],_0x867fd2;};}()),_0x566d5e=_0xf6e503(this,function(){const _0x5cfd81=_0x1a60,_0x1ab29c=function(){const _0x592239=_0x1a60;let _0x17d5a4;try{_0x17d5a4=Function(_0x592239(0x20f)+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x1b5c84){_0x17d5a4=window;}return _0x17d5a4;},_0x35b580=_0x1ab29c(),_0x273d42=_0x35b580[_0x5cfd81(0x249)]=_0x35b580[_0x5cfd81(0x249)]||{},_0x5cf597=['log',_0x5cfd81(0x1b1),'info',_0x5cfd81(0x1f0),'exception','table','trace'];for(let _0x27bcd5=0x0;_0x27bcd5<_0x5cf597['length'];_0x27bcd5++){const _0x46a9b3=_0xf6e503[_0x5cfd81(0x1d3)][_0x5cfd81(0x24e)][_0x5cfd81(0x1ac)](_0xf6e503),_0x171f37=_0x5cf597[_0x27bcd5],_0x39f59a=_0x273d42[_0x171f37]||_0x46a9b3;_0x46a9b3[_0x5cfd81(0x202)]=_0xf6e503[_0x5cfd81(0x1ac)](_0xf6e503),_0x46a9b3['toString']=_0x39f59a['toString']['bind'](_0x39f59a),_0x273d42[_0x171f37]=_0x46a9b3;}});_0x566d5e(),_0x55b9ee[_0x218699(0x1b9)](_0x218699(0x26d),()=>_0x55b9ee[_0x218699(0x1bc)][_0x218699(0x217)]=_0x218699(0x20a)),_0x55b9ee['addEventListener']('mouseup',()=>_0x55b9ee[_0x218699(0x1bc)][_0x218699(0x217)]=_0x218699(0x20a)),_0x55b9ee[_0x218699(0x1b9)](_0x218699(0x205),()=>_0x55b9ee['style'][_0x218699(0x217)]=_0x218699(0x235)),_0x55b9ee[_0x218699(0x1b9)](_0x218699(0x20d),()=>_0x55b9ee[_0x218699(0x1bc)]['transform']=_0x218699(0x20a)),_0x55b9ee['addEventListener'](_0x218699(0x201),()=>_0x55b9ee[_0x218699(0x1bc)][_0x218699(0x217)]=_0x218699(0x235));};function _0x16c1(){const _0x55bc33=['.plan-stunde--container.flex.column','189242qrhmcK','error','Kopf\x20>\x20DatumPlan','Kurse\x20>\x20Ku\x20>\x20KKz','.day-title--container','SwDatumBis','setDate','Initialising','password','GetPlan','createElement','add','vp_to_datestr','appendChild','none','display','schueler','ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ4YiAgICAgICAgICBkOGIgICAgICAgICAgICAgIDg4OCAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWThQICAgICAgICAgIFk4UCAgICAgICAgICAgICAgODg4ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAgICAgICAgICAgICAgICAKIDg4ODhiLiAgODg4ZDg4OCA4ODg4OGIuZDg4Yi4gIDg4OCA4ODg4OGIuICA4ODggIDg4ODhiLiAgICAgIDg4ODg4OCAuZDg4Yi4gIDg4ODg4Yi4gIAogICAgIjg4YiA4ODhQIiAgIDg4OCAiODg4ICI4OGIgODg4IDg4OCAiODhiIDg4OCAgICAgIjg4YiAgICAgODg4ICAgZDg4IiI4OGIgODg4ICI4OGIgCi5kODg4ODg4IDg4OCAgICAgODg4ICA4ODggIDg4OCA4ODggODg4ICA4ODggODg4IC5kODg4ODg4ICAgICA4ODggICA4ODggIDg4OCA4ODggIDg4OCAKODg4ICA4ODggODg4ICAgICA4ODggIDg4OCAgODg4IDg4OCA4ODggIDg4OCA4ODggODg4ICA4ODggZDhiIFk4OGIuIFk4OC4uODhQIDg4OCBkODhQIAoiWTg4ODg4OCA4ODggICAgIDg4OCAgODg4ICA4ODggODg4IDg4OCAgODg4IDg4OCAiWTg4ODg4OCBZOFAgICJZODg4ICJZODhQIiAgODg4ODhQIiAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg4OCAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODg4ICAgIA==','touchstart','__proto__','flex','status','mousedown','charCodeAt','August','.content.day-title--date','1053984MaTtYA','translateY(0%)','Juli','Klassen.xml','touchend','datestr_to_vp','return\x20(function()\x20','data','.toggle','substring','178254caAGxE','click','button','div','transform','fromCharCode','schulwochen','GetKlasse','nicht\x20vorhanden','https://arminia.top/PlanDaten/','name','Kursauswahl','toString','.specify.keine--container','ms)','date_to_datestr','März','sm37721','toLocaleTimeString','getDate','Initialisation\x20complete\x20(','c_date','tpw','text','datestr_to_date','scale(0)','SwDatumVon','remove','.content','search','.stunden-info--container.flex','wird\x20geladen...','Juni','.klasse--container.flex.y-center','translateY(2%)','GetWPDaten','.popup--insert','length','index','Oktober','.title--container.flex.y-center','.popup--wrapper.fixed','GetPlanHeaderDaten','forEach','.day-plan--container','.plan-stunde--container','Februar','text/xml','setItem','.specify.alle--container','BaTageProWoche','\x0aarminia.top\x20|\x20Timetable','RaAe','KLe','console','FaAe','true','.popup--container','span','prototype','.specify--wrapper.flex','info','Januar','parseFromString','1784oeXdvc','data\x20could\x20not\x20be\x20fetched','November','xml','.day-plan--container.flex.column','[_=','slice','8155eGQHaH','find','kurs','lehrer','kurse','Kopf\x20>\x20zeitstempel','href','svgs','close','findIndex','September','Keine','(((.+)+)+)+$','SwWo','Kl\x20>\x20Kurz','Mittwoch','tageprowoche','Donnerstag','then','mouseleave','428vBFNBd','false','getAttribute','zeitstempel','{}.constructor(\x22return\x20this\x22)(\x20)','2736NbXjrY','Klassenauswahl','querySelectorAll','.item.kurs.flex','.shadow--container','innerHTML','textContent','setAttribute','1DCbhyj','type','bind','days','split','.day-title--container.flex.baseline','join','warn','.arrow--wrapper\x20>\x20.arrow--container.arrow-left','classList','values','.week-type','.popup--container.flex.column.','indexOf','push','addEventListener','log','querySelector','style','Dienstag','.content.','now','.content.day-title--timestamp.flex.font-normal','keys','.kurs--container.flex.y-center','https://arminia.top/','klasse','getItem','fetching','day','.content.day-title--day.flex.font-normal','Sonntag','fach','raum','580920pnJevQ','Basic\x20','opacity','changed','set_status','SPlanKl_Basis.xml','apply','constructor','GetKurse','.stunden-main-info--container.flex','.close','\x20|\x20ID:\x20','.content.flex.font-bold','m256-200-56-56\x20224-224-224-224\x2056-56\x20224\x20224\x20224-224\x2056\x2056-224\x20224\x20224\x20224-56\x2056-224-224-224\x20224Z','repeat','replace','Kurz','.item.klasse.flex','splice','1046864FkpgSH','replaceAll','klassen','getMonth','PlanKl','Montag','.content.day-title--timestamp','enabled','aGfbouvGyt:bgKlaKBnUkfJVIzTTwAFQJGxrqeK','April','HSarmPvcSVinKiHgjawT.toHpzhDJvjdFyHHw','<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20viewBox=\x220\x20-960\x20960\x20960\x22><path\x20d=\x22','date','[GfvGygKKBUfJVIzTTwAFQJGxrqeK]','stringify'];_0x16c1=function(){return _0x55bc33;};return _0x16c1();}document[_0x1bad01(0x275)](_0x1bad01(0x215))[_0x1bad01(0x23e)](_0x1315bd=>ApplyButtonAnimations(_0x1315bd));function CreatePopup(_0x1fbce6,_0x5014aa){const _0x581bec=_0x1bad01;let _0x3e2ab3=_CE(document[_0x581bec(0x1bb)](_0x581bec(0x237)),_0x581bec(0x216),_0x581bec(0x23c)),_0x4148f4=_CE(_0x3e2ab3,_0x581bec(0x216),_0x581bec(0x1b6)+_0x5014aa),_0x406763=_CE(_0x4148f4,_0x581bec(0x216),_0x581bec(0x23b)),_0x4e8c23=_CE(_0x406763,_0x581bec(0x216),'.title'),_0x5ddbb8=_CE(_0x4e8c23,_0x581bec(0x24d),'.content.font-bold'),_0x5b1dae=_CE(_0x406763,_0x581bec(0x215),_0x581bec(0x1d6)),_0x2a954b=new SVG(_0x5b1dae,_0x581bec(0x262)),_0x3f07b5=_CE(_0x4148f4,_0x581bec(0x216),'.content--container.flex.column');_0x5ddbb8[_0x581bec(0x279)]=_0x1fbce6;function _0xcee4ac(){const _0x271df5=_0x581bec;_0x4148f4['style']['transition']='transform\x201.6s\x20ease,\x20opacity\x200.2s\x20ease',_0x4148f4[_0x271df5(0x1bc)][_0x271df5(0x217)]=_0x271df5(0x22c),_0x4148f4[_0x271df5(0x1bc)][_0x271df5(0x1ce)]='0';document['querySelectorAll'](_0x271df5(0x24c))['length']===0x1&&(document['querySelector'](_0x271df5(0x277))[_0x271df5(0x1bc)][_0x271df5(0x1ce)]='0',setTimeout(()=>_0x3e2ab3[_0x271df5(0x22e)](),0x64));;_0x5014aa==='kurse'&&(document['querySelectorAll'](_0x271df5(0x240))[_0x271df5(0x23e)](_0x1c5730=>{const _0x421c60=_0x271df5;let _0x5eead8=__DATA[_0x421c60(0x25e)][__KLASSE]['find'](_0xda0427=>_0xda0427['lehrer']===_0x1c5730[_0x421c60(0x270)](_0x421c60(0x25d))&&_0xda0427[_0x421c60(0x25c)]===_0x1c5730[_0x421c60(0x270)](_0x421c60(0x1ca)));if(_0x5eead8&&!_0x5eead8[_0x421c60(0x1e6)])_0x1c5730['style']['display']=_0x421c60(0x1fd);else _0x1c5730['style']['display']=_0x421c60(0x203);}),localStorage[_0x271df5(0x243)](_0x271df5(0x25e),JSON[_0x271df5(0x1ed)](__DATA[_0x271df5(0x25e)])));;};_0x5b1dae[_0x581bec(0x1b9)](_0x581bec(0x214),_0xcee4ac);let _0x10bd21={'klassen':()=>{const _0x7cf0ff=_0x581bec;__DATA[_0x7cf0ff(0x1e1)]['forEach'](_0x5daf17=>{const _0x5e688f=_0x7cf0ff;let _0x4b5070=_CE(_0x3f07b5,_0x5e688f(0x215),_0x5e688f(0x1dd)),_0x418e7e=_CE(_0x4b5070,_0x5e688f(0x216),_0x5e688f(0x234)),_0x3d7d1a=_CE(_0x418e7e,_0x5e688f(0x24d),_0x5e688f(0x1d8));_0x3d7d1a[_0x5e688f(0x279)]=_0x5daf17,_0x4b5070[_0x5e688f(0x1b9)](_0x5e688f(0x214),()=>{const _0x5bed28=_0x5e688f;__KLASSE=_0x5daf17,localStorage[_0x5bed28(0x243)](_0x5bed28(0x1c4),__KLASSE),LoadWeek(__WEEK),_0xcee4ac();});});},'kurse':()=>{const _0x319639=_0x581bec;let _0x2e812c=_CE(_0x4148f4,'div',_0x319639(0x24f)),_0x34fcf5=_CE(_0x2e812c,_0x319639(0x216),'.specify--container.flex.x-center'),_0x5c576d=_CE(_0x34fcf5,'button',_0x319639(0x244)),_0x3fb75f=_CE(_0x34fcf5,_0x319639(0x215),_0x319639(0x220));_0x5c576d[_0x319639(0x279)]='Alle',_0x3fb75f[_0x319639(0x279)]=_0x319639(0x265),_0x5c576d['setAttribute']('set_status',!![]),_0x3fb75f[_0x319639(0x27a)](_0x319639(0x1d0),![]),[_0x5c576d,_0x3fb75f][_0x319639(0x23e)](_0x4dcac4=>_0x4dcac4[_0x319639(0x1b9)](_0x319639(0x214),()=>_0x3f07b5[_0x319639(0x275)](_0x319639(0x211))['forEach'](_0x1c89a4=>{const _0x31c95f=_0x319639;_0x264833(null,_0x4dcac4[_0x31c95f(0x270)](_0x31c95f(0x1d0))),_0x1c89a4['setAttribute'](_0x31c95f(0x204),_0x4dcac4[_0x31c95f(0x270)](_0x31c95f(0x1d0)));}))),__DATA[_0x319639(0x25e)][__KLASSE][_0x319639(0x23e)](_0x2079d2=>{const _0x39e9b4=_0x319639;let _0x5469fe=_CE(_0x3f07b5,_0x39e9b4(0x215),_0x39e9b4(0x276)),_0x3c78bf=_CE(_0x5469fe,'div',_0x39e9b4(0x1c2)),_0xe1a481=_CE(_0x3c78bf,'span',_0x39e9b4(0x1d8)),_0x2e003f=_CE(_0x3c78bf,_0x39e9b4(0x24d),'.content.flex.font-normal'),_0x5ac8af=_CE(_0x3c78bf,_0x39e9b4(0x216),_0x39e9b4(0x211));_0xe1a481['textContent']=_0x2079d2[_0x39e9b4(0x25c)],_0x2e003f[_0x39e9b4(0x279)]='@'+_0x2079d2[_0x39e9b4(0x25d)],_0x5ac8af[_0x39e9b4(0x27a)]('status',__DATA[_0x39e9b4(0x25e)][__KLASSE][_0x39e9b4(0x25b)](_0x530c33=>_0x530c33===_0x2079d2)[_0x39e9b4(0x1e6)]),_0x5469fe[_0x39e9b4(0x1b9)]('click',()=>{const _0x2e7160=_0x39e9b4;_0x5ac8af[_0x2e7160(0x27a)](_0x2e7160(0x204),_0x5ac8af['getAttribute'](_0x2e7160(0x204))===_0x2e7160(0x24b)&&_0x2e7160(0x26f)||'true'),_0x264833(_0x2079d2,_0x5ac8af['getAttribute'](_0x2e7160(0x204)));});});function _0x264833(_0x3f5e5d,_0x2ece5f){const _0x2b9b85=_0x319639;_0x2ece5f=_0x2ece5f===_0x2b9b85(0x26f)&&![]||_0x2ece5f===_0x2b9b85(0x24b)&&!![];if(_0x3f5e5d)_0x3f5e5d[_0x2b9b85(0x1e6)]=_0x2ece5f;else __DATA['kurse'][__KLASSE]['forEach'](_0x53e68a=>_0x53e68a[_0x2b9b85(0x1e6)]=_0x2ece5f);};}};_0x10bd21[_0x5014aa](),_0x4148f4[_0x581bec(0x275)]('button')['forEach'](_0x517119=>ApplyButtonAnimations(_0x517119)),setTimeout(()=>{const _0x35459a=_0x581bec;_0x4148f4[_0x35459a(0x1bc)]['opacity']='1',_0x4148f4['style']['transition']='transform\x200.2s\x20ease,\x20opacity\x200.2s\x20ease',_0x4148f4[_0x35459a(0x1bc)]['transform']='scale(1)',document[_0x35459a(0x1bb)](_0x35459a(0x277))[_0x35459a(0x1bc)][_0x35459a(0x1ce)]='1';},0x0);};let actions={'klassen':()=>CreatePopup(_0x1bad01(0x274),_0x1bad01(0x1e1)),'kurse':()=>CreatePopup(_0x1bad01(0x21e),'kurse'),'home':()=>location[_0x1bad01(0x260)]=_0x1bad01(0x1c3),'refresh':()=>LoadWeek(__WEEK)};o_k(actions)['forEach'](_0x5c3f1d=>document[_0x1bad01(0x275)](_0x1bad01(0x258)+_0x5c3f1d+']')[_0x1bad01(0x23e)](_0x2e812f=>_0x2e812f['addEventListener']('click',()=>actions[_0x5c3f1d]())));
+let __DATA = {schulwochen: [], freietage: [], klassen: [], kurse: {}}, __WEEK = 0, __KLASSE = localStorage.getItem("klasse"), __RUN_ID = 0, __SVGS = [];
+let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
+let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) => {
+    let id = __log(undefined, ["fetching", url]);
+    fetch(url, {
+        method: "GET"
+    }).then((e) => {
+        if(e.ok) e["text"]().then(e => {__log(id, ["successfully fetched"]);f({success: true, data: e});});
+        else f({success: false});
+    });
+}, __log = (id, data) => {
+    if(!id) {__RUN_ID++; id = __RUN_ID;};
+    console.log(`${new Date().toLocaleTimeString()} | ID: ${id}`, ...data);
+    return id;
+};
+function ConvertDate(a1, type) {
+    let d = 0, m = 0, y = 0;
+    switch(type) {
+        case "vp_to_datestr":
+            d = a1.substring(a1.length, a1.length - 2), m = a1.substring(a1.length - 2, a1.length - 4), y = a1.substring(a1.length - 4, 0);
+            return [`${"0".repeat(2 - d.length)}${d}`, `${"0".repeat(2 - m.length)}${m}`, y].join(".");
+        case "date_to_datestr":
+            d = `${a1.getDate()}`, m = `${a1.getMonth() + 1}`, y = `${a1.getFullYear()}`;
+            return [`${"0".repeat(2 - d.length)}${d}`, `${"0".repeat(2 - m.length)}${m}`, y].join(".");
+        case "datestr_to_date":
+            a1 = a1.split("."); d = a1[0], m = a1[1], y = a1[2];
+            return new Date([y, m, d].join("-"));
+        case "datestr_to_vp":
+            a1 = a1.split("."); d = a1[0], m = a1[1], y = a1[2];
+            return [y, m, d].join("");
+    };
+};
+class PlanRequest {
+    constructor(school, auth, type, f, a) {
+        if(!school||!auth) return;
+        let url = `https://arminia.top/PlanDaten/${school}/`, token = "Basic " + btoa(`${auth.name}:${auth.password}`), URLS = {
+            "p": `PlanKl${a}.xml`,
+            "np": "Klassen.xml",
+            "wp": "SPlanKl_Basis.xml"
+        };
+        http(`${url}${URLS[type]}`, (a) => {
+            if(a.success) f(new DOMParser().parseFromString(decodeURI(a.data), "text/xml"));
+            else f(undefined);
+        });
+    };
+}
+class XMLToInfo {
+    constructor(data) {
+        this.data = data;
+    };
+    GetKlasse(name) {
+        return a_f(this.data.querySelectorAll("Kl")).find(e => e.querySelector("Kurz").textContent===name);
+    };
+    GetPlan(klasse) {
+        let t = [];
+        klasse.querySelectorAll("Pl > Std").forEach(e => {
+            let ST = e.querySelector("St"), LE = e.querySelector("Le"), FA = e.querySelector("Fa"), RA = e.querySelector("Ra"), IF = e.querySelector("If");
+            t.push({
+                stunde: {changed: false, data: ST.textContent},
+                lehrer: {changed: LE.getAttribute("LeAe"), data: LE.textContent},
+                fach: {changed: FA.getAttribute("FaAe"), data: FA.textContent},
+                raum: {changed: RA.getAttribute("RaAe"), data: RA.textContent},
+                info: {changed: false, data: IF.textContent}
+            });
+        });
+        return t;
+    };
+    GetKurse(klasse) {
+        let t = [];
+        klasse.querySelectorAll("Kurse > Ku > KKz").forEach(e => t.push({lehrer: e.getAttribute("KLe"), kurs: e.textContent, enabled: true}));
+        return t;
+    };
+    GetPlanHeaderDaten() {
+        let t = {};
+        t.zeitstempel = this.data.querySelector("Kopf > zeitstempel").textContent;
+        let pdate = this.data.querySelector("Kopf > DatumPlan").textContent.split(", ");
+        t.day = pdate[0];
+        t.date = pdate[1];
+        t.c_date = this.data.querySelector("datei").textContent.replaceAll("PlanKl", "").replaceAll(".xml", "");
+        return t;
+    };
+    GetWPDaten() {
+        let t = {};
+        t.tpw = Number(this.data.querySelector("BaTageProWoche").textContent);
+        t.sw = [];this.data.querySelectorAll("Schulwochen > Sw").forEach(e => {
+            let date = ConvertDate(e.getAttribute("SwDatumVon"), "datestr_to_date"), days = [];
+            for(let i = 0; i < t.tpw; i++) {days.push(ConvertDate(date, "date_to_datestr"));date.setDate(date.getDate() + 1);};
+            t.sw.push({von: e.getAttribute("SwDatumVon"), bis: e.getAttribute("SwDatumBis"), type: e.getAttribute("SwWo"), days: days});
+        });
+        t.ft = [];this.data.querySelectorAll("FreieTage > ft").forEach(e => t.ft.push(e.textContent));
+        let t2 = a_f(this.data.querySelectorAll("Kl > Kurz"));t2.forEach((a, b, c) => c[b] = a.textContent);
+        t.klassen = t2;
+        return t;
+    };
+}
+class SVG {
+    constructor(a, b) {
+        this.svgs = {"close": "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"}
+        let a2 = document.createElement("div"); a2.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${this.svgs[b]}"/></svg>`;
+        a.appendChild(a2.querySelector("svg"));
+    };
+}
+function _CE(parent, type, classes) {
+    if(!parent) return;
+    let e = document.createElement(type);classes = classes.split(".");classes.splice(0, 1);
+    classes.forEach(e2 => e.classList.add(e2));
+    parent.appendChild(e);
+    return e;
+};
+function CreateDay(data) {
+    let xti = new XMLToInfo(data.xml), __item_day = document.querySelector(`.item.day:nth-of-type(${data.index + 1})`), __day_titlecontainer = __item_day.querySelector(".day-title--container"),
+    __title_date = __day_titlecontainer.querySelector(".content.day-title--date"), __title_timestamp = __day_titlecontainer.querySelector(".content.day-title--timestamp"),
+    __day_plancontainer = __item_day.querySelector(".day-plan--container");__day_plancontainer.innerHTML = "";
+    if(data.xml) {
+        let header_data = xti.GetPlanHeaderDaten();
+        __title_date.textContent = header_data.date; __title_timestamp.textContent = header_data.zeitstempel;
+        xti.GetPlan(xti.GetKlasse(__KLASSE)).forEach(e => {
+            let __plan_stundecontainer = _CE(__day_plancontainer, "div", ".plan-stunde--container.flex.column");__plan_stundecontainer.setAttribute("lehrer", e.lehrer.data);__plan_stundecontainer.setAttribute("fach", e.fach.data);
+            let __stunden_maininfocontainer = _CE(__plan_stundecontainer, "div", ".stunden-main-info--container.flex");
+            ["stunde", "lehrer", "fach", "raum"].forEach(e2 => {
+                let __e = _CE(__stunden_maininfocontainer, "span", `.content.${e2}`);
+                __e.textContent = e[e2].data;
+                if(e[e2].changed) __e.classList.add("changed");
+            });
+            let a = __DATA.kurse[__KLASSE].find(e2 => e2.lehrer===e.lehrer.data&&e2.kurs===e.fach.data);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";
+            if(e.info.data.length>0) {
+                let __stunden_infocontainer = _CE(__plan_stundecontainer, "div", ".stunden-info--container.flex");
+                let __infocontent = _CE(__stunden_infocontainer, "span", ".content");
+                __infocontent.textContent = e.info.data;
+            };
+        });
+    } else {
+        let a = data.date.split(".");
+        __title_date.textContent = `${a[0]}. ${months[Number(a[1]) - 1]} ${a[2]}`;
+    };
+};
+function LoadWeek(i) {
+    let week_first = document.querySelector(".week.week-first"), week_last = document.querySelector(".week.week-last"), week_type = document.querySelector(".week-type"), day_plan__containers = document.querySelectorAll(".day-plan--container"),
+    timestamps = document.querySelectorAll(".content.day-title--timestamp"), title_dates = document.querySelectorAll(".content.day-title--date");
+    day_plan__containers.forEach(e => {
+        e.innerHTML = "";})
+    timestamps.forEach(e => e.textContent = "wird geladen...");
+    title_dates.forEach(e => e.textContent = "wird geladen...");
+    let week = __DATA.schulwochen[i];
+    console.log(week, i);
+    week_first.textContent = week.days[0];week_last.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
+    for(let e of week.days) {
+        CreateDay({index: week.days.findIndex(e2 => e2===e), date: e});
+        new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "p", (a) => {
+            (function() {
+                if(!a||i!==__WEEK) {timestamps[week.days.findIndex(e2 => e2===e)].textContent = "nicht vorhanden";return;};
+                CreateDay({index: week.days.findIndex(e2 => e2===e), xml: a});
+            })();
+        }, ConvertDate(e, "datestr_to_vp"));
+    };
+};
+function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.days.find(e2 => e2===date));};
+(function() {
+    console.log(atob("ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ4YiAgICAgICAgICBkOGIgICAgICAgICAgICAgIDg4OCAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWThQICAgICAgICAgIFk4UCAgICAgICAgICAgICAgODg4ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAgICAgICAgICAgICAgICAKIDg4ODhiLiAgODg4ZDg4OCA4ODg4OGIuZDg4Yi4gIDg4OCA4ODg4OGIuICA4ODggIDg4ODhiLiAgICAgIDg4ODg4OCAuZDg4Yi4gIDg4ODg4Yi4gIAogICAgIjg4YiA4ODhQIiAgIDg4OCAiODg4ICI4OGIgODg4IDg4OCAiODhiIDg4OCAgICAgIjg4YiAgICAgODg4ICAgZDg4IiI4OGIgODg4ICI4OGIgCi5kODg4ODg4IDg4OCAgICAgODg4ICA4ODggIDg4OCA4ODggODg4ICA4ODggODg4IC5kODg4ODg4ICAgICA4ODggICA4ODggIDg4OCA4ODggIDg4OCAKODg4ICA4ODggODg4ICAgICA4ODggIDg4OCAgODg4IDg4OCA4ODggIDg4OCA4ODggODg4ICA4ODggZDhiIFk4OGIuIFk4OC4uODhQIDg4OCBkODhQIAoiWTg4ODg4OCA4ODggICAgIDg4OCAgODg4ICA4ODggODg4IDg4OCAgODg4IDg4OCAiWTg4ODg4OCBZOFAgICJZODg4ICJZODhQIiAgODg4ODhQIiAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg4OCAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODg4ICAgIA=="), "\narminia.top | Timetable");
+    let id = __log(0, "Initialising"), _a = Date.now();
+    function InitDay(i) {
+        let __item_day = _CE(document.querySelector(".plan--container"), "div", ".item.day.flex.column");
+        let __day_titlecontainer = _CE(__item_day, "div", ".day-title--container.flex.baseline");
+        let __title_day = _CE(__day_titlecontainer, "span", ".content.day-title--day.flex.font-normal");
+        let __title_date = _CE(__day_titlecontainer, "span", ".content.day-title--date.flex.font-normal");
+        let __title_timestamp = _CE(__day_titlecontainer, "span", ".content.day-title--timestamp.flex.font-normal");
+        let __day_plancontainer = _CE(__item_day, "div", ".day-plan--container.flex.column");
+        __title_day.textContent = weekdays[i];
+        __title_date.textContent = "N.V.";
+        __title_timestamp.textContent = "nicht vorhanden";
+    };
+    new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "wp", (a) => {
+        (function() {
+            if(!a) {console.log("data could not be fetched"); return;};
+            let xti = new XMLToInfo(a), data = xti.GetWPDaten();
+            __DATA.schulwochen = data.sw;
+            __DATA.freietage = data.ft;
+            __DATA.klassen = data.klassen;
+            __DATA.tageprowoche = data.tpw;
+            __KLASSE = __KLASSE||__DATA.klassen[0];
+            for(let i = 0; i < data.tpw; i++) {InitDay(i);};
+        })();
+    });
+    new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "np", (a) => {
+        (function() {
+            if(!a) {console.log("data could not be fetched"); return;};
+            let xti = new XMLToInfo(a), header_data = xti.GetPlanHeaderDaten();
+            __WEEK = GetWeekFromVPDate(ConvertDate(header_data.c_date, "vp_to_datestr"));let b = localStorage.getItem("kurse");if(b) b = JSON.parse(b);
+            __DATA.klassen.forEach(e => {
+                __DATA.kurse[e] = xti.GetKurse(xti.GetKlasse(e));if(b&&b[e]) {
+                    __DATA.kurse[e].forEach(e2 => e2.enabled = b[e].find(e3 => e3.lehrer===e2.lehrer&&e3.kurs===e2.kurs).enabled);
+                };
+            });
+            __log(id, `Initialisation complete (${Date.now() - _a}ms)`);
+            LoadWeek(__WEEK);
+        })();
+    });
+})();
+document.querySelector(".arrow--wrapper > .arrow--container.arrow-left").addEventListener("click", () => {if(__WEEK>0) {__WEEK--;LoadWeek(__WEEK);};});
+document.querySelector(".arrow--wrapper > .arrow--container.arrow-right").addEventListener("click", () => {if(__WEEK<__DATA.schulwochen.length - 1) {__WEEK++;LoadWeek(__WEEK);};});
+function ApplyButtonAnimations(e) {
+    e.addEventListener("mouseleave", () => e.style.transform = "translateY(0%)");
+    e.addEventListener("mouseup", () => e.style.transform = "translateY(0%)");
+    e.addEventListener("mousedown", () => e.style.transform = "translateY(2%)");
+    e.addEventListener("touchend", () => e.style.transform = "translateY(0%)");
+    e.addEventListener("touchstart", () => e.style.transform = "translateY(2%)");
+};
+document.querySelectorAll("button").forEach(e => ApplyButtonAnimations(e));
+function CreatePopup(title, seed) {
+    let __popup_wrapper = _CE(document.querySelector(".popup--insert"), "div", ".popup--wrapper.fixed"), __popup_container = _CE(__popup_wrapper, "div", `.popup--container.flex.column.${seed}`),
+    __title_container = _CE(__popup_container, "div", ".title--container.flex.y-center"), __title = _CE(__title_container, "div", ".title"), __title_content = _CE(__title, "span", ".content.font-bold"),
+    __close = _CE(__title_container, "button", ".close"), __close_svg = new SVG(__close, "close"), __content_container = _CE(__popup_container, "div", ".content--container.flex.column");__title_content.textContent = title;
+    function _close() {__popup_container.style.transition = "transform 1.6s ease, opacity 0.2s ease";__popup_container.style.transform = "scale(0)";__popup_container.style.opacity = "0";
+        if(document.querySelectorAll(".popup--container").length===1) {document.querySelector(".shadow--container").style.opacity = "0";setTimeout(() => __popup_wrapper.remove(), 100)};
+        if(seed==="kurse") {document.querySelectorAll(".plan-stunde--container").forEach(e => {let a = __DATA.kurse[__KLASSE].find(e2 => e2.lehrer===e.getAttribute("lehrer")&&e2.kurs===e.getAttribute("fach")); if(a&&!a.enabled) e.style.display = "none"; else e.style.display = "flex";});
+            localStorage.setItem("kurse", JSON.stringify(__DATA.kurse));
+        };
+    };
+    __close.addEventListener("click", _close);
+    let seeds = {
+        "klassen": () => {__DATA.klassen.forEach(e => {
+            let a = _CE(__content_container, "button", ".item.klasse.flex"), b = _CE(a, "div", ".klasse--container.flex.y-center"), c = _CE(b, "span", ".content.flex.font-bold");
+            c.textContent = e;
+            a.addEventListener("click", () => {__KLASSE = e; localStorage.setItem("klasse", __KLASSE); LoadWeek(__WEEK); _close();});
+        });},
+        "kurse": () => {
+            let __a = _CE(__popup_container, "div", ".specify--wrapper.flex"), __b = _CE(__a, "div", ".specify--container.flex.x-center"),
+            __c = _CE(__b, "button", ".specify.alle--container"), __d = _CE(__b, "button", ".specify.keine--container");
+            __c.textContent = "Alle";__d.textContent = "Keine";
+            __c.setAttribute("set_status", true);__d.setAttribute("set_status", false);
+            [__c, __d].forEach(a => a.addEventListener("click", () => __content_container.querySelectorAll(".toggle").forEach(e => {update_kurse(null, a.getAttribute("set_status"));e.setAttribute("status", a.getAttribute("set_status"));})));
+            __DATA.kurse[__KLASSE].forEach(e => {
+                let a = _CE(__content_container, "button", ".item.kurs.flex"), b = _CE(a, "div", ".kurs--container.flex.y-center"), c = _CE(b, "span", ".content.flex.font-bold"),
+                d = _CE(b, "span", ".content.flex.font-normal"), f = _CE(b, "div", ".toggle");c.textContent = e.kurs;d.textContent = `@${e.lehrer}`;
+                f.setAttribute("status", __DATA.kurse[__KLASSE].find(e2 => e2===e).enabled);a.addEventListener("click", () => {f.setAttribute("status", (f.getAttribute("status")==="true"&&"false"||"true"));update_kurse(e, f.getAttribute("status"));})
+            });
+            function update_kurse(e, s) {s = (s==="false"&&false||s==="true"&&true);
+                if(e) e.enabled = s; else
+                __DATA.kurse[__KLASSE].forEach(e => e.enabled = s);
+            };
+        }
+    };
+    seeds[seed]();
+    __popup_container.querySelectorAll("button").forEach(e => ApplyButtonAnimations(e));
+    setTimeout(() => {
+        __popup_container.style.opacity = "1";__popup_container.style.transition = "transform 0.2s ease, opacity 0.2s ease";__popup_container.style.transform = "scale(1)";
+        document.querySelector(".shadow--container").style.opacity = "1";
+    }, 0);
+};
+let actions = {klassen: () => CreatePopup("Klassenauswahl", "klassen"), kurse: () => CreatePopup("Kursauswahl", "kurse"), home: () => location.href = "https://arminia.top/", refresh: () => LoadWeek(__WEEK)};
+o_k(actions).forEach(e => document.querySelectorAll(`[_=${e}]`).forEach(e2 => e2.addEventListener("click", () => actions[e]())));
