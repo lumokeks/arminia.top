@@ -2,12 +2,12 @@ let __DATA = {schulwochen: [], freietage: [], klassen: [], kurse: {}}, __WEEK = 
 let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) => {
-    let id = __log(undefined, ["fetching", url]);
+    let id = __log(undefined, ["fetching", JSON.stringify(headers)]);
     fetch(url, {
         method: "GET"
-    }).then((e) => {
-        if(e.ok) e["text"]().then(e => {__log(id, ["successfully fetched"]);f({success: true, data: e});});
-        else f({success: false});
+    }).then((res) => {
+        if(res.ok) {__log(id, ["successfully fetched"]);res["text"]().then(e => f({success: true, data: e});};
+        else {__log(id, ["could not fetch"]);f({success: false});};
     });
 }, __log = (id, data) => {
     if(!id) {__RUN_ID++; id = __RUN_ID;};
@@ -55,21 +55,26 @@ class XMLToInfo {
     GetPlan(klasse) {
         let t = [];
         klasse.querySelectorAll("Pl > Std").forEach(e => {
-            let ST = e.querySelector("St"), LE = e.querySelector("Le"), FA = e.querySelector("Fa"), RA = e.querySelector("Ra"), IF = e.querySelector("If");
+            let ST = e.querySelector("St"), LE = e.querySelector("Le"), FA = e.querySelector("Fa"), RA = e.querySelector("Ra"), IF = e.querySelector("If"), NR = e.querySelector("Nr");
             t.push({
                 stunde: {changed: false, data: ST.textContent},
                 lehrer: {changed: LE.getAttribute("LeAe"), data: LE.textContent},
                 fach: {changed: FA.getAttribute("FaAe"), data: FA.textContent},
                 raum: {changed: RA.getAttribute("RaAe"), data: RA.textContent},
-                info: {changed: false, data: IF.textContent}
+                info: {changed: false, data: (IF&&IF.textContent||!IF&&null)},
+                nr: {changed: false, data: (NR&&NR.textContent||!NR&&null)}
             });
         });
         return t;
     };
     GetKurse(klasse) {
         let t = [];
-        klasse.querySelectorAll("Kurse > Ku > KKz").forEach(e => t.push({lehrer: e.getAttribute("KLe"), kurs: e.textContent, enabled: true}));
+        klasse.querySelectorAll("Unterricht > Ue > UeNr").forEach(e => t.push({lehrer: e.getAttribute("UeLe"), fach: e.getAttribute("UeFa"), kurs: e.getAttribute("UeGr"),
+            enabled: true, uenr: e.textContent}));
         return t;
+    };
+    GetUnterrichtIndex(klasse, le, fa) {
+        return a_f(klasse.querySelectorAll("Unterricht > Ue > UeNr")).find(e => e.getAttribute("UeLe")===le&&e.getAttribute("UeGr")===fa);
     };
     GetPlanHeaderDaten() {
         let t = {};
@@ -117,13 +122,16 @@ function CreateDay(data) {
         __title_date.textContent = header_data.date; __title_timestamp.textContent = header_data.zeitstempel;
         xti.GetPlan(xti.GetKlasse(__KLASSE)).forEach(e => {
             let __plan_stundecontainer = _CE(__day_plancontainer, "div", ".plan-stunde--container.flex.column");__plan_stundecontainer.setAttribute("lehrer", e.lehrer.data);__plan_stundecontainer.setAttribute("fach", e.fach.data);
+            if(e.nr.data) __plan_stundecontainer.setAttribute("i", e.nr.data);
             let __stunden_maininfocontainer = _CE(__plan_stundecontainer, "div", ".stunden-main-info--container.flex");
             ["stunde", "lehrer", "fach", "raum"].forEach(e2 => {
                 let __e = _CE(__stunden_maininfocontainer, "span", `.content.${e2}`);
                 __e.textContent = e[e2].data;
                 if(e[e2].changed) __e.classList.add("changed");
             });
-            let a = __DATA.kurse[__KLASSE].find(e2 => e2.lehrer===e.lehrer.data&&e2.kurs===e.fach.data);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";
+            let a = xti.GetUnterrichtIndex(xti.GetKlasse(__KLASSE), e.lehrer.data, e.fach.data);if(a) {
+                a = __DATA.kurse[__KLASSE].find(e => e.uenr===a);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";
+            };
             if(e.info.data.length>0) {
                 let __stunden_infocontainer = _CE(__plan_stundecontainer, "div", ".stunden-info--container.flex");
                 let __infocontent = _CE(__stunden_infocontainer, "span", ".content");
@@ -140,10 +148,9 @@ function LoadWeek(i) {
     timestamps = document.querySelectorAll(".content.day-title--timestamp"), title_dates = document.querySelectorAll(".content.day-title--date");
     day_plan__containers.forEach(e => {
         e.innerHTML = "";})
-    timestamps.forEach(e => e.textContent = "wird geladen...");
-    title_dates.forEach(e => e.textContent = "wird geladen...");
+    timestamps.forEach(e => e.textContent = "wird geladen..."); // lang
+    title_dates.forEach(e => e.textContent = "wird geladen..."); // lang
     let week = __DATA.schulwochen[i];
-    console.log(week, i);
     week_first.textContent = week.days[0];week_last.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
     for(let e of week.days) {
         CreateDay({index: week.days.findIndex(e2 => e2===e), date: e});
@@ -157,7 +164,6 @@ function LoadWeek(i) {
 };
 function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.days.find(e2 => e2===date));};
 (function() {
-    console.log(atob("ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ4YiAgICAgICAgICBkOGIgICAgICAgICAgICAgIDg4OCAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWThQICAgICAgICAgIFk4UCAgICAgICAgICAgICAgODg4ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAgICAgICAgICAgICAgICAKIDg4ODhiLiAgODg4ZDg4OCA4ODg4OGIuZDg4Yi4gIDg4OCA4ODg4OGIuICA4ODggIDg4ODhiLiAgICAgIDg4ODg4OCAuZDg4Yi4gIDg4ODg4Yi4gIAogICAgIjg4YiA4ODhQIiAgIDg4OCAiODg4ICI4OGIgODg4IDg4OCAiODhiIDg4OCAgICAgIjg4YiAgICAgODg4ICAgZDg4IiI4OGIgODg4ICI4OGIgCi5kODg4ODg4IDg4OCAgICAgODg4ICA4ODggIDg4OCA4ODggODg4ICA4ODggODg4IC5kODg4ODg4ICAgICA4ODggICA4ODggIDg4OCA4ODggIDg4OCAKODg4ICA4ODggODg4ICAgICA4ODggIDg4OCAgODg4IDg4OCA4ODggIDg4OCA4ODggODg4ICA4ODggZDhiIFk4OGIuIFk4OC4uODhQIDg4OCBkODhQIAoiWTg4ODg4OCA4ODggICAgIDg4OCAgODg4ICA4ODggODg4IDg4OCAgODg4IDg4OCAiWTg4ODg4OCBZOFAgICJZODg4ICJZODhQIiAgODg4ODhQIiAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg4OCAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODg4ICAgIA=="), "\narminia.top | Timetable");
     let id = __log(0, "Initialising"), _a = Date.now();
     function InitDay(i) {
         let __item_day = _CE(document.querySelector(".plan--container"), "div", ".item.day.flex.column");
@@ -167,8 +173,8 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
         let __title_timestamp = _CE(__day_titlecontainer, "span", ".content.day-title--timestamp.flex.font-normal");
         let __day_plancontainer = _CE(__item_day, "div", ".day-plan--container.flex.column");
         __title_day.textContent = weekdays[i];
-        __title_date.textContent = "N.V.";
-        __title_timestamp.textContent = "nicht vorhanden";
+        __title_date.textContent = "N.V."; // lang
+        __title_timestamp.textContent = "nicht vorhanden"; // lang
     };
     new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "wp", (a) => {
         (function() {
@@ -189,7 +195,7 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
             __WEEK = GetWeekFromVPDate(ConvertDate(header_data.c_date, "vp_to_datestr"));let b = localStorage.getItem("kurse");if(b) b = JSON.parse(b);
             __DATA.klassen.forEach(e => {
                 __DATA.kurse[e] = xti.GetKurse(xti.GetKlasse(e));if(b&&b[e]) {
-                    __DATA.kurse[e].forEach(e2 => e2.enabled = b[e].find(e3 => e3.lehrer===e2.lehrer&&e3.kurs===e2.kurs).enabled);
+                    __DATA.kurse[e].forEach(e2 => e2.enabled = b[e].find(e3 => e3.uenr===e2.uenr).enabled);
                 };
             });
             __log(id, `Initialisation complete (${Date.now() - _a}ms)`);
@@ -213,7 +219,8 @@ function CreatePopup(title, seed) {
     __close = _CE(__title_container, "button", ".close"), __close_svg = new SVG(__close, "close"), __content_container = _CE(__popup_container, "div", ".content--container.flex.column");__title_content.textContent = title;
     function _close() {__popup_container.style.transition = "transform 1.6s ease, opacity 0.2s ease";__popup_container.style.transform = "scale(0)";__popup_container.style.opacity = "0";
         if(document.querySelectorAll(".popup--container").length===1) {document.querySelector(".shadow--container").style.opacity = "0";setTimeout(() => __popup_wrapper.remove(), 100)};
-        if(seed==="kurse") {document.querySelectorAll(".plan-stunde--container").forEach(e => {let a = __DATA.kurse[__KLASSE].find(e2 => e2.lehrer===e.getAttribute("lehrer")&&e2.kurs===e.getAttribute("fach")); if(a&&!a.enabled) e.style.display = "none"; else e.style.display = "flex";});
+        if(seed==="kurse") {
+            document.querySelectorAll(".plan-stunde--container").forEach(e => {let a = __DATA.kurse[__KLASSE].find(e2 => e2.uenr===e.getAttribute("i")); if(a&&!a.enabled) e.style.display = "none"; else e.style.display = "flex";});
             localStorage.setItem("kurse", JSON.stringify(__DATA.kurse));
         };
     };
@@ -227,12 +234,12 @@ function CreatePopup(title, seed) {
         "kurse": () => {
             let __a = _CE(__popup_container, "div", ".specify--wrapper.flex"), __b = _CE(__a, "div", ".specify--container.flex.x-center"),
             __c = _CE(__b, "button", ".specify.alle--container"), __d = _CE(__b, "button", ".specify.keine--container");
-            __c.textContent = "Alle";__d.textContent = "Keine";
+            __c.textContent = "Alle";__d.textContent = "Keine"; // lang
             __c.setAttribute("set_status", true);__d.setAttribute("set_status", false);
             [__c, __d].forEach(a => a.addEventListener("click", () => __content_container.querySelectorAll(".toggle").forEach(e => {update_kurse(null, a.getAttribute("set_status"));e.setAttribute("status", a.getAttribute("set_status"));})));
             __DATA.kurse[__KLASSE].forEach(e => {
                 let a = _CE(__content_container, "button", ".item.kurs.flex"), b = _CE(a, "div", ".kurs--container.flex.y-center"), c = _CE(b, "span", ".content.flex.font-bold"),
-                d = _CE(b, "span", ".content.flex.font-normal"), f = _CE(b, "div", ".toggle");c.textContent = e.kurs;d.textContent = `@${e.lehrer}`;
+                d = _CE(b, "span", ".content.flex.font-normal"), f = _CE(b, "div", ".toggle");c.textContent = e.kurs||e.fach;d.textContent = `@${e.lehrer}`;
                 f.setAttribute("status", __DATA.kurse[__KLASSE].find(e2 => e2===e).enabled);a.addEventListener("click", () => {f.setAttribute("status", (f.getAttribute("status")==="true"&&"false"||"true"));update_kurse(e, f.getAttribute("status"));})
             });
             function update_kurse(e, s) {s = (s==="false"&&false||s==="true"&&true);
