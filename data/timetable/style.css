@@ -261,18 +261,20 @@ footer {
 }
 footer > .footer--container {flex: 1;}
 footer > .footer--container > .actions--wrapper {flex: 1;}
-footer > .footer--container > .actions--wrapper > .item.action > .action--container {height: calc(100% - 16px);}
+footer > .footer--container > .actions--wrapper > .item.action > .action--container {
+    height: calc(100% - 16px);
+}
 #made-by {color: #FFFFFF;}
-@media (width<600px) {
+@media (width<900px) {
     .week-select--container {width: calc(100vw - 60px);}
     .item.day {min-width: calc(100vw - 20px);}
     .popup--container {width: calc(100vw - 60px);}
+    .header--wrapper > .header--container > .actions--wrapper {display: none;}
+    footer {display: flex;}
+    .plan--container {margin-bottom: 60px;}
 }
 @media (width<1252px) {
-    .plan--container {margin-bottom: 60px;}
-    .header--wrapper > .header--container > .actions--wrapper {display: none;}
     .action--container > span.content {display: none;}
     .week-select--wrapper {flex: 1; padding: 0px 10px;}
-    .week-select--wrapper > .week-select--container {flex: 1;} 
-    footer {display: flex;}
+    .week-select--wrapper > .week-select--container {flex: 1;}
 }
