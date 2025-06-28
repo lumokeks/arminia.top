@@ -105,7 +105,7 @@ body {
     flex: 0.33333333333;
 }
 .week-select--container {
-    background: hsl(236, 0%, 7%);
+    background: hsl(236, 0%, 8%);
     border: 1px solid hsl(236, 0%, 16%);
     border-radius: 4px;
     padding: 10px 20px;
@@ -138,7 +138,7 @@ body {
     flex: 1;
 }
 .action--container {
-    background: hsl(236, 0%, 7%);
+    background: hsl(236, 0%, 8%);
     border: 1px solid hsl(236, 0%, 16%);
     border-radius: 4px;
     padding: 10px 20px;
@@ -235,7 +235,7 @@ button {
     gap: 10px;
 }
 .specify--container > .specify {
-    background: hsl(236, 2%, 8%);
+    background: hsl(236, 0%, 8%);
     border: 1px solid hsl(236, 0%, 14%);
     border-radius: 4px;
     color: #FFFFFF;
