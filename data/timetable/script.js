@@ -6,7 +6,7 @@ let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) =>
     fetch(url, {
         method: "GET"
     }).then((res) => {
-        if(res.ok) {__log(id, ["successfully fetched"]);res["text"]().then(e => f({success: true, data: e});};
+        if(res.ok) {__log(id, ["successfully fetched"]);res["text"]().then(e => f({success: true, data: e}));};
         else {__log(id, ["could not fetch"]);f({success: false});};
     });
 }, __log = (id, data) => {
