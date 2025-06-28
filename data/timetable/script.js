@@ -2,7 +2,7 @@ let __DATA = {schulwochen: [], freietage: [], klassen: [], kurse: {}}, __WEEK = 
 let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) => {
-    let id = __log(undefined, ["fetching", JSON.stringify(headers)]);
+    let id = __log(undefined, ["fetching", url]);
     fetch(url, {
         method: "GET"
     }).then((res) => {
