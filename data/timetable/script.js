@@ -34,7 +34,7 @@ function ConvertDate(a1, type) {
 class PlanRequest {
     constructor(school, auth, type, f, a) {
         if(!school||!auth) return;
-        let url = `https://arminia.top/PlanDaten/${school}/`, token = "Basic " + btoa(`${auth.name}:${auth.password}`), URLS = {
+        let url = `https://arminia.top/data/PlanDaten/${school}/`, token = "Basic " + btoa(`${auth.name}:${auth.password}`), URLS = {
             "p": `PlanKl${a}.xml`,
             "np": "Klassen.xml",
             "wp": "SPlanKl_Basis.xml"
