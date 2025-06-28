@@ -122,7 +122,7 @@ function CreateDay(data) {
         __title_date.textContent = header_data.date; __title_timestamp.textContent = header_data.zeitstempel;
         xti.GetPlan(xti.GetKlasse(__KLASSE)).forEach(e => {
             let __plan_stundecontainer = _CE(__day_plancontainer, "div", ".plan-stunde--container.flex.column");__plan_stundecontainer.setAttribute("lehrer", e.lehrer.data);__plan_stundecontainer.setAttribute("fach", e.fach.data);
-            if(e.nr.data) {__plan_stundecontainer.setAttribute("i", e.nr.data);let a = __DATA.kurse[__KLASSE].find(e => e.uenr===e.nr.data);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";};
+            if(e.nr.data) {__plan_stundecontainer.setAttribute("i", e.nr.data);let a = __DATA.kurse[__KLASSE].find(e2 => e2.uenr===e.nr.data);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";};
             let __stunden_maininfocontainer = _CE(__plan_stundecontainer, "div", ".stunden-main-info--container.flex");
             ["stunde", "lehrer", "fach", "raum"].forEach(e2 => {
                 let __e = _CE(__stunden_maininfocontainer, "span", `.content.${e2}`);
