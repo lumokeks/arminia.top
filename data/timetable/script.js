@@ -129,9 +129,7 @@ function CreateDay(data) {
                 __e.textContent = e[e2].data;
                 if(e[e2].changed) __e.classList.add("changed");
             });
-            let a = xti.GetUnterrichtIndex(xti.GetKlasse(__KLASSE), e.lehrer.data, e.fach.data);if(a) {
-                a = __DATA.kurse[__KLASSE].find(e => e.uenr===a);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";
-            };
+            let a = __DATA.kurse[__KLASSE].find(e => e.uenr===e.nr.data);if(a&&!a.enabled) __plan_stundecontainer.style.display = "none";
             if(e.info.data.length>0) {
                 let __stunden_infocontainer = _CE(__plan_stundecontainer, "div", ".stunden-info--container.flex");
                 let __infocontent = _CE(__stunden_infocontainer, "span", ".content");
