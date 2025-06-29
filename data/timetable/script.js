@@ -193,20 +193,20 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
             __DATA.tageprowoche = data.tpw;
             __KLASSE = __KLASSE||__DATA.klassen[0];
             for(let i = 0; i < data.tpw; i++) {InitDay(i);};
-        })();
-    });
-    new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "np", (a) => {
-        (function() {
-            if(!a) {console.log("data could not be fetched"); return;};
-            let xti = new XMLToInfo(a), header_data = xti.GetPlanHeaderDaten();
-            __WEEK = GetWeekFromVPDate(ConvertDate(header_data.c_date, "vp_to_datestr"));let b = localStorage.getItem("kurse");if(b) b = JSON.parse(b);
-            __DATA.klassen.forEach(e => {
-                __DATA.kurse[e] = xti.GetKurse(xti.GetKlasse(e));if(b&&b[e]) {
-                    __DATA.kurse[e].forEach(e2 => e2.enabled = b[e].find(e3 => e3.uenr===e2.uenr).enabled);
-                };
+            new PlanRequest(10019573, {name: "schueler", password: "sm37721"}, "np", (a) => {
+                (function() {
+                    if(!a) {console.log("data could not be fetched"); return;};
+                    let xti = new XMLToInfo(a), header_data = xti.GetPlanHeaderDaten();
+                    __WEEK = GetWeekFromVPDate(ConvertDate(header_data.c_date, "vp_to_datestr"));let b = localStorage.getItem("kurse");if(b) b = JSON.parse(b);
+                    __DATA.klassen.forEach(e => {
+                        __DATA.kurse[e] = xti.GetKurse(xti.GetKlasse(e));if(b&&b[e]) {
+                            __DATA.kurse[e].forEach(e2 => e2.enabled = b[e].find(e3 => e3.uenr===e2.uenr).enabled);
+                        };
+                    });
+                    __log(id, `Initialisation complete (${Date.now() - _a}ms)`);
+                    LoadWeek(__WEEK);
+                })();
             });
-            __log(id, `Initialisation complete (${Date.now() - _a}ms)`);
-            LoadWeek(__WEEK);
         })();
     });
 })();
