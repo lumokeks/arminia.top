@@ -135,6 +135,12 @@ function CreateDay(data) {
                 __infocontent.textContent = e.info.data;
             };
         });
+        let t = xti.GetZusatz();if(t.length>0) {
+            let __day_zusatzcontainer = _CE(__item_day, "div", ".day-zusatz--container.flex.column");
+            t.forEach(e => {
+                _CE(__day_zusatzcontainer, "span", ".content").textContent = e;
+            })
+        };
     } else {
         let a = data.date.split(".");
         __title_date.textContent = `${a[0]}. ${months[Number(a[1]) - 1]} ${a[2]}`;
@@ -142,9 +148,10 @@ function CreateDay(data) {
 };
 function LoadWeek(i) {
     let week_first = document.querySelector(".week.week-first"), week_last = document.querySelector(".week.week-last"), week_type = document.querySelector(".week-type"), day_plan__containers = document.querySelectorAll(".day-plan--container"),
-    timestamps = document.querySelectorAll(".content.day-title--timestamp"), title_dates = document.querySelectorAll(".content.day-title--date");
+    day_zusatz__containers =  document.querySelectorAll(".day-zusatz--container"),timestamps = document.querySelectorAll(".content.day-title--timestamp"), title_dates = document.querySelectorAll(".content.day-title--date");
     day_plan__containers.forEach(e => {
         e.innerHTML = "";})
+    day_zusatz__containers.forEach(e => e.remove());
     timestamps.forEach(e => e.textContent = "wird geladen..."); // lang
     title_dates.forEach(e => e.textContent = "wird geladen..."); // lang
     let week = __DATA.schulwochen[i];
