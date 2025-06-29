@@ -69,8 +69,7 @@ class XMLToInfo {
     };
     GetKurse(klasse) {
         let t = [];
-        klasse.querySelectorAll("Unterricht > Ue > UeNr").forEach(e => t.push({lehrer: e.getAttribute("UeLe"), fach: e.getAttribute("UeFa"), kurs: e.getAttribute("UeGr"),
-            enabled: true, uenr: e.textContent}));
+        klasse.querySelectorAll("Unterricht > Ue > UeNr").forEach(e => t.push({lehrer: e.getAttribute("UeLe"), fach: e.getAttribute("UeFa"), kurs: e.getAttribute("UeGr"), enabled: true, uenr: e.textContent}));
         return t;
     };
     GetUnterrichtIndex(klasse, le, fa) {
@@ -84,6 +83,10 @@ class XMLToInfo {
         t.date = pdate[1];
         t.c_date = this.data.querySelector("datei").textContent.replaceAll("PlanKl", "").replaceAll(".xml", "");
         return t;
+    };
+    GetZusatz() {
+        let t = a_f(this.data.querySelectorAll("ZiZeile"));
+        return t.map(e => e.textContent);
     };
     GetWPDaten() {
         let t = {};
