@@ -32,9 +32,9 @@ body {
     max-height: calc(100% - 90px);
 }
 .plan--container {
-    padding: 10px;
     overflow: auto;
     gap: 16px;
+    padding: 10px;
     flex: 1;
 }
 .plan--container::-webkit-scrollbar {display: none;}
@@ -100,6 +100,14 @@ body {
     color: #a1a1a1;
     padding: 0px;
     margin: 0px;
+}
+.day-zusatz--container {
+    background: hsl(236, 0%, 8%);
+    padding: 10px;
+}
+.day-zusatz--container > span.content {
+    font-size: 15px;
+    color: hsl(0, 0%, 60%);
 }
 .week-select--wrapper {
     flex: 0.33333333333;
