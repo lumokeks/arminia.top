@@ -26,6 +26,9 @@ body {
     height: 80px;
     border-bottom: 1px solid hsl(236, 0%, 20%);
 }
+*[display="flex"] {
+    background: #FFFFFF;
+}
 .plan--wrapper {
     flex: 1;
     overflow: hidden;
@@ -243,7 +246,7 @@ button {
     gap: 10px;
 }
 .specify--container > .specify {
-    background: hsl(236, 2%, 9%);
+    background: hsl(236, 2%, 10%);
     border: 1px solid hsl(236, 0%, 14%);
     border-radius: 4px;
     color: #FFFFFF;
@@ -280,8 +283,10 @@ footer > .footer--container > .actions--wrapper > .item.action > .action--contai
     .header--wrapper > .header--container > .actions--wrapper {display: none;}
     footer {display: flex;}
     .plan--container {margin-bottom: 60px;}
+    .action--container {height: calc(100% - 30px);}
 }
 @media (width<1252px) {
+    .action--container {height: calc(100% - 20px);}
     .action--container > span.content {display: none;}
     .week-select--wrapper {flex: 1; padding: 0px 10px;}
     .week-select--wrapper > .week-select--container {flex: 1;}
