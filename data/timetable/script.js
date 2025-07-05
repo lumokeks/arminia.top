@@ -1,4 +1,4 @@
-let __DATA = {schulwochen: [], freietage: [], klassen: [], kurse: {}}, __WEEK = 0, __KLASSE = localStorage.getItem("klasse"), __RUN_ID = 0, __SVGS = [];
+let __DATA = {schulwochen: [], freietage: [], klassen: [], kurse: {}}, __WEEK = 0, __KLASSE = "", __RUN_ID = 0, __SVGS = [];
 let weekdays = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
 let months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) => {
@@ -13,7 +13,7 @@ let o_k = Object.keys, o_v = Object.values, a_f = Array.from, http = (url, f) =>
     if(!id) {__RUN_ID++; id = __RUN_ID;};
     console.log(`${new Date().toLocaleTimeString()} | ID: ${id}`, ...data);
     return id;
-};
+}, __USE_LS = true, __save = (id, data) => {if(!__USE_LS) return;return localStorage.setItem(`saved#${id}`, data);}, __load = (id) => {if(!__USE_LS) return;return localStorage.getItem(`saved#${id}`);};
 function ConvertDate(a1, type) {
     let d = 0, m = 0, y = 0;
     switch(type) {
@@ -32,15 +32,25 @@ function ConvertDate(a1, type) {
     };
 };
 class PlanRequest {
-    constructor(school, auth, type, f, a) {
+    constructor(school, auth, type, f, a, ignore_cache) {
         if(!school||!auth) return;
-        let url = `https://arminia.top/data/PlanDaten/${school}/`, token = "Basic " + btoa(`${auth.name}:${auth.password}`), URLS = {
+        // let url = `https://www.stundenplan24.de/${school}`, token = "Basic " + btoa(`${auth.name}:${auth.password}`), URLS = {
+        //     "p": `/mobil/mobdaten/PlanKl${a}.xml`,
+        //     "np": "/mobil/mobdaten/Klassen.xml",
+        //     "wp": "/wplan/wdatenk/SPlanKl_Basis.xml"
+        // };
+        // http({url: `${url}${URLS[type]}`, http: true, authorization: token}, (a) => {
+        //     if(a.success) f(new DOMParser().parseFromString(a.data, "text/xml"));
+        //     else f(undefined);
+        // });
+        let token = "Basic " + btoa(`${auth.name}:${auth.password}`), URLS = {
             "p": `PlanKl${a}.xml`,
             "np": "Klassen.xml",
             "wp": "SPlanKl_Basis.xml"
-        };
-        http(`${url}${URLS[type]}`, (a) => {
-            if(a.success) f(new DOMParser().parseFromString(decodeURI(a.data), "text/xml"));
+        }, url = `https://arminia.top/data/PlanDaten/${school}/${URLS[type]}`, cached = __load(url);
+        if(cached&&!ignore_cache) {f(new DOMParser().parseFromString(decodeURI(cached), "text/xml"));return;};
+        http({url: url, http: true, authorization: token}, (a) => {
+            if(a.success) {__save(url, a.data);f(new DOMParser().parseFromString(decodeURI(a.data), "text/xml"));}
             else f(undefined);
         });
     };
@@ -55,9 +65,9 @@ class XMLToInfo {
     GetPlan(klasse) {
         let t = [];
         klasse.querySelectorAll("Pl > Std").forEach(e => {
-            let ST = e.querySelector("St"), LE = e.querySelector("Le"), FA = e.querySelector("Fa"), RA = e.querySelector("Ra"), IF = e.querySelector("If"), NR = e.querySelector("Nr");
+            let ST = e.querySelector("St"), BG = e.querySelector("Beginn"), LE = e.querySelector("Le"), FA = e.querySelector("Fa"), RA = e.querySelector("Ra"), IF = e.querySelector("If"), NR = e.querySelector("Nr");
             t.push({
-                stunde: {changed: false, data: ST.textContent},
+                stunde: {changed: false, data: ST.textContent, beginn: BG.textContent},
                 lehrer: {changed: LE.getAttribute("LeAe"), data: LE.textContent},
                 fach: {changed: FA.getAttribute("FaAe"), data: FA.textContent},
                 raum: {changed: RA.getAttribute("RaAe"), data: RA.textContent},
@@ -69,7 +79,9 @@ class XMLToInfo {
     };
     GetKurse(klasse) {
         let t = [];
-        klasse.querySelectorAll("Unterricht > Ue > UeNr").forEach(e => t.push({lehrer: e.getAttribute("UeLe"), fach: e.getAttribute("UeFa"), kurs: e.getAttribute("UeGr"), enabled: true, uenr: e.textContent}));
+        // klasse.querySelectorAll("Kurse > Ku > KKz").forEach(e => t.push({lehrer: e.getAttribute("KLe"), kurs: e.textContent, enabled: true, uenr: this.GetUnterrichtIndex(klasse, e.getAttribute("KLe"), e.textContent).textContent}));
+        klasse.querySelectorAll("Unterricht > Ue > UeNr").forEach(e => t.push({lehrer: e.getAttribute("UeLe"), fach: e.getAttribute("UeFa"), kurs: e.getAttribute("UeGr"),
+            enabled: true, uenr: e.textContent}));
         return t;
     };
     GetUnterrichtIndex(klasse, le, fa) {
@@ -131,6 +143,10 @@ function CreateDay(data) {
                 let __e = _CE(__stunden_maininfocontainer, "span", `.content.${e2}`);
                 __e.textContent = e[e2].data;
                 if(e[e2].changed) __e.classList.add("changed");
+                if(e2==="stunde") {
+                    let __e2 = _CE(__stunden_maininfocontainer, "div", ".stunde--container.flex.column.y-center"), __e3 = _CE(__e2, "span", ".content.stunde-zeit.font-normal");__e3.textContent = e[e2].beginn;
+                    __e2.appendChild(__e);
+                };
             });
             if(e.info.data.length>0) {
                 let __stunden_infocontainer = _CE(__plan_stundecontainer, "div", ".stunden-info--container.flex");
@@ -149,10 +165,11 @@ function CreateDay(data) {
         __title_date.textContent = `${a[0]}. ${months[Number(a[1]) - 1]} ${a[2]}`;
     };
 };
-function LoadWeek(i) {
+function LoadWeek(i, a) {
     let week_first = document.querySelector(".week.week-first"), week_last = document.querySelector(".week.week-last"), week_type = document.querySelector(".week-type"), day_plan__containers = document.querySelectorAll(".day-plan--container"),
     day_zusatz__containers =  document.querySelectorAll(".day-zusatz--container"),timestamps = document.querySelectorAll(".content.day-title--timestamp"), title_dates = document.querySelectorAll(".content.day-title--date");
     day_plan__containers.forEach(e => {
+        // e.style.transform = "scale(0)";
         e.innerHTML = "";})
     day_zusatz__containers.forEach(e => e.remove());
     timestamps.forEach(e => e.textContent = "wird geladen..."); // lang
@@ -165,12 +182,14 @@ function LoadWeek(i) {
             (function() {
                 if(!a||i!==__WEEK) {timestamps[week.days.findIndex(e2 => e2===e)].textContent = "nicht vorhanden";return;};
                 CreateDay({index: week.days.findIndex(e2 => e2===e), xml: a});
+                // setTimeout(() => day_plan__containers[week.days.findIndex(e2 => e2===e)].style.transform = "scale(1)", 10);
             })();
-        }, ConvertDate(e, "datestr_to_vp"));
+        }, ConvertDate(e, "datestr_to_vp"), a);
     };
 };
 function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.days.find(e2 => e2===date));};
 (function() {
+    __KLASSE = __load("klasse");
     let id = __log(0, "Initialising"), _a = Date.now();
     function InitDay(i) {
         let __item_day = _CE(document.querySelector(".plan--container"), "div", ".item.day.flex.column");
@@ -197,7 +216,7 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
                 (function() {
                     if(!a) {console.log("data could not be fetched"); return;};
                     let xti = new XMLToInfo(a), header_data = xti.GetPlanHeaderDaten();
-                    __WEEK = GetWeekFromVPDate(ConvertDate(header_data.c_date, "vp_to_datestr"));let b = localStorage.getItem("kurse");if(b) b = JSON.parse(b);
+                    __WEEK = GetWeekFromVPDate(ConvertDate(header_data.c_date, "vp_to_datestr"));let b = __load("kurse");if(b) b = JSON.parse(b);
                     __DATA.klassen.forEach(e => {
                         __DATA.kurse[e] = xti.GetKurse(xti.GetKlasse(e));if(b&&b[e]) {
                             __DATA.kurse[e].forEach(e2 => e2.enabled = b[e].find(e3 => e3.uenr===e2.uenr).enabled);
@@ -206,9 +225,10 @@ function GetWeekFromVPDate(date) {return __DATA.schulwochen.findIndex(e => e.day
                     __log(id, `Initialisation complete (${Date.now() - _a}ms)`);
                     LoadWeek(__WEEK);
                 })();
-            });
+            }, 0, true);
         })();
-    });
+    }, 0, true);
+    if(!__load("use_localstorage")) {CreatePopup("Hey! (🍪)", "ls_prompt");__save("use_localstorage", true);};
 })();
 document.querySelector(".arrow--wrapper > .arrow--container.arrow-left").addEventListener("click", () => {if(__WEEK>0) {__WEEK--;LoadWeek(__WEEK);};});
 document.querySelector(".arrow--wrapper > .arrow--container.arrow-right").addEventListener("click", () => {if(__WEEK<__DATA.schulwochen.length - 1) {__WEEK++;LoadWeek(__WEEK);};});
@@ -228,7 +248,7 @@ function CreatePopup(title, seed) {
         if(document.querySelectorAll(".popup--container").length===1) {document.querySelector(".shadow--container").style.opacity = "0";setTimeout(() => __popup_wrapper.remove(), 100)};
         if(seed==="kurse") {
             document.querySelectorAll(".plan-stunde--container").forEach(e => {let a = __DATA.kurse[__KLASSE].find(e2 => e2.uenr===e.getAttribute("i")); if(a&&!a.enabled) e.style.display = "none"; else e.style.display = "flex";});
-            localStorage.setItem("kurse", JSON.stringify(__DATA.kurse));
+            __save("kurse", JSON.stringify(__DATA.kurse));
         };
     };
     __close.addEventListener("click", _close);
@@ -236,7 +256,7 @@ function CreatePopup(title, seed) {
         "klassen": () => {__DATA.klassen.forEach(e => {
             let a = _CE(__content_container, "button", ".item.klasse.flex"), b = _CE(a, "div", ".klasse--container.flex.y-center"), c = _CE(b, "span", ".content.flex.font-bold");
             c.textContent = e;
-            a.addEventListener("click", () => {__KLASSE = e; localStorage.setItem("klasse", __KLASSE); LoadWeek(__WEEK); _close();});
+            a.addEventListener("click", () => {__KLASSE = e; __save("klasse", __KLASSE); LoadWeek(__WEEK); _close();});
         });},
         "kurse": () => {
             let __a = _CE(__popup_container, "div", ".specify--wrapper.flex"), __b = _CE(__a, "div", ".specify--container.flex.x-center"),
@@ -253,6 +273,14 @@ function CreatePopup(title, seed) {
                 if(e) e.enabled = s; else
                 __DATA.kurse[__KLASSE].forEach(e => e.enabled = s);
             };
+        },
+        "ls_prompt": () => {
+            __content_container.classList.add("y-center");
+            let __ls_agreement_container = _CE(__content_container, "div", ".ls-agreement--container"), __content = _CE(__ls_agreement_container, "span", ".content.font-normal");
+            __content.innerHTML = `Durch das Benutzen dieses Dienstes erklärst du dich einwillig, dass einige Daten in dem Lokalen Speicher deines Browsers zwischengespeichert werden dürfen.<br><br>
+            Dabei werden <b>keine</b> Daten zum Tracking oder ähnlichem Nutze gespeichert, sondern hauptsächlich Daten, welche sowohl Ressourcen sparen als auch Ladezeiten vekürzen.<br><br>
+            Dies ist eine Test-Version, also rechne mit kleineren Fehlern und eventuell falsch abgestimmten Farben.<br><br>
+            <i>(release 1.0)</i>`;
         }
     };
     seeds[seed]();
@@ -262,5 +290,5 @@ function CreatePopup(title, seed) {
         document.querySelector(".shadow--container").style.opacity = "1";
     }, 0);
 };
-let actions = {klassen: () => CreatePopup("Klassenauswahl", "klassen"), kurse: () => CreatePopup("Kursauswahl", "kurse"), home: () => location.href = "https://arminia.top/", refresh: () => LoadWeek(__WEEK)};
+let actions = {klassen: () => CreatePopup("Klassenauswahl", "klassen"), kurse: () => CreatePopup("Unterrichtsauswahl", "kurse"), home: () => location.href = "https://arminia.top/", refresh: () => LoadWeek(__WEEK, true)}; // lang
 o_k(actions).forEach(e => document.querySelectorAll(`[_=${e}]`).forEach(e2 => e2.addEventListener("click", () => actions[e]())));
