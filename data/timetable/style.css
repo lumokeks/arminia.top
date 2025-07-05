@@ -1,3 +1,48 @@
+/* body {
+    background: hsl(0, 0%, 7%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+.game--container {
+    width: 100%;
+    height: 100%;
+}
+.game--main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.stats--wrapper {
+    width: 100%;
+}
+.stats--inner {
+    color: #FFFFFF;
+}
+.board--wrapper {
+    flex: 1;
+}
+.board--inner {
+    color: #cecece;
+    display: flex;
+    position: relative;
+}
+.train {
+    display: flex;
+    gap: 2px;
+    position: absolute;
+}
+.train > .car {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.train > .car-divider:last-of-type {
+    display: none;
+}
+.train > .car-divider > .content::after {
+    content: "+";
+} */
 :root {
     --icon-size: 17px;
 }
@@ -35,6 +80,7 @@ body {
     max-height: calc(100% - 90px);
 }
 .plan--container {
+    /* max-height: 100%; */
     overflow: auto;
     gap: 16px;
     padding: 10px;
@@ -75,6 +121,8 @@ body {
 .content.day-title--timestamp::after {content: ")";}
 .day-plan--container {
     background: hsl(236, 0%, 9%);
+    /* gap: 10px; */
+    /* transition: transform 0.1s ease; */
     flex: 1;
 }
 .day-plan--container:empty {display: none;}
@@ -83,13 +131,14 @@ body {
     padding: 20px 10px;
 }
 .stunden-main-info--container {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     gap: 16px;
     color: #FFFFFF;
 }
-.stunden-main-info--container > span.content.stunde::after {content: ".";}
-.stunden-main-info--container > span:nth-of-type(odd) {
+.stunden-main-info--container > .stunde--container > span.content.stunde::after {content: ".";}
+.stunden-main-info--container > .stunde--container > span.content.stunde-zeit {color: hsl(0, 0%, 90%); font-size: 13px; order: 1;}
+.stunden-main-info--container > *:nth-of-type(odd) {
     font-weight: 700;
 }
 .stunden-main-info--container > span.changed {
@@ -100,7 +149,7 @@ body {
     border-top: 1px solid hsl(236, 0%, 16%);
 }
 .stunden-info--container {
-    color: #a1a1a1;
+    color: hsl(0, 0%, 60%);
     padding: 0px;
     margin: 0px;
 }
@@ -165,6 +214,9 @@ svg {
     fill: #FFFFFF;
     height: 20px;
 }
+/* * {
+    transition: background 0.1s ease;
+} */
 button {
     transition: background 0.1s ease,
                 transform 0.1s ease;
@@ -195,12 +247,16 @@ button {
     border: 1px solid hsl(236, 0%, 16%);
     border-radius: 4px;
     width: 568px;
-    height: 368px;
+    min-height: 280px;
+    max-height: 368px;
     padding: 10px 16px;
     transform: scale(0.9);
     opacity: 0;
+    /* transition: transform 1.6s ease,
+                opacity 0.2s ease; */
+    /* gap: 20px; */
 }
-.popup--container.klassen {gap: 20px;}
+.popup--container:not(.kurse) {gap: 20px;}
 .popup--container > .title--container > .title {
     color: hsl(0, 0%, 90%);
     font-size: 20px;
@@ -215,6 +271,7 @@ button {
 .popup--container > .content--container {
     gap: 4px;
     height: 100%;
+    color: hsl(0, 0%, 92%);
     overflow: auto;
     order: 1;
 }
@@ -283,6 +340,7 @@ footer > .footer--container > .actions--wrapper > .item.action > .action--contai
     .header--wrapper > .header--container > .actions--wrapper {display: none;}
     footer {display: flex;}
     .plan--container {margin-bottom: 60px;}
+    .plan-stunde--container {padding: 14px 10px;}
 }
 @media (width<1252px) {
     .action--container > span.content {display: none;}
