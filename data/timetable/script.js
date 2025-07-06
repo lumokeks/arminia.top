@@ -49,7 +49,7 @@ class PlanRequest {
             "wp": "SPlanKl_Basis.xml"
         }, url = `https://arminia.top/data/PlanDaten/${school}/${URLS[type]}`, cached = __load(url);
         if(cached&&!ignore_cache) {f(new DOMParser().parseFromString(decodeURI(cached), "text/xml"));return;};
-        http({url: url, http: true, authorization: token}, (a) => {
+        http(url, (a) => {
             if(a.success) {__save(url, a.data);f(new DOMParser().parseFromString(decodeURI(a.data), "text/xml"));}
             else f(undefined);
         });
