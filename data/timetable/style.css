@@ -24,7 +24,7 @@ body {
     top: 0px;
     width: 100vw;
     height: 80px;
-    border-bottom: 1px solid hsl(236, 0%, 20%);
+    border-bottom: 1px solid hsla(236, 0%, 20%, 0.6);
 }
 *[display="flex"] {
     background: #FFFFFF;
@@ -273,7 +273,7 @@ footer {
     width: 100vw;
     min-height: 60px;
     bottom: 0px;
-    border-top: 1px solid hsl(236, 0%, 20%);
+    border-top: 1px solid hsla(236, 0%, 20%, 0.6);
     display: none;
 }
 footer > .footer--container {flex: 1;}
