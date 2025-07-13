@@ -185,12 +185,14 @@ button {
     opacity: 0;
     transition: opacity 0.2s ease;
     display: none;
+    z-index: 2;
 }
 .popup--insert:has(.popup--wrapper) > .shadow--container {display: flex;}
 .popup--wrapper {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 99;
 }
 .popup--container {
     background: hsl(236, 0%, 7%);
