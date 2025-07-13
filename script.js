@@ -76,7 +76,7 @@ function __processQueryParameters() {
         case "404":
             new _c12({
                 title: "404",
-                data: "Site could not be fetched. Did you misspell something?",
+                data: "Site could not be fetched. Perhaps you misspelled something?",
                 duration: 12000,
                 state: "error"
             });
