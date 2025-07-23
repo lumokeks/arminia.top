@@ -25,15 +25,10 @@ class _c14fake {
         this.svgs = {
             "cancel": "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
         };
-        this.cached_images = {};
     }
     _f1(parent, id) {
-        function a(self) {parent.appendChild(self.cached_images[id].cloneNode(true))};
-        function b(self) {
-            const __a = _b(undefined, "a");__a.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${self.svgs[id]}"/></svg>`;
-            self.cached_images[id] = __a.querySelector("svg");a(self);
-        };
-        this.cached_images[id] ? a(this) : b(this);
+        const __a = _b(undefined, "a");__a.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${self.svgs[id]}"/></svg>`;
+        return __a.querySelector("svg");
     }
 }
 _c14 = new _c14fake();
