@@ -80,7 +80,7 @@ p {margin: 0px;}
     border-radius: 2px;
 }
 .close-interaction-svg--container:hover {background: var(--colour-bg-button-200);}
-.close-interaction-svg--container > svg {min-height: var(--icon-size); fill: hsl(0, 0%, 90%);}
+.close-interaction-svg--container > svg {min-height: var(--icon-size); fill: var(--colour-white-100);}
 .popup--main-title {font-size: 20px;flex: 1;}
 .popup--main > main > p {font-size: 16px;}
 a {text-decoration: none;}
