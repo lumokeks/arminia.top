@@ -6,6 +6,8 @@
     --colour-bg-100: #0f0f12;
     --colour-bg-200: #0a0b0d;
     --colour-bg-300: #1c1d21;
+    --colour-bg-shadow-100: hsla(0, 0%, 0%, 0.86);
+    --colour-bg-button-200: 
     
     --colour-white-100: #dedede;
     --colour-white-200: #a6a6a6;
@@ -70,7 +72,7 @@ p {
 .h-100 {height: 100%;}
 .page-center {left: 50%; top: 50%; transform: translate(-50%, -50%);}
 .absolute {position: absolute;}
-.shadow--default {background: hsla(0, 0%, 0%, 0.46); left: 0%; top: 0%;}
+.shadow--default {background: var(--colour-bg-shadow-100); left: 0%; top: 0%;}
 .popup--container {
     opacity: 0;
     transition: opacity linear 0.12s;
@@ -94,7 +96,7 @@ p {
     border-radius: 2px;
 }
 .close-interaction-svg--container:hover {
-    background: hsla(236, 4%, 14%, 0.87);
+    background: var(--colour-bg-button-200);
 }
 .close-interaction-svg--container > svg {min-height: var(--icon-size); fill: hsl(0, 0%, 90%);}
 .popup--main-title {font-size: 20px;flex: 1;}
