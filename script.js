@@ -76,7 +76,7 @@ function __processQueryParameters() {
         case "404":
             new _c12({
                 title: "404",
-                data: "The requested site could not be found",
+                data: "The requested resource could not be found",
                 duration: 12000,
                 state: "error"
             });
