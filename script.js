@@ -42,9 +42,9 @@ function _c13(config) {
     var _ = (e, b) => {b.substring(1).split(".").forEach(e2 => e.classList.add(e2));};
     var __d11 = _b(document.querySelector(".popup-insert"), "div", ".popup--container")
     ,__d12 = _b(__d11, "div", ".shadow--default.absolute.w-100.h-100")
-    ,__d13 = _b(__d11, "div", ".absolute.page-center.c-primary.popup--main.flex.column")
+    ,__d13 = _b(__d11, "div", ".absolute.page-center.c-primary.popup--main.flex.column.bg-200")
     ,__e1 = _b(__d13, "header", ".flex")
-    ,__f1 = _b(__e1, "div", ".popup--main-title.text-colour-white-100.font-bold.bg-200")
+    ,__f1 = _b(__e1, "div", ".popup--main-title.text-colour-white-100.font-bold")
     ,__f2 = _b(__e1, "button", ".close-interaction-svg--container.no-background.no-border.flex.x-center.y-center")
     ,__e2 = _b(__d13, "main", ".content.container.flex.column")
     ,__f3 = _b(__e2, "p", ".text-colour-white-200");
