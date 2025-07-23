@@ -26,18 +26,6 @@ body {
 p {
     margin: 0px;
 }
-.c-primary {
-    color: var(--primary);
-}
-.c-gray {
-    color: var(--gray);
-}
-.c-shade {
-    color: var(--shade);
-}
-.c-white {
-    color: var(--white);
-}
 .flex {
     display: flex;
 }
@@ -95,15 +83,9 @@ p {
     padding: 2px;
     border-radius: 2px;
 }
-.close-interaction-svg--container:hover {
-    background: var(--colour-bg-button-200);
-}
+.close-interaction-svg--container:hover {background: var(--colour-bg-button-200);}
 .close-interaction-svg--container > svg {min-height: var(--icon-size); fill: hsl(0, 0%, 90%);}
 .popup--main-title {font-size: 20px;flex: 1;}
-.popup--main > main > p {
-    font-size: 16px;
-}
-a {
-    text-decoration: none;
-}
+.popup--main > main > p {font-size: 16px;}
+a {text-decoration: none;}
 a:hover {text-decoration: underline;}
