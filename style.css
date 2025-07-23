@@ -15,6 +15,7 @@
 }
 .bg-100 {background: var(--colour-bg-100;}
 .bg-200 {background: var(--colour-bg-200;}
+.bg-300 {background: var(--colour-bg-200;}
 .text-colour-white-100 {background: var(--colour-white-100;}
 .text-colour-white-200 {background: var(--colour-white-200;}
 body {
