@@ -8,13 +8,13 @@ function _b(parent, type, classes) {
 };
 class _c12 {
     constructor(config) {
-        let sf = document.querySelector("#system-feedback.content.container");
+        let sf = document.querySelector("#system-feedback--item-container");
         if(!sf) {sf = _b(document.body, "div", "#system-feedback--item-container");};
-        var __d11 = _b(sf, "div", ".s-feedback--container")
+        var __d11 = _b(sf, "div", ".s-feedback--container.popup-bg.border.bg-300")
         ,__d12 = _b(__d11, "div", ".type")
         ,__d13 = _b(__d11, "div", ".content.container")
-        ,__e1 = _b(__d13, "p", ".title.font-bold.c-white")
-        ,__e2 = _b(__d13, "p", ".data.font-normal.c-shade");__d11.classList.add("popup-bg");__d11.classList.add("border");
+        ,__e1 = _b(__d13, "p", ".title.font-bold.text-white-100")
+        ,__e2 = _b(__d13, "p", ".data.font-normal.text-white-200");
         __d11.setAttribute("type", config.type);__e1.textContent = config.title;__e2.textContent = config.data;__d11.style.height = `${(__d13.clientHeight - 36) + 50}px`
         _a(__d11, {}, {transform: "translateX(-5%)", opacity: 1}, 100, () => {_a(__d11, {}, {transform: "translateX(0%)"}, 60);});
         setTimeout(() => {_a(__d11, {}, {opacity: 0}, 100);_a(__d11, {}, {transform: "translateX(100%)"}, 100, () => {_a(__d11, {}, {height: "0px"}, 100, () => __d11.remove());});}, config.duration||6000);
@@ -44,10 +44,10 @@ function _c13(config) {
     ,__d12 = _b(__d11, "div", ".shadow--default.absolute.w-100.h-100")
     ,__d13 = _b(__d11, "div", ".absolute.page-center.c-primary.popup--main.flex.column")
     ,__e1 = _b(__d13, "header", ".flex")
-    ,__f1 = _b(__e1, "div", ".popup--main-title.c-primary.font-bold")
+    ,__f1 = _b(__e1, "div", ".popup--main-title.text-white-100.font-bold.bg-200")
     ,__f2 = _b(__e1, "button", ".close-interaction-svg--container.no-background.no-border.flex.x-center.y-center")
     ,__e2 = _b(__d13, "main", ".content.container.flex.column")
-    ,__f3 = _b(__e2, "p");
+    ,__f3 = _b(__e2, "p", ".text-white-200");
     _(__e1, ".no-padbottom");_(__e2, ".no-padtop");
     _c14._f1(__f2, "cancel");
     __f1.textContent = config.title;
