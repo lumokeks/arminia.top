@@ -28,7 +28,7 @@ class _c14fake {
     }
     _f1(parent, id) {
         const __a = _b(undefined, "a");__a.innerHTML=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${this.svgs[id]}"/></svg>`;
-        return __a.querySelector("svg");
+        if(parent) parent.appendChild(__a.querySelector("svg"));
     }
 }
 _c14 = new _c14fake();
