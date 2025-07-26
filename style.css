@@ -87,6 +87,7 @@ a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 @media(width<460px) {
     #system-feedback--item-container {
+        align-items: center;
         width: 100vw;
         right: 0px;
     }
