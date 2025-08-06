@@ -78,3 +78,15 @@ function __processQueryParameters() {
     };
 };
 __processQueryParameters();
+const canvas = document.querySelector("canvas"), ctx = canvas.getContext("2d"), dots = [];
+function resize() {canvas.width = window.innerWidth;canvas.height = window.innerHeight;dots = [];create_dots();};resize();window.addEventListener("onresize", resize);
+function create_dots() {for(let i = 0; i < 60; i++) dots.push({x: Math.random() * canvas.clientWidth, y: Math.random() * canvas.clientHeight, vx: (Math.random() - 0.5) * 1.5, vy: (Math.random() - 0.5) * 1.5, r: 2});};
+function draw() {
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+    dots.forEach(e => {
+        ctx.beginPath();ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);ctx.fillStyle = "white";ctx.closePath();ctx.fill();
+        e.x += e.vx;e.y += e.vy;if(e.x>canvas.clientWidth||e.x<0) e.vx *= -1;if(e.y>canvas.clientHeight||e.y<0) e.vy *= -1;
+        for(const e2 of dots) {if(e2.x===e.x&&e2.y===e2.y) continue;
+            let dx = e2.x - e.x, dy = e2.y - e.y, a = Math.sqrt(dx * dx + dy * dy);
+            if(a<160) {ctx.beginPath();ctx.moveTo(e.x, e.y);ctx.lineTo(e2.x, e2.y);ctx.strokeStyle = "#ffffff0c";ctx.closePath();ctx.stroke();};};});};
+function animate() {draw();requestAnimationFrame(animate);};animate();
