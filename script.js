@@ -43,7 +43,7 @@ _c14 = new _c14fake();
             e.x += e.vx;e.y += e.vy;if(e.x>canvas.clientWidth||e.x<0) e.vx *= -1;if(e.y>canvas.clientHeight||e.y<0) e.vy *= -1;
             for(const e2 of dots) {if(e2.x===e.x&&e2.y===e2.y) continue;
                 let dx = e2.x - e.x, dy = e2.y - e.y, a = Math.sqrt(dx * dx + dy * dy);
-                if(a<160) {ctx.beginPath();ctx.moveTo(e.x, e.y);ctx.lineTo(e2.x, e2.y);ctx.strokeStyle = "#ffffff0c";ctx.closePath();ctx.stroke();};};});};
+                if(a<100) {ctx.beginPath();ctx.moveTo(e.x, e.y);ctx.lineTo(e2.x, e2.y);ctx.strokeStyle = "#ffffff0c";ctx.closePath();ctx.stroke();};};});};
     function animate() {draw_dots();requestAnimationFrame(animate);};animate();
 })()
 function _c13(config) {
@@ -92,5 +92,6 @@ function __processQueryParameters() {
 };
 
 __processQueryParameters();
+
 
 
