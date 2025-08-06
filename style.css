@@ -98,11 +98,10 @@ a:hover {text-decoration: underline;}
         width: 100vw;
         right: 0px;
     }
-    div:has([tag="site__name_description"]) {flex: 1;}
-    [tag="site__name_description"] {
-        align-items: center;
-    }
+    [tag="site__name_description__container"] {flex: 1;}
+    [tag="site__name_description"] {align-items: center;}
 }
+
 
 
 
