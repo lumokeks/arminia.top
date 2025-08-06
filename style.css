@@ -32,7 +32,7 @@ p {margin: 0px;}
 .font-light {font-weight: 300;}
 .font-normal {font-weight: 500;}
 .font-bold {font-weight: 700;}
-header > div {
+[tag="site__name_description"] {
     padding: 40px;
     backdrop-filter: blur(2px);
     border-radius: 360px;
@@ -99,4 +99,5 @@ a:hover {text-decoration: underline;}
         right: 0px;
     }
 }
+
 
