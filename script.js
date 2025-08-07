@@ -34,7 +34,7 @@ class _c14fake {
 _c14 = new _c14fake();
 (function() {document.title = "o7 Shreklam";console.log(atob("ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ4YiAgICAgICAgICBkOGIgICAgICAgICAgICAgIDg4OCAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWThQICAgICAgICAgIFk4UCAgICAgICAgICAgICAgODg4ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAgICAgICAgICAgICAgICAKIDg4ODhiLiAgODg4ZDg4OCA4ODg4OGIuZDg4Yi4gIDg4OCA4ODg4OGIuICA4ODggIDg4ODhiLiAgICAgIDg4ODg4OCAuZDg4Yi4gIDg4ODg4Yi4gIAogICAgIjg4YiA4ODhQIiAgIDg4OCAiODg4ICI4OGIgODg4IDg4OCAiODhiIDg4OCAgICAgIjg4YiAgICAgODg4ICAgZDg4IiI4OGIgODg4ICI4OGIgCi5kODg4ODg4IDg4OCAgICAgODg4ICA4ODggIDg4OCA4ODggODg4ICA4ODggODg4IC5kODg4ODg4ICAgICA4ODggICA4ODggIDg4OCA4ODggIDg4OCAKODg4ICA4ODggODg4ICAgICA4ODggIDg4OCAgODg4IDg4OCA4ODggIDg4OCA4ODggODg4ICA4ODggZDhiIFk4OGIuIFk4OC4uODhQIDg4OCBkODhQIAoiWTg4ODg4OCA4ODggICAgIDg4OCAgODg4ICA4ODggODg4IDg4OCAgODg4IDg4OCAiWTg4ODg4OCBZOFAgICJZODg4ICJZODhQIiAgODg4ODhQIiAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA4ODggICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDg4OCAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgODg4ICAgIA=="));
     const canvas = document.querySelector("canvas"), ctx = canvas.getContext("2d");let dots = [];
-    function resize() {canvas.width = window.innerWidth;canvas.height = window.innerHeight;dots = [];create_dots();};resize();window.addEventListener("resize", resize);create_dots();
+    function resize() {canvas.width = window.innerWidth;canvas.height = window.innerHeight;};resize();window.addEventListener("resize", resize);
     function create_dots() {for(let i = 0; i < (canvas.clientWidth>500&&60||20); i++) dots.push({x: Math.random() * canvas.clientWidth, y: Math.random() * canvas.clientHeight, vx: (Math.random() - 0.5) * 0.6, vy: (Math.random() - 0.5) * 0.6, r: 2});};
     function draw_dots() {
         ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
@@ -44,7 +44,7 @@ _c14 = new _c14fake();
             for(const e2 of dots) {if(e2.x===e.x&&e2.y===e2.y) continue;
                 let dx = e2.x - e.x, dy = e2.y - e.y, a = Math.sqrt(dx * dx + dy * dy);
                 if(a<100) {ctx.beginPath();ctx.moveTo(e.x, e.y);ctx.lineTo(e2.x, e2.y);ctx.strokeStyle = "#ffffff0c";ctx.closePath();ctx.stroke();};};});};
-    function animate() {draw_dots();requestAnimationFrame(animate);};animate();
+    function animate() {draw_dots();requestAnimationFrame(animate);};create_dots();animate();
 })()
 function _c13(config) {
     var _ = (e, b) => {b.substring(1).split(".").forEach(e2 => e.classList.add(e2));};
@@ -92,6 +92,7 @@ function __processQueryParameters() {
 };
 
 __processQueryParameters();
+
 
 
 
