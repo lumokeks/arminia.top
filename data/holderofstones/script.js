@@ -1,8 +1,8 @@
 const CACHE = {
-    LOGIN: {schulid: 10019573, name: "schueler", password: "sm37721"},
+    LOGIN: {schulid: 10019573},
     SCHULDATA: {},
     WEEK: 0,
-    KLASSE: "8.2"
+    KLASSE: "9.2"
 }, DATE = new Date(), WEEKDAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
 function _CE(parent, type, classes) {
     if(!parent) return;
@@ -187,4 +187,5 @@ function LoadWeek(i) {
         };
         e.addEventListener("click", f);
     });
+
 })();
