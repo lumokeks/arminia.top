@@ -1,0 +1,118 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-colour-body">
+    <header class="header--wrapper w-fullscreen flex">
+        <div class="header--container bg-colour-header-bottom-border border-init-b border-b flex flex-1">
+            <div class="sections--wrapper flex w-full">
+                <section class="header-actions--section flex flex-1 align-center">
+                    <div class="actions--wrapper flex flex-1">
+                        <div class="action action--wrapper flex flex-1" action="home">
+                            <button class="action--container flex flex-1 align-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"></path></svg>
+                                <span class="content font-normal">Home</span>
+                            </button>
+                        </div>
+                        <div class="action action--wrapper flex flex-1" action="klassen">
+                            <button class="action--container flex flex-1 align-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"></path></svg>
+                                <span class="content font-normal">Klassen</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="action week-select--wrapper flex align-center">
+                    <button class="week-select--container action--container flex-1" action="loadweek_-1">
+                        <div class="week-select">
+                            <span class="content font-bold"><<</span>
+                        </div>
+                    </button>
+                </section>
+                <section class="planinfo--section flex flex-1 align-center">
+                    <div class="planinfo--wrapper flex flex-1">
+                        <div class="planinfo--container flex flex-1 align-center justify-center">
+                            <section class="week-select--wrapper">
+                                <button class="week-select--container" action="loadweek_-1">
+                                    <div class="week-select">
+                                        <span class="content font-bold"><<</span>
+                                    </div>
+                                </button>
+                            </section>
+                            <section class="week-timespan--wrapper flex flex-1 justify-center">
+                                <div class="week-timespan--container flex">
+                                    <div class="week-timespan flex fg-colour-timespan-date-text">
+                                        <span class="content week-1 font-bold">28.07.2025</span>
+                                        <span class="content week-divider font-normal">-</span>
+                                        <span class="content week-2 font-bold">32.07.2025</span>
+                                    </div>
+                                    <div class="week-type fg-colour-timespan-type-text">
+                                        <span class="content font-normal">A</span>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="week-select--wrapper">
+                                <button class="week-select--container" action="loadweek_1">
+                                    <div class="week-select">
+                                        <span class="content font-bold">>></span>
+                                    </div>
+                                </button>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+                <section class="action week-select--wrapper flex align-center">
+                    <button class="week-select--container action--container flex-1" action="loadweek_1">
+                        <div class="week-select">
+                            <span class="content font-bold">>></span>
+                        </div>
+                    </button>
+                </section>
+                <section class="header-actions--section flex flex-1 align-center">
+                    <div class="actions--wrapper flex flex-1">
+                        <div class="action action--wrapper flex flex-1" action="refresh">
+                            <button class="action--container flex flex-1 align-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"></path></svg>
+                                <span class="content font-normal">Neuladen</span>
+                            </button>
+                        </div>
+                        <div class="action action--wrapper flex flex-1" action="kurse">
+                            <button class="action--container flex flex-1 align-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"></path></svg>
+                                <span class="content font-normal">Kurse</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </header>
+    <div class="plan--wrapper w-fullscreen">
+        <div class="plan--container flex flex-1"></div>
+    </div>
+</body>
+<script>
+    function LoadFromURL(type, url, f) {
+        const s = document.createElement((type==="js"&&"script"||"link"));
+        s.onload = f;
+        if(type==="js") {
+            s.src = url;
+        } else {
+            s.rel = "stylesheet";
+            s.href = url;
+        };
+        document.head.appendChild(s);
+    };
+    const toload = [
+        {"css": `${location.pathname.replaceAll("index.html", "")}style.css`},
+        {"js": `${location.pathname.replaceAll("index.html", "")}script.js`}
+    ];
+    function StartLoading(n) {
+        n = (n||0);
+        if(!toload[n]) {return setTimeout(() => Animate(document.body, {}, {opacity: 1}, 400), 1000);};
+        LoadFromURL(Object.keys(toload[n])[0], Object.values(toload[n])[0], () => StartLoading(n + 1));
+    };
+    StartLoading();
+</script>
