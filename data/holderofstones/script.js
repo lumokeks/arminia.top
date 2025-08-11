@@ -2,10 +2,10 @@ const CACHE = {
     LOGIN: {schulid: 10019573, name: "schueler", password: "sm37721"},
     SCHULDATA: {},
     WEEK: 0,
-    KLASSE: ""
+    KLASSE: localStorage.getItem("klasse")
 }, DATE = new Date(), WEEKDAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"], SVGS = {close: "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"};
 function Animate(e, from, to, duration, f) {
-    /* Object.keys(from).forEach(k => {e.animate([{k: from[k]}], {duration: 0, fill: "forwards"});}); */
+    // Object.keys(from).forEach(k => {e.animate([{k: from[k]}], {duration: 0, fill: "forwards"});});
     e.animate([to],{duration: duration || 200,fill: "forwards"});if(typeof(f)==="function") {setTimeout(f, duration || 200);};
 };
 function _CE(parent, type, classes) {
@@ -146,7 +146,7 @@ function LoadWeek(i) {
     let week = CACHE.SCHULDATA.schulwochen[i], plancontainers = Array.from(document.querySelectorAll(".day-plan--container")), timestamps = Array.from(document.querySelectorAll("span.content.timestamp")),
     zusatzinfos = Array.from(document.querySelectorAll(".day-zusatz-info--wrapper")), week_von = document.querySelector(".week-timespan > span.content.week-1"), week_bis = document.querySelector(".week-timespan > span.content.week-2"),
     week_type = document.querySelector(".week-type > span.content"), content_klasse = document.querySelectorAll("[action=\"klassen\"] > .action--container > span.content");
-    content_klasse.forEach(e => {e.textContent = "Klassen";_CE(e, "span", ".content").textContent = CACHE.KLASSE;});
+    content_klasse.forEach(e => {e.textContent = "Klassen";_CE(e, "span", ".content").textContent = CACHE.KLASSE;});localStorage.setItem("klasse", CACHE.KLASSE);
     week_von.textContent = week.days[0];week_bis.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
     plancontainers.forEach(e => e.innerHTML = "");timestamps.forEach(e => e.textContent = "wird geladen...");zusatzinfos.forEach(e => e.remove());
     for(const e of week.days) {
@@ -172,7 +172,7 @@ function LoadWeek(i) {
                 CACHE.SCHULDATA.freietage = WPD.ft;
                 CACHE.SCHULDATA.tageprowoche = WPD.tpw;
                 CACHE.SCHULDATA.klassen = WPD.kl;
-                CACHE.KLASSE = CACHE.SCHULDATA.klassen[0];
+                if(!CACHE.KLASSE) CACHE.KLASSE = CACHE.SCHULDATA.klassen[0];
                 for(let i = 0; i < CACHE.SCHULDATA.tageprowoche; i++) InitDay(i);
                 PlanRequest("NewestPlan", (data) => {
                     if(data.success) {
