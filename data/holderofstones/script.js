@@ -1,9 +1,13 @@
 const CACHE = {
-    LOGIN: {schulid: 10019573},
+    LOGIN: {schulid: 10019573, name: "schueler", password: "sm37721"},
     SCHULDATA: {},
     WEEK: 0,
-    KLASSE: "9.2"
-}, DATE = new Date(), WEEKDAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"];
+    KLASSE: ""
+}, DATE = new Date(), WEEKDAYS = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"], SVGS = {close: "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"};
+function Animate(e, from, to, duration, f) {
+    /* Object.keys(from).forEach(k => {e.animate([{k: from[k]}], {duration: 0, fill: "forwards"});}); */
+    e.animate([to],{duration: duration || 200,fill: "forwards"});if(typeof(f)==="function") {setTimeout(f, duration || 200);};
+};
 function _CE(parent, type, classes) {
     if(!parent) return;
     let e = document.createElement(type);classes = classes.split(".");classes.splice(0, 1);
@@ -141,7 +145,8 @@ function LoadWeek(i) {
     CACHE.WEEK = i;
     let week = CACHE.SCHULDATA.schulwochen[i], plancontainers = Array.from(document.querySelectorAll(".day-plan--container")), timestamps = Array.from(document.querySelectorAll("span.content.timestamp")),
     zusatzinfos = Array.from(document.querySelectorAll(".day-zusatz-info--wrapper")), week_von = document.querySelector(".week-timespan > span.content.week-1"), week_bis = document.querySelector(".week-timespan > span.content.week-2"),
-    week_type = document.querySelector(".week-type > span.content");
+    week_type = document.querySelector(".week-type > span.content"), content_klasse = document.querySelectorAll("[action=\"klassen\"] > .action--container > span.content");
+    content_klasse.forEach(e => {e.textContent = "Klassen";_CE(e, "span", ".content").textContent = CACHE.KLASSE;});
     week_von.textContent = week.days[0];week_bis.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
     plancontainers.forEach(e => e.innerHTML = "");timestamps.forEach(e => e.textContent = "wird geladen...");zusatzinfos.forEach(e => e.remove());
     for(const e of week.days) {
@@ -167,6 +172,7 @@ function LoadWeek(i) {
                 CACHE.SCHULDATA.freietage = WPD.ft;
                 CACHE.SCHULDATA.tageprowoche = WPD.tpw;
                 CACHE.SCHULDATA.klassen = WPD.kl;
+                CACHE.KLASSE = CACHE.SCHULDATA.klassen[0];
                 for(let i = 0; i < CACHE.SCHULDATA.tageprowoche; i++) InitDay(i);
                 PlanRequest("NewestPlan", (data) => {
                     if(data.success) {
@@ -184,8 +190,47 @@ function LoadWeek(i) {
         if(a.split("_")[0]==="loadweek") f = () => LoadWeek(CACHE.WEEK + Number(a.split("_")[1])); else {
             if(a==="home") f = () => location.href = "https://arminia.top";
             else if(a==="refresh") f = () => LoadWeek(CACHE.WEEK);
+            else if(a==="klassen") f = () => CreatePopup("klassen");
         };
         e.addEventListener("click", f);
     });
-
 })();
+const applybuttonanimtion = (e) => {
+    const _down = () => Animate(e, {}, {transform: "translateY(1px)"}, 100),
+    _up = () => Animate(e, {}, {transform: "translateY(0px)"}, 100);
+    e.addEventListener("mousedown", _down);e.addEventListener("mouseup", _up);
+    e.addEventListener("touchstart", _down);e.addEventListener("touchend", _up);
+    e.addEventListener("mouseleave", _up);
+}, SVG = (a, b) => {
+    return a.innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="${SVGS[b]}"></path></svg>`;
+};
+document.querySelectorAll("button").forEach((e) => applybuttonanimtion(e));
+function CreatePopup(seed) {
+    const popup__insert = document.querySelector(".popup--insert"), popup__shadow = popup__insert.querySelector(".popup--shadow"),
+    __popup__wrapper = _CE(popup__insert, "div", ".popup--wrapper"), __popup__container = _CE(__popup__wrapper, "div", ".popup--container"), __popup_title__wrapper = _CE(__popup__container, "div", ".popup-title--wrapper"),
+    __popup_title__container = _CE(__popup_title__wrapper, "div", ".popup-title--container"), TITLE = _CE(__popup_title__container, "span", ".content.title"), __popup_content__wrapper = _CE(__popup__container, "div", ".popup-content--wrapper"),
+    __popup_content__container = _CE(__popup_content__wrapper, "div", ".popup-content--container");
+    const _hide = () => {
+        if(popup__insert.children.length===2) {Animate(popup__shadow, {}, {opacity: 0}, 100);};
+        Animate(__popup__wrapper, {}, {transform: "scale(0.96) translateY(6px)", opacity: 0}, 100, () => __popup__wrapper.remove());
+    }, _show = () => {
+        __popup__wrapper.style.display = "flex";
+        Animate(popup__shadow, {}, {opacity: 1}, 100);
+        Animate(__popup__wrapper, {}, {transform: "scale(1) translateY(0px)", opacity: 1}, 100)
+    };
+    const __close = _CE(__popup_title__container, "button", ".close-button");SVG(__close, "close");
+    __close.addEventListener("click", () => _hide());
+    let SEEDS = {
+        klassen: () => {
+            TITLE.textContent = "Klassenauswahl";
+            const __klassen_container = _CE(__popup_content__container, "div", ".klassen--container");
+            let klassen = CACHE.SCHULDATA.klassen;
+            if(klassen) klassen.forEach(e => {
+                const __item_klasse = _CE(__klassen_container, "div", ".item.klasse"), __klasse_container = _CE(__item_klasse, "button", ".klasse--container"), KLASSE = _CE(__klasse_container, "span", ".content");
+                KLASSE.textContent = e;applybuttonanimtion(__klasse_container);__klasse_container.addEventListener("click", () => {CACHE.KLASSE = e;LoadWeek(CACHE.WEEK);_hide();});
+            });
+        }
+    };
+    SEEDS[seed]();
+    _show();
+};
