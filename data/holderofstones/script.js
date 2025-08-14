@@ -94,6 +94,18 @@ class XMLToInfo {
     GetZusatzInfo() {
         return Array.from(this.data.querySelectorAll("ZusatzInfo > ZiZeile")||[]).map(e => e.textContent);
     };
+    GetUnterricht(klasse) {
+        if(!klasse) return;
+        let t = [], unterricht = klasse.querySelectorAll("Unterricht > Ue > UeNr");
+        unterricht.forEach(e => {
+            let le = e.getAttribute("UeLe"), fa = e.getAttribute("UeFa"), gr = e.getAttribute("UeGr");
+            t.push({
+                lehrer: le,
+                fach: gr&&gr||fa
+            });
+        });
+        return t;
+    };
     GetPlan(klasse) {
         if(!klasse) return;
         let plan = [], stunden = klasse.querySelectorAll("Pl > Std");
@@ -177,6 +189,10 @@ function LoadWeek(i) {
                 PlanRequest("NewestPlan", (data) => {
                     if(data.success) {
                         xti.data = data.data;
+                        CACHE.SCHULDATA.unterricht = {};
+                        CACHE.SCHULDATA.klassen.forEach(e => {
+                            CACHE.SCHULDATA.unterricht[e] = xti.GetUnterricht(xti.GetKlasse(e));
+                        });
                         const {date} = xti.GetPlanHeaderDaten();
                         CACHE.WEEK = CACHE.SCHULDATA.schulwochen.findIndex(e => e.days.find(e2 => e2===date));
                         console.log(data.data, xti.GetPlan(xti.GetKlasse("8.2")));
@@ -219,6 +235,7 @@ function CreatePopup(seed) {
         Animate(__popup__wrapper, {}, {transform: "scale(1) translateY(0px)", opacity: 1}, 100)
     };
     const __close = _CE(__popup_title__container, "button", ".close-button");SVG(__close, "close");
+    applybuttonanimtion(__close);
     __close.addEventListener("click", () => _hide());
     let SEEDS = {
         klassen: () => {
