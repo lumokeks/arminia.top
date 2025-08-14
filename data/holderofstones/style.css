@@ -17,7 +17,7 @@
 
     --bg-colour-plan-container-divider: #1a1a1f;
 
-    --bg-colour-popup-shadow: #04050767;
+    --bg-colour-popup-shadow: #04050596;
     --bg-colour-popup-wrapper: hsl(240, 7%, 7%);
     --bg-colour-popup-wrapper-border: #212125;
 
@@ -51,6 +51,7 @@
     --fg-colour-day-zusatz-info-container-text: #999999;
 
     --fg-colour-popup-container-title-text: #e6e6e6;
+    --fg-colour-popup-content-container-text: #e6e6e6;
 
     --fg-colour-popup-element-list-item-text: #c5c5c5;
 
@@ -131,7 +132,7 @@ body {
     max-height: 100%;
 }
 .footer--container > .actions--wrapper > .action--wrapper > .action--container > span.content {
-    font-size: 10px;
+    font-size: 9px;
 }
 .header--container {
     height: 70px;
@@ -351,7 +352,12 @@ span.content.stunde-stunde, span.content.stunde-lehrer, span.content.stunde-fach
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--fg-colour-popup-content-container-text);
     flex: 1;
+}
+.popup-content--container > span {
+    width: calc(100% - 10px);
+    font-size: 14px;
 }
 .klassen--container {
     display: flex;
