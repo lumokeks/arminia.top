@@ -86,6 +86,7 @@ p {margin: 0px;}
     height: min-content;
     padding: 2px;
     border-radius: 2px;
+    cursor: pointer;
 }
 .close-interaction-svg--container:hover {background: var(--colour-bg-button-200);}
 .close-interaction-svg--container > svg {min-height: var(--icon-size); fill: var(--colour-white-100);}
@@ -104,6 +105,7 @@ p {margin: 0px;}
 /*[tag="site__name_description__container"] {flex: 1;}
     [tag="site__name_description"] {align-items: center;}*/
 }
+
 
 
 
