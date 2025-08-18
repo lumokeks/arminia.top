@@ -1,5 +1,6 @@
 const CACHE = {
     LOGIN: {schulid: 10019573, name: "schueler", password: "sm37721"},
+    LOADING: [],
     SCHULDATA: {},
     WEEK: 0,
     KLASSE: localStorage.getItem("klasse")
@@ -155,15 +156,20 @@ function CreateDay(i, data, date) {
 function LoadWeek(i) {
     if(i>CACHE.SCHULDATA.schulwochen.length - 1) i = CACHE.SCHULDATA.schulwochen.length - 1; else if(i<0) i = 0;
     CACHE.WEEK = i;
+    if(CACHE.LOADING.find(e => e===i+1)) return;CACHE.LOADING.push(i+1);
     let week = CACHE.SCHULDATA.schulwochen[i], plancontainers = Array.from(document.querySelectorAll(".day-plan--container")), timestamps = Array.from(document.querySelectorAll("span.content.timestamp")),
     zusatzinfos = Array.from(document.querySelectorAll(".day-zusatz-info--wrapper")), week_von = document.querySelector(".week-timespan > span.content.week-1"), week_bis = document.querySelector(".week-timespan > span.content.week-2"),
     week_type = document.querySelector(".week-type > span.content"), content_klasse = document.querySelectorAll("[action=\"klassen\"] > .action--container > span.content");
     content_klasse.forEach(e => {e.textContent = "Klassen";_CE(e, "span", ".content").textContent = CACHE.KLASSE;});localStorage.setItem("klasse", CACHE.KLASSE);
     week_von.textContent = week.days[0];week_bis.textContent = week.days[week.days.length - 1];week_type.textContent = week.type;
     plancontainers.forEach(e => e.innerHTML = "");timestamps.forEach(e => e.textContent = "wird geladen...");zusatzinfos.forEach(e => e.remove());
+    let i3 = 0;
     for(const e of week.days) {
         let i2 = week.days.findIndex(e2 => e2===e);
-        PlanRequest("Plan", (data) => CreateDay(i2, data, e), ConvertDate(e, "string_to_vp"));
+        PlanRequest("Plan", (data) => {
+            CreateDay(i2, data, e);
+            i3++;if(i3>=week.days.length) CACHE.LOADING.splice(CACHE.LOADING.findIndex(e => e===i), 1);
+        }, ConvertDate(e, "string_to_vp"));
     };
 };
 (function() {
