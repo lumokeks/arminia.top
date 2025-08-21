@@ -3,19 +3,19 @@
     --status-success: #73ff67;
     --status-warn: #ffb84d;
 
-    --bg-colour-body: #0c0c0e;
-    --bg-colour-header-bottom-border: #1c1c20;
-    --bg-colour-footer-top-border: #1c1c20;
+    --bg-colour-body: #151518;
+    --bg-colour-header-bottom-border: #323238;
+    --bg-colour-footer-top-border: #323238;
 
-    --bg-colour-action-header: #121215;
-    --bg-colour-action-footer: #0f0f11;
-    --bg-colour-action-border: #1c1c20;
+    --bg-colour-action-header: hsl(240, 7%, 11%);
+    --bg-colour-action-footer: hsl(240, 7%, 11%);
+    --bg-colour-action-border: #26262b;
 
-    --bg-colour-day-container: hsl(240, 9%, 6%);
-    --bg-colour-day-container-border: #1c1c20;
-    --bg-colour-day-zusatz-info-container: hsl(240, 9%, 5%);
+    --bg-colour-day-container: hsl(240, 7%, 11%);
+    --bg-colour-day-container-border: #28282c;
+    --bg-colour-day-zusatz-info-container: hsl(240, 8%, 10%);
 
-    --bg-colour-plan-container-divider: #1a1a1f;
+    --bg-colour-plan-container-divider: #28282c;
 
     --bg-colour-popup-shadow: #04050596;
     --bg-colour-popup-wrapper: hsl(240, 7%, 7%);
